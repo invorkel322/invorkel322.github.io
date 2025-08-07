@@ -18,8 +18,14 @@
             --section-orange: rgba(87, 46, 16, 0.7);
             --bright-teal: #00ffee;
             --tech-green: #00ff9d;
+            /* Новые цвета для облаков и перехода */
+            --cloud-blue-light: #a0d8ef;
+            --cloud-blue-mid: #7fbcd2;
+            --cloud-blue-dark: #5ca4c0;
+            --cloud-purple: #b19cd9;
+            --cloud-gradient-start: var(--cloud-blue-light);
+            --cloud-gradient-end: var(--cosmic-blue);
         }
-        
         /* Новые анимации */
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(-1deg); }
@@ -84,7 +90,14 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
-        
+
+        /* Анимация для "облаков" в космосе */
+        @keyframes cloudDrift {
+            0% { transform: translateX(-10%) translateY(0) scale(1); opacity: 0.7; }
+            50% { transform: translateX(5%) translateY(-5px) scale(1.05); opacity: 0.9; }
+            100% { transform: translateX(20%) translateY(0) scale(1); opacity: 0.7; }
+        }
+
         body {
             font-family: 'Orbitron', 'Segoe UI', sans-serif;
             background: var(--void-black);
@@ -93,19 +106,52 @@
             padding: 0;
             overflow-x: hidden;
         }
-        
         .space-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
-            background: linear-gradient(-45deg, #1B2735, #090A0F, #1B2735, #090A0F);
-            background-size: 400% 400%;
-            animation: gradientFlow 15s ease infinite;
+            z-index: -3; /* Опускаем ниже других элементов фона */
+            background: linear-gradient(-45deg, var(--cloud-gradient-start), var(--cloud-gradient-end), #1B2735, #090A0F);
+            background-size: 600% 600%; /* Увеличиваем размер для более плавного перехода */
+            animation: gradientFlow 20s ease infinite; /* Замедляем анимацию */
         }
-        
+
+        /* Элементы, имитирующие облака, переходящие в космос */
+        .cloud-layer {
+            position: fixed;
+            width: 200%;
+            height: 200px;
+            top: 20%;
+            left: -50%;
+            z-index: -2;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(160, 216, 239, 0.2) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 30%, rgba(127, 188, 210, 0.3) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 60%, rgba(92, 164, 192, 0.2) 0%, transparent 40%);
+            animation: cloudDrift 60s linear infinite; /* Медленное движение */
+            filter: blur(20px); /* Сглаживание для эффекта облаков */
+            opacity: 0.6;
+        }
+        .cloud-layer:nth-child(2) {
+            top: 40%;
+            animation-duration: 70s;
+            background: 
+                radial-gradient(ellipse at 30% 40%, rgba(177, 156, 217, 0.2) 0%, transparent 40%),
+                radial-gradient(ellipse at 70% 50%, rgba(160, 216, 239, 0.3) 0%, transparent 40%);
+            filter: blur(25px);
+        }
+        .cloud-layer:nth-child(3) {
+            top: 60%;
+            animation-duration: 80s;
+            animation-direction: reverse; /* Движение в другую сторону */
+            background: 
+                radial-gradient(ellipse at 40% 60%, rgba(127, 188, 210, 0.2) 0%, transparent 40%),
+                radial-gradient(ellipse at 20% 30%, rgba(92, 164, 192, 0.3) 0%, transparent 40%);
+            filter: blur(30px);
+        }
+
         .star {
             position: fixed;
             background: white;
@@ -113,7 +159,6 @@
             animation: twinkle 3s infinite;
             z-index: -1;
         }
-        
         .comet {
             position: fixed;
             width: 100px;
@@ -124,7 +169,6 @@
             animation: cometFly 5s linear infinite;
             transform-origin: right center;
         }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -132,7 +176,6 @@
             position: relative;
             z-index: 1;
         }
-        
         header {
             text-align: center;
             margin-bottom: 3rem;
@@ -141,7 +184,6 @@
             position: relative;
             animation: pulse 6s infinite;
         }
-        
         h1 {
             font-size: 3rem;
             margin: 0;
@@ -152,7 +194,6 @@
             text-shadow: 0 0 15px rgba(157, 0, 255, 0.5);
             animation: float 6s ease-in-out infinite;
         }
-        
         .tagline {
             font-size: 1.5rem;
             color: var(--star-yellow);
@@ -160,14 +201,12 @@
             letter-spacing: 3px;
             animation: fadeIn 1s ease-out, taglineFlicker 5s ease-in-out infinite 1.2s;
         }
-        
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
-        
         .contact-card {
             background: rgba(10, 14, 46, 0.5);
             border-radius: 10px;
@@ -179,25 +218,21 @@
             border: 1px solid transparent;
             animation: fadeIn 0.8s ease-out;
         }
-        
         .contact-card:hover {
             transform: translateY(-8px) scale(1.02);
             border-color: var(--neon-purple);
             box-shadow: 0 8px 25px rgba(157, 0, 255, 0.4);
             background: rgba(10, 14, 46, 0.7);
         }
-        
         .contact-icon {
             font-size: 1.8rem;
             color: var(--neon-purple);
             transition: all 0.3s;
         }
-        
         .contact-card:hover .contact-icon {
             transform: rotate(15deg) scale(1.2);
             color: var(--star-yellow);
         }
-        
         .section {
             border-radius: 15px;
             padding: 2rem;
@@ -210,7 +245,6 @@
             opacity: 0;
             animation-fill-mode: forwards;
         }
-        
         .section:nth-child(1) { animation-delay: 0.1s; }
         .section:nth-child(2) { animation-delay: 0.2s; }
         .section:nth-child(3) { animation-delay: 0.3s; }
@@ -218,7 +252,6 @@
         .section:nth-child(5) { animation-delay: 0.5s; }
         .section:nth-child(6) { animation-delay: 0.6s; }
         .section:nth-child(7) { animation-delay: 0.7s; }
-        
         .section::before {
             content: '';
             position: absolute;
@@ -231,36 +264,30 @@
             z-index: -1;
             animation: shimmerEffect 8s linear infinite;
         }
-        
         .section-blue {
             background: var(--section-blue);
             border-left: 5px solid var(--neon-purple);
             --border-glow-color: var(--neon-purple);
         }
-        
         .section-purple {
             background: var(--section-purple);
             border-left: 5px solid var(--planet-orange);
              --border-glow-color: var(--planet-orange);
         }
-        
         .section-orange {
             background: var(--section-orange);
             border-left: 5px solid var(--star-yellow);
             --border-glow-color: var(--star-yellow);
         }
-        
         .section-teal {
             background: rgba(0, 255, 238, 0.1);
             border-left: 5px solid var(--tech-green);
             --border-glow-color: var(--tech-green);
         }
-        
         .section:hover {
             transform: translateY(-10px) scale(1.01);
             box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 25px -5px var(--border-glow-color, var(--neon-purple));
         }
-        
         h2 {
             font-size: 2rem;
             margin-top: 0;
@@ -268,23 +295,19 @@
             align-items: center;
             gap: 1rem;
         }
-        
         .section-icon {
             font-size: 1.8rem;
             animation: pulse 2s infinite, rotate 10s linear infinite alternate;
         }
-        
         .experience-item {
             margin-bottom: 2.5rem;
             position: relative;
             padding-left: 2rem;
             transition: all 0.3s;
         }
-        
         .experience-item:hover {
             transform: translateX(5px);
         }
-        
         .experience-item::before {
             content: '';
             position: absolute;
@@ -297,7 +320,6 @@
             box-shadow: 0 0 0 4px rgba(157, 0, 255, 0.2);
             animation: pulseGlow 2s infinite;
         }
-        
         .job-title {
             font-weight: bold;
             font-size: 1.3rem;
@@ -305,24 +327,20 @@
             margin-bottom: 0.5rem;
             transition: all 0.3s;
         }
-        
         .experience-item:hover .job-title {
             text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
             color: var(--bright-teal);
         }
-        
         .job-period {
             color: #aaa;
             font-style: italic;
             margin-bottom: 1rem;
         }
-        
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1.5rem;
         }
-        
         .skill-category {
             background: rgba(255,255,255,0.1);
             border-radius: 8px;
@@ -331,7 +349,6 @@
             position: relative;
             overflow: hidden;
         }
-        
         .skill-category::before {
             content: '';
             position: absolute;
@@ -342,17 +359,14 @@
             background: linear-gradient(90deg, transparent, rgba(157, 0, 255, 0.2), transparent);
             transition: all 0.6s;
         }
-        
         .skill-category:hover::before {
             left: 100%;
         }
-        
         .skill-category:hover {
             background: rgba(157, 0, 255, 0.2);
             transform: translateY(-5px) scale(1.03);
             box-shadow: 0 10px 20px rgba(157, 0, 255, 0.2);
         }
-        
         .skill-category h3 {
             color: var(--star-yellow);
             margin-top: 0;
@@ -360,7 +374,6 @@
             border-bottom: 1px solid var(--neon-purple);
             padding-bottom: 0.5rem;
         }
-        
         .skill-tag {
             display: inline-block;
             background: rgba(157, 0, 255, 0.2);
@@ -371,20 +384,17 @@
             font-size: 0.9rem;
             transition: all 0.3s;
         }
-        
         .skill-tag:hover {
             transform: scale(1.1) rotate(3deg);
             background: rgba(157, 0, 255, 0.5);
             box-shadow: 0 0 12px rgba(157, 0, 255, 0.4), 0 0 8px var(--star-yellow);
             border-color: var(--star-yellow);
         }
-        
         .highlight {
             color: var(--star-yellow);
             font-weight: bold;
             position: relative;
         }
-        
         .highlight::after {
             content: '';
             position: absolute;
@@ -397,19 +407,16 @@
             transform-origin: right;
             transition: transform 0.3s ease;
         }
-        
         .highlight:hover::after {
             transform: scaleX(1);
             transform-origin: left;
         }
-        
         .api-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
-        
         .api-card {
             background: rgba(0, 0, 0, 0.3);
             border-radius: 10px;
@@ -417,13 +424,11 @@
             border: 1px solid rgba(157, 0, 255, 0.3);
             transition: all 0.3s;
         }
-        
         .api-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(157, 0, 255, 0.2);
             border-color: var(--neon-purple);
         }
-        
         .api-card h3 {
             color: var(--star-yellow);
             margin-top: 0;
@@ -431,7 +436,6 @@
             align-items: center;
             gap: 0.5rem;
         }
-        
         .api-media {
             width: 100%;
             height: 200px;
@@ -443,21 +447,17 @@
             align-items: center;
             justify-content: center;
         }
-        
         .api-media img, .api-media video, .api-media iframe {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
         .api-content {
             line-height: 1.6;
         }
-        
         .api-content p {
             margin: 0.5rem 0;
         }
-        
         .api-link {
             color: var(--neon-purple);
             text-decoration: none;
@@ -465,38 +465,32 @@
             margin-top: 0.5rem;
             transition: all 0.3s;
         }
-        
         .api-link:hover {
             color: var(--star-yellow);
             text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
         }
-        
         footer {
             text-align: center;
             padding: 3rem 0;
             margin-top: 3rem;
             border-top: 1px solid rgba(157, 0, 255, 0.3);
         }
-        
         footer .fa-heart {
             display: inline-block;
             animation: pulseHeart 2s infinite ease-in-out;
         }
-        
         .social-links {
             display: flex;
             justify-content: center;
             gap: 2rem;
             margin-top: 2rem;
         }
-        
         .social-link {
             font-size: 2rem;
             color: white;
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
         }
-        
         .social-link::before {
             content: '';
             position: absolute;
@@ -510,17 +504,14 @@
             transform: scale(0.8);
             transition: all 0.3s;
         }
-        
         .social-link:hover::before {
             opacity: 1;
             transform: scale(1);
         }
-        
         .social-link:hover {
             color: var(--neon-purple);
             transform: translateY(-8px) scale(1.3) rotate(5deg);
         }
-        
         /* Language switcher */
         .language-switcher {
             position: fixed;
@@ -530,7 +521,6 @@
             display: flex;
             gap: 10px;
         }
-        
         .language-btn {
             background: rgba(10, 14, 46, 0.7);
             color: white;
@@ -543,7 +533,6 @@
             position: relative;
             overflow: hidden;
         }
-        
         .language-btn::before {
             content: '';
             position: absolute;
@@ -554,23 +543,19 @@
             background: linear-gradient(90deg, transparent, rgba(157, 0, 255, 0.4), transparent);
             transition: all 0.6s;
         }
-        
         .language-btn:hover::before {
             left: 100%;
         }
-        
         .language-btn:hover {
             background: var(--neon-purple);
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 5px 15px rgba(157, 0, 255, 0.5);
         }
-        
         .language-btn.active {
             background: var(--neon-purple);
             font-weight: bold;
             animation: pulseGlow 2s infinite;
         }
-        
         /* Network visualization */
         .network-visualization {
             position: fixed;
@@ -582,7 +567,6 @@
             opacity: 0.15;
             pointer-events: none;
         }
-        
         .network-node {
             position: absolute;
             width: 8px;
@@ -591,7 +575,6 @@
             border-radius: 50%;
             animation: nodePulse 3s infinite;
         }
-        
         .network-connection {
             position: absolute;
             background: var(--neon-purple);
@@ -599,19 +582,16 @@
             transform-origin: 0 0;
             animation: networkPulse 4s infinite;
         }
-        
         /* Scroll animations */
         .scroll-animate {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.6s ease-out;
         }
-        
         .scroll-animate.animated {
             opacity: 1;
             transform: translateY(0);
         }
-        
         /* Terminal style */
         .terminal {
             background: #1e1e1e;
@@ -621,36 +601,30 @@
             margin: 1rem 0;
             border: 1px solid #333;
         }
-        
         .terminal-header {
             display: flex;
             align-items: center;
             margin-bottom: 0.5rem;
         }
-        
         .terminal-dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
             margin-right: 5px;
         }
-        
         .dot-red { background: #ff5f56; }
         .dot-yellow { background: #ffbd2e; }
         .dot-green { background: #27c93f; }
-        
         .terminal-title {
             color: #aaa;
             font-size: 0.9rem;
             flex-grow: 1;
             text-align: center;
         }
-        
         .terminal-body {
             color: #00ff00;
             line-height: 1.4;
         }
-        
         .terminal-cursor {
             display: inline-block;
             width: 8px;
@@ -659,29 +633,23 @@
             animation: terminalBlink 1s infinite;
             vertical-align: middle;
         }
-        
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.2rem;
             }
-            
             .contact-grid {
                 grid-template-columns: 1fr;
             }
-            
             .skills-container {
                 grid-template-columns: 1fr;
             }
-            
             .api-container {
                 grid-template-columns: 1fr;
             }
-            
             .language-switcher {
                 top: 10px;
                 right: 10px;
             }
-            
             .comet {
                 width: 60px;
                 height: 2px;
@@ -696,12 +664,13 @@
         <button class="language-btn active" onclick="changeLanguage('ru')">RU</button>
         <button class="language-btn" onclick="changeLanguage('en')">EN</button>
     </div>
-    
     <div class="space-bg"></div>
-    
+    <!-- Cloud Layers for transition effect -->
+    <div class="cloud-layer"></div>
+    <div class="cloud-layer"></div>
+    <div class="cloud-layer"></div>
     <!-- Network Visualization -->
     <div class="network-visualization" id="network"></div>
-    
     <div class="container">
         <header>
             <h1 id="title">Нефедов Денис Олегович</h1>
@@ -737,7 +706,6 @@
                 </div>
             </div>
         </header>
-        
         <section class="section section-blue scroll-animate">
             <h2><i class="fas fa-briefcase section-icon"></i><span id="experience-title">Опыт работы</span></h2>
             <div class="experience-item">
@@ -747,7 +715,7 @@
                     <li>Автоматизировал задачи через <span class="highlight">Bash-скрипты</span> (экономия 30% времени)</li>
                     <li>Настроил <span class="highlight">Ansible</span> для массового обновления серверов (развертывание с 4ч → 30мин)</li>
                     <li>Развернул <span class="highlight">Zabbix + Telegram-бот</span> (реакция на инциденты с 2ч → 15мин)</li>
-                    <li>Оптимизировал веб-сервера (<span class="highlight">1С, Битрикс</span> на CentOS)</li>
+                    <li>Оптимизировал веб-сервера (<span class="highlight">Битрикс</span> на CentOS)</li>
                     <li>Настроил <span class="highlight">Proxmox/KVM</span> (+25% к утилизации ресурсов)</li>
                     <li>Конфигурировал <span class="highlight">VPN (IPsec, SSL-VPN)</span>, DHCP, DNS</li>
                     <li>Администрирование <span class="highlight">Windows Server</span> (AD, RDP, резервное копирование)</li>
@@ -772,7 +740,6 @@
                 </ul>
             </div>
         </section>
-        
         <section class="section section-purple scroll-animate">
             <h2><i class="fas fa-code section-icon"></i><span id="skills-title">Технические навыки</span></h2>
             <div class="skills-container">
@@ -811,7 +778,7 @@
                 </div>
                 <div class="skill-category">
                     <h3 id="other-title">Другое</h3>
-                    <span class="skill-tag">1С Администрирование</span>
+                    <!-- Удалено: <span class="skill-tag">1С Администрирование</span> -->
                     <span class="skill-tag">Битрикс</span>
                     <span class="skill-tag">ITSM</span>
                     <span class="skill-tag">Excel</span>
@@ -822,7 +789,6 @@
                 </div>
             </div>
         </section>
-        
         <section class="section section-orange scroll-animate">
             <h2><i class="fas fa-graduation-cap section-icon"></i><span id="education-title">Образование</span></h2>
             <div class="experience-item">
@@ -838,7 +804,6 @@
                 <div class="job-period">2025 | Психология (бакалавр)</div>
             </div>
         </section>
-        
         <section class="section section-blue scroll-animate">
             <h2><i class="fas fa-rocket section-icon"></i><span id="goals-title">Цели развития</span></h2>
             <ul id="goals-list">
@@ -849,14 +814,12 @@
                 <li>Изучение <span class="highlight">Python</span> для DevOps-автоматизации</li>
             </ul>
         </section>
-        
         <section class="section section-purple scroll-animate">
             <h2><i class="fas fa-user-astronaut section-icon"></i><span id="about-title">Обо мне</span></h2>
             <p id="about-text">Ответственный, обучаемый специалист с аналитическим мышлением. Увлекаюсь IT-технологиями, психологией и здоровым образом жизни. Имею опыт в управлении проектами и клиентоориентированности.</p>
             <p><strong>Telegram:</strong> @invorkel322</p>
             <p><strong>GitHub:</strong> <a href="https://github.com/invorkel322" style="color: var(--neon-purple);">github.com/invorkel322</a></p>
         </section>
-        
         <section class="section section-teal scroll-animate">
             <h2><i class="fas fa-microchip section-icon"></i><span id="tech-title">Технологии дня</span></h2>
             <div class="api-container">
@@ -880,7 +843,6 @@
                         <a href="https://github.com/trending" target="_blank" class="api-link">Посмотреть на GitHub</a>
                     </div>
                 </div>
-                
                 <div class="api-card">
                     <h3><i class="fas fa-robot"></i> AI Новости</h3>
                     <div class="api-media" id="ai-media">
@@ -901,7 +863,6 @@
                         <a href="https://ai.googleblog.com/" target="_blank" class="api-link">Читать на AI Blog</a>
                     </div>
                 </div>
-                
                 <div class="api-card">
                     <h3><i class="fas fa-satellite"></i> Космические новости</h3>
                     <div class="api-media" id="space-media">
@@ -924,7 +885,6 @@
                 </div>
             </div>
         </section>
-        
         <footer>
             <div class="social-links">
                 <a href="https://github.com/invorkel322" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
@@ -935,7 +895,6 @@
             <p id="footer-text">© 2025 Cosmic DevOps | Сделано с <i class="fas fa-heart" style="color: var(--neon-purple);"></i> и kubectl</p>
         </footer>
     </div>
-    
     <script>
         // Translations
         const translations = {
@@ -953,7 +912,7 @@
                     "Автоматизировал задачи через <span class='highlight'>Bash-скрипты</span> (экономия 30% времени)",
                     "Настроил <span class='highlight'>Ansible</span> для массового обновления серверов (развертывание с 4ч → 30мин)",
                     "Развернул <span class='highlight'>Zabbix + Telegram-бот</span> (реакция на инциденты с 2ч → 15мин)",
-                    "Оптимизировал веб-сервера (<span class='highlight'>1С, Битрикс</span> на CentOS)",
+                    "Оптимизировал веб-сервера (<span class='highlight'>Битрикс</span> на CentOS)",
                     "Настроил <span class='highlight'>Proxmox/KVM</span> (+25% к утилизации ресурсов)",
                     "Конфигурировал <span class='highlight'>VPN (IPsec, SSL-VPN)</span>, DHCP, DNS",
                     "Администрирование <span class='highlight'>Windows Server</span> (AD, RDP, резервное копирование)"
@@ -976,6 +935,7 @@
                 netTitle: "Сети",
                 progTitle: "Программирование",
                 otherTitle: "Другое",
+                // Удалено: "1С Администрирование",
                 educationTitle: "Образование",
                 edu1Title: "Пензенский государственный технический университет",
                 edu2Title: "Пензенский колледж информационных технологий",
@@ -1007,7 +967,7 @@
                     "Automated tasks using <span class='highlight'>Bash scripts</span> (30% time savings)",
                     "Configured <span class='highlight'>Ansible</span> for mass server updates (deployment from 4h → 30min)",
                     "Deployed <span class='highlight'>Zabbix + Telegram bot</span> (incident response from 2h → 15min)",
-                    "Optimized web servers (<span class='highlight'>1C, Bitrix</span> on CentOS)",
+                    "Optimized web servers (<span class='highlight'>Bitrix</span> on CentOS)",
                     "Configured <span class='highlight'>Proxmox/KVM</span> (+25% resource utilization)",
                     "Configured <span class='highlight'>VPN (IPsec, SSL-VPN)</span>, DHCP, DNS",
                     "Administered <span class='highlight'>Windows Server</span> (AD, RDP, backups)"
@@ -1030,6 +990,7 @@
                 netTitle: "Networking",
                 progTitle: "Programming",
                 otherTitle: "Other",
+                // Удалено: "1C Administration",
                 educationTitle: "Education",
                 edu1Title: "Penza State Technical University",
                 edu2Title: "Penza College of Information Technologies",
@@ -1048,7 +1009,6 @@
                 footerText: "© 2025 Cosmic DevOps | Made with <i class='fas fa-heart' style='color: var(--neon-purple);'></i> and kubectl"
             }
         };
-        
         // Language switcher
         function changeLanguage(lang) {
             // Update active button
@@ -1058,13 +1018,10 @@
                     btn.classList.add('active');
                 }
             });
-            
             // Change html lang attribute
             document.documentElement.lang = lang;
-            
             // Update all translatable elements
             const trans = translations[lang];
-            
             // Header
             document.getElementById('title').textContent = trans.title;
             document.getElementById('tagline').textContent = trans.tagline;
@@ -1073,13 +1030,11 @@
             document.getElementById('email-label').textContent = trans.emailLabel;
             document.getElementById('location-label').textContent = trans.locationLabel;
             document.getElementById('location-value').textContent = trans.locationValue;
-            
             // Experience
             document.getElementById('experience-title').textContent = trans.experienceTitle;
             document.getElementById('job1-title').textContent = trans.job1Title;
             document.getElementById('job2-title').textContent = trans.job2Title;
             document.getElementById('job3-title').textContent = trans.job3Title;
-            
             const job1List = document.getElementById('job1-desc');
             job1List.innerHTML = '';
             trans.job1Desc.forEach(item => {
@@ -1087,7 +1042,6 @@
                 li.innerHTML = item;
                 job1List.appendChild(li);
             });
-            
             const job2List = document.getElementById('job2-desc');
             job2List.innerHTML = '';
             trans.job2Desc.forEach(item => {
@@ -1095,7 +1049,6 @@
                 li.innerHTML = item;
                 job2List.appendChild(li);
             });
-            
             const job3List = document.getElementById('job3-desc');
             job3List.innerHTML = '';
             trans.job3Desc.forEach(item => {
@@ -1103,7 +1056,6 @@
                 li.innerHTML = item;
                 job3List.appendChild(li);
             });
-            
             // Skills
             document.getElementById('skills-title').textContent = trans.skillsTitle;
             document.getElementById('os-title').textContent = trans.osTitle;
@@ -1111,13 +1063,11 @@
             document.getElementById('net-title').textContent = trans.netTitle;
             document.getElementById('prog-title').textContent = trans.progTitle;
             document.getElementById('other-title').textContent = trans.otherTitle;
-            
             // Education
             document.getElementById('education-title').textContent = trans.educationTitle;
             document.getElementById('edu1-title').textContent = trans.edu1Title;
             document.getElementById('edu2-title').textContent = trans.edu2Title;
             document.getElementById('edu3-title').textContent = trans.edu3Title;
-            
             // Goals
             document.getElementById('goals-title').textContent = trans.goalsTitle;
             const goalsList = document.getElementById('goals-list');
@@ -1127,39 +1077,30 @@
                 li.innerHTML = item;
                 goalsList.appendChild(li);
             });
-            
             // About
             document.getElementById('about-title').textContent = trans.aboutTitle;
             document.getElementById('about-text').textContent = trans.aboutText;
-            
             // Tech section
             document.getElementById('tech-title').textContent = trans.techTitle;
-            
             // Footer
             document.getElementById('footer-text').innerHTML = trans.footerText;
-            
             // Save preference
             localStorage.setItem('language', lang);
         }
-        
         // Initialize language
         function initLanguage() {
             const savedLang = localStorage.getItem('language') || 'ru';
             changeLanguage(savedLang);
         }
-        
         // Create network visualization
         function createNetwork() {
             const networkContainer = document.getElementById('network');
             if (!networkContainer) return;
-            
             const width = window.innerWidth;
             const height = window.innerHeight;
-            
             // Create nodes
             const nodes = [];
             const nodeCount = Math.min(20, Math.floor(width * height / 40000));
-            
             for (let i = 0; i < nodeCount; i++) {
                 const node = document.createElement('div');
                 node.className = 'network-node';
@@ -1171,7 +1112,6 @@
                 networkContainer.appendChild(node);
                 nodes.push({x, y, element: node});
             }
-            
             // Create connections
             for (let i = 0; i < nodes.length; i++) {
                 for (let j = i + 1; j < nodes.length; j++) {
@@ -1179,17 +1119,14 @@
                         const node1 = nodes[i];
                         const node2 = nodes[j];
                         const length = Math.sqrt(
-                            Math.pow(node2.x - node1.x, 2) + 
+                            Math.pow(node2.x - node1.x, 2) +
                             Math.pow(node2.y - node1.y, 2)
                         );
-                        
                         if (length > Math.min(width, height) / 3) continue;
-                        
                         const angle = Math.atan2(
-                            node2.y - node1.y, 
+                            node2.y - node1.y,
                             node2.x - node1.x
                         ) * 180 / Math.PI;
-                        
                         const connection = document.createElement('div');
                         connection.className = 'network-connection';
                         connection.style.width = `${length}px`;
@@ -1202,25 +1139,21 @@
                 }
             }
         }
-        
         // Scroll animation handler
         function handleScrollAnimation() {
             const elements = document.querySelectorAll('.scroll-animate');
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
-                
                 if (elementTop < windowHeight - 100) {
                     element.classList.add('animated');
                 }
             });
         }
-        
         // Simulate GitHub trending repositories
         function fetchGitHubTrending() {
             const githubContent = document.getElementById('github-content');
             if (!githubContent) return;
-            
             // Simulated data
             const repos = [
                 { name: "facebook/react", description: "A declarative, efficient, and flexible JavaScript library for building user interfaces.", stars: "205k" },
@@ -1228,20 +1161,19 @@
                 { name: "tensorflow/tensorflow", description: "An Open Source Machine Learning Framework for Everyone.", stars: "175k" },
                 { name: "kubernetes/kubernetes", description: "Production-Grade Container Scheduling and Management.", stars: "102k" }
             ];
-            
             let content = "";
             repos.forEach(repo => {
-                content += `> ${repo.name}\n  ${repo.description}\n  ★ ${repo.stars}\n\n`;
+                content += `> ${repo.name}
+  ${repo.description}
+  ★ ${repo.stars}
+`;
             });
-            
             githubContent.innerHTML = content;
         }
-        
         // Simulate AI news
         function fetchAINews() {
             const aiContent = document.getElementById('ai-content');
             if (!aiContent) return;
-            
             // Simulated data
             const news = [
                 "Новый алгоритм GPT-5 демонстрирует рекордные результаты в понимании естественного языка",
@@ -1249,20 +1181,17 @@
                 "Искусственный интеллект успешно прошел тест Тьюринга в 78% случаев",
                 "OpenAI анонсировала прорыв в области обучения с подкреплением"
             ];
-            
             let content = "";
             news.forEach(item => {
-                content += `• ${item}\n`;
+                content += `• ${item}
+`;
             });
-            
             aiContent.innerHTML = content;
         }
-        
         // Simulate space news
         function fetchSpaceNews() {
             const spaceContent = document.getElementById('space-content');
             if (!spaceContent) return;
-            
             // Simulated data
             const news = [
                 "SpaceX успешно запустила 54 спутника Starlink на орбиту",
@@ -1270,21 +1199,18 @@
                 "Китайский космический корабль завершил миссию на Марсе",
                 "Астрономы зафиксировали мощнейший выброс гамма-излучения"
             ];
-            
             let content = "";
             news.forEach(item => {
-                content += `• ${item}\n`;
+                content += `• ${item}
+`;
             });
-            
             spaceContent.innerHTML = content;
         }
-        
         // Initialize everything when page loads
         window.onload = function() {
             initLanguage();
             createNetwork();
             handleScrollAnimation();
-            
             // Create stars
             const numStars = Math.min(200, Math.floor(window.innerWidth * window.innerHeight / 10000));
             for (let i = 0; i < numStars; i++) {
@@ -1298,12 +1224,10 @@
                 star.style.animationDuration = `${3 + Math.random() * 5}s`;
                 document.body.appendChild(star);
             }
-            
             // Create comets
             function createComet() {
                 const comet = document.createElement('div');
                 comet.className = 'comet';
-                
                 let startX, startY;
                 if (Math.random() > 0.5) {
                     startX = Math.random() * window.innerWidth;
@@ -1312,42 +1236,34 @@
                     startX = -100;
                     startY = Math.random() * window.innerHeight * 0.5;
                 }
-                
                 comet.style.left = `${startX}px`;
                 comet.style.top = `${startY}px`;
                 comet.style.animationDelay = `${Math.random() * 10}s`;
                 comet.style.animationDuration = `${3 + Math.random() * 4}s`;
                 document.body.appendChild(comet);
-                
                 setTimeout(() => {
                     comet.remove();
                 }, parseFloat(comet.style.animationDuration.replace('s','')) * 1000 + 500);
             }
-            
             // Launch several comets periodically
             for (let i = 0; i < 3; i++) {
                  setTimeout(createComet, Math.random() * 5000);
             }
-            
             // Add more comets over time
             setInterval(createComet, 8000 + Math.random() * 5000);
-            
             // Fetch tech data
             setTimeout(fetchGitHubTrending, 1000);
             setTimeout(fetchAINews, 1500);
             setTimeout(fetchSpaceNews, 2000);
-            
             // Parallax effect for stars
             document.addEventListener('mousemove', (e) => {
                 const x = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
                 const y = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
-                
                 const stars = document.querySelectorAll('.star');
                 stars.forEach((star, index) => {
                     const depth = (index % 5 + 1) * 0.005;
                     star.style.transform = `translate(${x * window.innerWidth * depth}px, ${y * window.innerHeight * depth}px) scale(${star.style.animationDelay > '2.5s' ? 1.1 : 1})`;
                 });
-                
                 const networkNodes = document.querySelectorAll('.network-node, .network-connection');
                 networkNodes.forEach((node, index) => {
                     const depth = (index % 10 + 1) * 0.001;
@@ -1356,7 +1272,6 @@
                     node.style.transform = `translate(${x * window.innerWidth * depth}px, ${y * window.innerHeight * depth}px) ${originalTransform}`;
                 });
             });
-            
             window.addEventListener('scroll', handleScrollAnimation);
         };
     </script>
