@@ -1,1287 +1,829 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Нефедов Денис | DevOps Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --cosmic-blue: #0a0e2e;
-            --neon-purple: #9d00ff;
-            --star-yellow: #ffe600;
-            --planet-orange: #ff6d00;
-            --void-black: #00010a;
-            --mars-red: #c1440e;
-            --section-blue: rgba(16, 42, 87, 0.7);
-            --section-purple: rgba(70, 16, 87, 0.7);
-            --section-orange: rgba(87, 46, 16, 0.7);
-            --bright-teal: #00ffee;
-            --tech-green: #00ff9d;
-            /* Новые цвета для облаков и перехода */
-            --cloud-blue-light: #a0d8ef;
-            --cloud-blue-mid: #7fbcd2;
-            --cloud-blue-dark: #5ca4c0;
-            --cloud-purple: #b19cd9;
-            --cloud-gradient-start: var(--cloud-blue-light);
-            --cloud-gradient-end: var(--cosmic-blue);
-        }
-        /* Новые анимации */
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(-1deg); }
-            50% { transform: translateY(-15px) rotate(1deg); }
-        }
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 5px var(--neon-purple); }
-            50% { box-shadow: 0 0 20px var(--neon-purple); }
-        }
-        @keyframes cometFly {
-            0% { transform: translate(0, 0) rotate(-45deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translate(500px, 500px) rotate(-45deg); opacity: 0; }
-        }
-        @keyframes networkPulse {
-            0%, 100% { stroke-width: 1px; stroke-opacity: 0.3; }
-            50% { stroke-width: 2px; stroke-opacity: 0.8; }
-        }
-        @keyframes nodePulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; box-shadow: 0 0 5px var(--neon-purple);}
-            50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 15px var(--neon-purple); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        @keyframes taglineFlicker {
-            0%, 100% { text-shadow: 0 0 3px var(--star-yellow), 0 0 8px rgba(255, 230, 0, 0.3); opacity: 0.9; }
-            50% { text-shadow: 0 0 8px var(--star-yellow), 0 0 15px rgba(255, 230, 0, 0.5); opacity: 1; }
-        }
-        @keyframes shimmerEffect {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-        @keyframes pulseHeart {
-            0%, 100% { transform: scale(1); color: var(--neon-purple); }
-            50% { transform: scale(1.3); color: var(--planet-orange); }
-        }
-        @keyframes codeFlow {
-            0% { background-position: 0 0; }
-            100% { background-position: 100px 0; }
-        }
-        @keyframes terminalBlink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Нефедов Денис | SRE / DevOps Engineer</title>
+<meta name="description" content="Денис Нефедов — SRE / DevOps Engineer. Мониторинг, релизы, инциденты, автоматизация. Linux, Zabbix, Prometheus, Grafana, Ansible, Docker, Kubernetes.">
+<meta property="og:title" content="Денис Нефедов — SRE / DevOps Engineer">
+<meta property="og:description" content="Мониторинг, релизы на высоконагруженные системы, инциденты, автоматизация.">
+<meta name="theme-color" content="#05060f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800&family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --void:#05060f;
+  --cosmic:#0a0e2e;
+  --purple:#9d4dff;
+  --purple-soft:rgba(157,77,255,.18);
+  --teal:#00ffee;
+  --yellow:#ffe600;
+  --orange:#ff6d00;
+  --text:#e8e9f5;
+  --muted:#9aa0c3;
+  --card:rgba(14,18,48,.62);
+  --card-border:rgba(157,77,255,.28);
+  --radius:18px;
+  --maxw:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--void);color:var(--text);
+  font-family:'Exo 2','Segoe UI',system-ui,sans-serif;font-size:17px;line-height:1.6;
+  overflow-x:hidden;
+}
+a{color:inherit}
+::selection{background:var(--purple);color:#fff}
 
-        /* Анимация для "облаков" в космосе */
-        @keyframes cloudDrift {
-            0% { transform: translateX(-10%) translateY(0) scale(1); opacity: 0.7; }
-            50% { transform: translateX(5%) translateY(-5px) scale(1.05); opacity: 0.9; }
-            100% { transform: translateX(20%) translateY(0) scale(1); opacity: 0.7; }
-        }
+/* ---------- Космический фон ---------- */
+#stars{position:fixed;inset:0;z-index:-2;display:block}
+.nebula{
+  position:fixed;inset:-20%;z-index:-3;pointer-events:none;
+  background:
+    radial-gradient(40% 35% at 15% 20%,rgba(157,77,255,.22),transparent 70%),
+    radial-gradient(35% 30% at 85% 30%,rgba(0,255,238,.10),transparent 70%),
+    radial-gradient(45% 40% at 70% 85%,rgba(255,109,0,.10),transparent 70%),
+    radial-gradient(60% 50% at 30% 90%,rgba(40,60,160,.25),transparent 70%),
+    linear-gradient(180deg,#070920 0%,#05060f 60%,#040510 100%);
+  animation:nebulaDrift 60s ease-in-out infinite alternate;
+}
+@keyframes nebulaDrift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-3%,2%,0) scale(1.06)}}
 
-        body {
-            font-family: 'Orbitron', 'Segoe UI', sans-serif;
-            background: var(--void-black);
-            color: white;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        .space-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -3; /* Опускаем ниже других элементов фона */
-            background: linear-gradient(-45deg, var(--cloud-gradient-start), var(--cloud-gradient-end), #1B2735, #090A0F);
-            background-size: 600% 600%; /* Увеличиваем размер для более плавного перехода */
-            animation: gradientFlow 20s ease infinite; /* Замедляем анимацию */
-        }
+/* ---------- Навигация ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(5,6,15,.55);border-bottom:1px solid rgba(157,77,255,.18);
+}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:.8rem 1.25rem;display:flex;align-items:center;gap:1.5rem}
+.logo{font-family:'Orbitron',sans-serif;font-weight:900;letter-spacing:2px;text-decoration:none;font-size:1.05rem}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:1.3rem;margin-left:auto}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:.95rem;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.lang{display:flex;border:1px solid var(--card-border);border-radius:999px;overflow:hidden}
+.lang button{
+  background:none;border:0;color:var(--muted);padding:.35rem .8rem;cursor:pointer;
+  font-family:'Orbitron',sans-serif;font-size:.75rem;letter-spacing:1px;transition:.2s;
+}
+.lang button.active{background:var(--purple);color:#fff}
+.lang button:focus-visible,.btn:focus-visible,.nav-links a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 
-        /* Элементы, имитирующие облака, переходящие в космос */
-        .cloud-layer {
-            position: fixed;
-            width: 200%;
-            height: 200px;
-            top: 20%;
-            left: -50%;
-            z-index: -2;
-            background: 
-                radial-gradient(ellipse at 20% 50%, rgba(160, 216, 239, 0.2) 0%, transparent 40%),
-                radial-gradient(ellipse at 50% 30%, rgba(127, 188, 210, 0.3) 0%, transparent 40%),
-                radial-gradient(ellipse at 80% 60%, rgba(92, 164, 192, 0.2) 0%, transparent 40%);
-            animation: cloudDrift 60s linear infinite; /* Медленное движение */
-            filter: blur(20px); /* Сглаживание для эффекта облаков */
-            opacity: 0.6;
-        }
-        .cloud-layer:nth-child(2) {
-            top: 40%;
-            animation-duration: 70s;
-            background: 
-                radial-gradient(ellipse at 30% 40%, rgba(177, 156, 217, 0.2) 0%, transparent 40%),
-                radial-gradient(ellipse at 70% 50%, rgba(160, 216, 239, 0.3) 0%, transparent 40%);
-            filter: blur(25px);
-        }
-        .cloud-layer:nth-child(3) {
-            top: 60%;
-            animation-duration: 80s;
-            animation-direction: reverse; /* Движение в другую сторону */
-            background: 
-                radial-gradient(ellipse at 40% 60%, rgba(127, 188, 210, 0.2) 0%, transparent 40%),
-                radial-gradient(ellipse at 20% 30%, rgba(92, 164, 192, 0.3) 0%, transparent 40%);
-            filter: blur(30px);
-        }
+/* ---------- Общие ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
+section{padding:4.5rem 0 1rem}
+.section-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2rem}
+.section-head .num{font-family:'Orbitron',sans-serif;color:var(--purple);font-size:.9rem;letter-spacing:2px}
+h2{margin:0;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;letter-spacing:.5px}
+.section-head .line{flex:1;height:1px;background:linear-gradient(90deg,var(--card-border),transparent)}
+.card{
+  background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+}
+.card:hover{border-color:rgba(157,77,255,.6);box-shadow:0 12px 40px -12px rgba(157,77,255,.45)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
 
-        .star {
-            position: fixed;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
-            z-index: -1;
-        }
-        .comet {
-            position: fixed;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(to left, transparent, white);
-            border-radius: 50%;
-            z-index: -1;
-            animation: cometFly 5s linear infinite;
-            transform-origin: right center;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--neon-purple);
-            position: relative;
-            animation: pulse 6s infinite;
-        }
-        h1 {
-            font-size: 3rem;
-            margin: 0;
-            background: linear-gradient(45deg, #fff, var(--neon-purple), var(--bright-teal));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 15px rgba(157, 0, 255, 0.5);
-            animation: float 6s ease-in-out infinite;
-        }
-        .tagline {
-            font-size: 1.5rem;
-            color: var(--star-yellow);
-            margin-top: 1rem;
-            letter-spacing: 3px;
-            animation: fadeIn 1s ease-out, taglineFlicker 5s ease-in-out infinite 1.2s;
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .contact-card {
-            background: rgba(10, 14, 46, 0.5);
-            border-radius: 10px;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: 1px solid transparent;
-            animation: fadeIn 0.8s ease-out;
-        }
-        .contact-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: var(--neon-purple);
-            box-shadow: 0 8px 25px rgba(157, 0, 255, 0.4);
-            background: rgba(10, 14, 46, 0.7);
-        }
-        .contact-icon {
-            font-size: 1.8rem;
-            color: var(--neon-purple);
-            transition: all 0.3s;
-        }
-        .contact-card:hover .contact-icon {
-            transform: rotate(15deg) scale(1.2);
-            color: var(--star-yellow);
-        }
-        .section {
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-            animation: fadeIn 0.8s ease-out;
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
-        .section:nth-child(1) { animation-delay: 0.1s; }
-        .section:nth-child(2) { animation-delay: 0.2s; }
-        .section:nth-child(3) { animation-delay: 0.3s; }
-        .section:nth-child(4) { animation-delay: 0.4s; }
-        .section:nth-child(5) { animation-delay: 0.5s; }
-        .section:nth-child(6) { animation-delay: 0.6s; }
-        .section:nth-child(7) { animation-delay: 0.7s; }
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(60deg, transparent 30%, rgba(255,255,255,0.05) 45%, rgba(255,255,255,0.15) 55%, rgba(255,255,255,0.05) 65%, transparent 80%);
-            background-size: 400% 100%;
-            z-index: -1;
-            animation: shimmerEffect 8s linear infinite;
-        }
-        .section-blue {
-            background: var(--section-blue);
-            border-left: 5px solid var(--neon-purple);
-            --border-glow-color: var(--neon-purple);
-        }
-        .section-purple {
-            background: var(--section-purple);
-            border-left: 5px solid var(--planet-orange);
-             --border-glow-color: var(--planet-orange);
-        }
-        .section-orange {
-            background: var(--section-orange);
-            border-left: 5px solid var(--star-yellow);
-            --border-glow-color: var(--star-yellow);
-        }
-        .section-teal {
-            background: rgba(0, 255, 238, 0.1);
-            border-left: 5px solid var(--tech-green);
-            --border-glow-color: var(--tech-green);
-        }
-        .section:hover {
-            transform: translateY(-10px) scale(1.01);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 25px -5px var(--border-glow-color, var(--neon-purple));
-        }
-        h2 {
-            font-size: 2rem;
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .section-icon {
-            font-size: 1.8rem;
-            animation: pulse 2s infinite, rotate 10s linear infinite alternate;
-        }
-        .experience-item {
-            margin-bottom: 2.5rem;
-            position: relative;
-            padding-left: 2rem;
-            transition: all 0.3s;
-        }
-        .experience-item:hover {
-            transform: translateX(5px);
-        }
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 10px;
-            width: 12px;
-            height: 12px;
-            background: var(--neon-purple);
-            border-radius: 50%;
-            box-shadow: 0 0 0 4px rgba(157, 0, 255, 0.2);
-            animation: pulseGlow 2s infinite;
-        }
-        .job-title {
-            font-weight: bold;
-            font-size: 1.3rem;
-            color: var(--star-yellow);
-            margin-bottom: 0.5rem;
-            transition: all 0.3s;
-        }
-        .experience-item:hover .job-title {
-            text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
-            color: var(--bright-teal);
-        }
-        .job-period {
-            color: #aaa;
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        .skill-category {
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(157, 0, 255, 0.2), transparent);
-            transition: all 0.6s;
-        }
-        .skill-category:hover::before {
-            left: 100%;
-        }
-        .skill-category:hover {
-            background: rgba(157, 0, 255, 0.2);
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 10px 20px rgba(157, 0, 255, 0.2);
-        }
-        .skill-category h3 {
-            color: var(--star-yellow);
-            margin-top: 0;
-            font-size: 1.2rem;
-            border-bottom: 1px solid var(--neon-purple);
-            padding-bottom: 0.5rem;
-        }
-        .skill-tag {
-            display: inline-block;
-            background: rgba(157, 0, 255, 0.2);
-            padding: 0.5rem 1rem;
-            margin: 0.3rem;
-            border-radius: 20px;
-            border: 1px solid var(--neon-purple);
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-        .skill-tag:hover {
-            transform: scale(1.1) rotate(3deg);
-            background: rgba(157, 0, 255, 0.5);
-            box-shadow: 0 0 12px rgba(157, 0, 255, 0.4), 0 0 8px var(--star-yellow);
-            border-color: var(--star-yellow);
-        }
-        .highlight {
-            color: var(--star-yellow);
-            font-weight: bold;
-            position: relative;
-        }
-        .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--star-yellow);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s ease;
-        }
-        .highlight:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-        .api-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .api-card {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            padding: 1.5rem;
-            border: 1px solid rgba(157, 0, 255, 0.3);
-            transition: all 0.3s;
-        }
-        .api-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(157, 0, 255, 0.2);
-            border-color: var(--neon-purple);
-        }
-        .api-card h3 {
-            color: var(--star-yellow);
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .api-media {
-            width: 100%;
-            height: 200px;
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 1rem 0;
-            background: rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .api-media img, .api-media video, .api-media iframe {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .api-content {
-            line-height: 1.6;
-        }
-        .api-content p {
-            margin: 0.5rem 0;
-        }
-        .api-link {
-            color: var(--neon-purple);
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 0.5rem;
-            transition: all 0.3s;
-        }
-        .api-link:hover {
-            color: var(--star-yellow);
-            text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
-        }
-        footer {
-            text-align: center;
-            padding: 3rem 0;
-            margin-top: 3rem;
-            border-top: 1px solid rgba(157, 0, 255, 0.3);
-        }
-        footer .fa-heart {
-            display: inline-block;
-            animation: pulseHeart 2s infinite ease-in-out;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .social-link {
-            font-size: 2rem;
-            color: white;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
-        }
-        .social-link::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border: 2px solid var(--neon-purple);
-            border-radius: 50%;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.3s;
-        }
-        .social-link:hover::before {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .social-link:hover {
-            color: var(--neon-purple);
-            transform: translateY(-8px) scale(1.3) rotate(5deg);
-        }
-        /* Language switcher */
-        .language-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            gap: 10px;
-        }
-        .language-btn {
-            background: rgba(10, 14, 46, 0.7);
-            color: white;
-            border: 1px solid var(--neon-purple);
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            font-family: 'Orbitron', sans-serif;
-            position: relative;
-            overflow: hidden;
-        }
-        .language-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(157, 0, 255, 0.4), transparent);
-            transition: all 0.6s;
-        }
-        .language-btn:hover::before {
-            left: 100%;
-        }
-        .language-btn:hover {
-            background: var(--neon-purple);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 5px 15px rgba(157, 0, 255, 0.5);
-        }
-        .language-btn.active {
-            background: var(--neon-purple);
-            font-weight: bold;
-            animation: pulseGlow 2s infinite;
-        }
-        /* Network visualization */
-        .network-visualization {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.15;
-            pointer-events: none;
-        }
-        .network-node {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: var(--neon-purple);
-            border-radius: 50%;
-            animation: nodePulse 3s infinite;
-        }
-        .network-connection {
-            position: absolute;
-            background: var(--neon-purple);
-            height: 1px;
-            transform-origin: 0 0;
-            animation: networkPulse 4s infinite;
-        }
-        /* Scroll animations */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease-out;
-        }
-        .scroll-animate.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Terminal style */
-        .terminal {
-            background: #1e1e1e;
-            border-radius: 8px;
-            padding: 1rem;
-            font-family: 'Courier New', monospace;
-            margin: 1rem 0;
-            border: 1px solid #333;
-        }
-        .terminal-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-        .terminal-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 5px;
-        }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-        .terminal-title {
-            color: #aaa;
-            font-size: 0.9rem;
-            flex-grow: 1;
-            text-align: center;
-        }
-        .terminal-body {
-            color: #00ff00;
-            line-height: 1.4;
-        }
-        .terminal-cursor {
-            display: inline-block;
-            width: 8px;
-            height: 16px;
-            background: #00ff00;
-            animation: terminalBlink 1s infinite;
-            vertical-align: middle;
-        }
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-            .api-container {
-                grid-template-columns: 1fr;
-            }
-            .language-switcher {
-                top: 10px;
-                right: 10px;
-            }
-            .comet {
-                width: 60px;
-                height: 2px;
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+/* ---------- Hero ---------- */
+.hero{padding:5rem 0 3rem}
+.hero-grid{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center}
+.orbit{position:relative;width:210px;height:210px;flex-shrink:0}
+.planet{
+  position:absolute;inset:38px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#c49bff,#6a1fd1 45%,#1b0b4a 80%);
+  box-shadow:0 0 60px rgba(157,77,255,.55),inset -18px -18px 40px rgba(0,0,0,.55);
+  display:grid;place-items:center;
+  font-family:'Orbitron',sans-serif;font-weight:900;font-size:2.4rem;letter-spacing:2px;
+  text-shadow:0 0 12px rgba(255,255,255,.5);
+}
+.ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(0,255,238,.35);animation:spin 26s linear infinite}
+.ring.r2{inset:16px;border:1px solid rgba(157,77,255,.35);animation-duration:18s;animation-direction:reverse}
+.ring::after{
+  content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;
+  background:var(--teal);box-shadow:0 0 14px var(--teal);
+}
+.ring.r2::after{background:var(--yellow);box-shadow:0 0 14px var(--yellow);top:auto;bottom:-5px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.eyebrow{font-family:'JetBrains Mono',monospace;color:var(--teal);font-size:.9rem;margin-bottom:.6rem}
+h1{
+  margin:0;font-size:clamp(2.1rem,5.5vw,3.6rem);line-height:1.1;font-weight:800;
+  background:linear-gradient(100deg,#fff 20%,#c9a4ff 55%,var(--teal) 95%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.role{
+  margin:.8rem 0 0;font-family:'Orbitron',sans-serif;font-weight:700;letter-spacing:2px;
+  color:var(--yellow);font-size:clamp(.95rem,2.2vw,1.2rem);
+  text-shadow:0 0 12px rgba(255,230,0,.35);
+}
+.hero-sub{color:var(--muted);max-width:620px;margin:1rem 0 1.4rem}
+.meta{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;color:var(--muted);font-size:.95rem;margin-bottom:1.6rem}
+.meta i{color:var(--purple);margin-right:.4rem}
+.btns{display:flex;flex-wrap:wrap;gap:.7rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;
+  padding:.7rem 1.15rem;border-radius:12px;font-weight:600;font-size:.95rem;
+  border:1px solid var(--card-border);background:rgba(157,77,255,.1);transition:.25s;
+}
+.btn:hover{background:rgba(157,77,255,.28);border-color:var(--purple);transform:translateY(-2px)}
+.btn.primary{background:linear-gradient(120deg,var(--purple),#6a1fd1);border-color:transparent;box-shadow:0 8px 28px -10px var(--purple)}
+.btn.primary:hover{box-shadow:0 10px 34px -8px var(--purple)}
+
+.terminal{margin-top:2.5rem;overflow:hidden}
+.term-bar{display:flex;align-items:center;gap:6px;padding:.6rem .9rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.term-bar span{width:11px;height:11px;border-radius:50%}
+.term-bar .t-title{flex:1;text-align:center;width:auto;height:auto;border-radius:0;color:var(--muted);font:500 .8rem 'JetBrains Mono',monospace}
+.term-body{padding:1rem 1.1rem;font-family:'JetBrains Mono',monospace;font-size:.9rem;min-height:5.6em;color:#b9ffd9}
+.term-body .p{color:var(--purple)}
+.term-body .ok{color:var(--teal)}
+.cursor{display:inline-block;width:8px;height:1.05em;background:#b9ffd9;vertical-align:text-bottom;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- Stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.2rem}
+.stat{padding:1.3rem 1.2rem;text-align:left}
+.stat b{display:block;font-family:'Orbitron',sans-serif;font-size:clamp(1.5rem,3vw,2rem);color:#fff;text-shadow:0 0 18px rgba(157,77,255,.6)}
+.stat span{color:var(--muted);font-size:.9rem;line-height:1.35;display:block;margin-top:.3rem}
+
+/* ---------- Опыт ---------- */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--purple),rgba(0,255,238,.4),transparent)}
+.job{position:relative;margin-bottom:1.6rem;padding:1.6rem 1.7rem}
+.job::before{
+  content:"";position:absolute;left:calc(-2rem + 1px);top:1.9rem;width:14px;height:14px;border-radius:50%;
+  background:var(--void);border:3px solid var(--purple);box-shadow:0 0 14px var(--purple);
+}
+.job.current::before{border-color:var(--teal);box-shadow:0 0 16px var(--teal)}
+.job-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem 1rem;align-items:baseline}
+.job h3{margin:0;font-size:1.25rem;color:var(--yellow)}
+.company{font-weight:700;color:#fff}
+.period{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);white-space:nowrap}
+.badge{display:inline-block;font-size:.72rem;font-family:'Orbitron',sans-serif;letter-spacing:1px;padding:.15rem .55rem;border-radius:999px;background:rgba(0,255,238,.12);color:var(--teal);border:1px solid rgba(0,255,238,.35);margin-left:.5rem;vertical-align:middle}
+.job-sub{color:var(--muted);font-size:.95rem;margin:.2rem 0 .9rem}
+.job ul{margin:0;padding:0;list-style:none}
+.job li{position:relative;padding-left:1.4rem;margin:.45rem 0}
+.job li::before{content:"▸";position:absolute;left:0;color:var(--purple)}
+.hl{color:var(--teal);font-weight:600}
+.wins{margin-top:1.1rem;padding:1rem 1.1rem;border-radius:12px;background:rgba(255,230,0,.06);border:1px solid rgba(255,230,0,.25)}
+.wins h4{margin:0 0 .4rem;font-family:'Orbitron',sans-serif;font-size:.8rem;letter-spacing:2px;color:var(--yellow)}
+.wins li::before{content:"★";color:var(--yellow)}
+.stack{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.stack span{font:500 .78rem 'JetBrains Mono',monospace;padding:.2rem .55rem;border-radius:6px;background:rgba(157,77,255,.14);color:#d9c4ff}
+
+/* ---------- Навыки ---------- */
+.legend{display:flex;flex-wrap:wrap;gap:1rem;color:var(--muted);font-size:.9rem;margin:-1rem 0 1.5rem}
+.legend span{display:inline-flex;align-items:center;gap:.45rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
+.skill-cat{padding:1.4rem 1.4rem 1.2rem}
+.skill-cat h3{margin:0 0 .9rem;font-size:1.05rem;display:flex;align-items:center;gap:.6rem}
+.skill-cat h3 i{color:var(--purple);width:1.2em;text-align:center}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{
+  font-size:.88rem;padding:.35rem .8rem;border-radius:999px;border:1px solid;
+  display:inline-flex;align-items:center;gap:.45rem;transition:transform .2s,box-shadow .2s;
+}
+.tag:hover{transform:translateY(-2px)}
+.tag::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor}
+.l3{color:var(--yellow);border-color:rgba(255,230,0,.4);background:rgba(255,230,0,.07)}
+.l2{color:#cfb2ff;border-color:rgba(157,77,255,.45);background:rgba(157,77,255,.1)}
+.l1{color:var(--teal);border-color:rgba(0,255,238,.35);border-style:dashed;background:rgba(0,255,238,.05)}
+.l3 .t,.l2 .t,.l1 .t{color:var(--text)}
+
+/* ---------- Проект ---------- */
+.project{display:grid;grid-template-columns:1.1fr 1fr;gap:1.5rem;padding:1.8rem}
+.project h3{margin:0 0 .5rem;font-size:1.3rem;color:var(--yellow)}
+.project p{color:var(--muted);margin:.2rem 0 1rem}
+.project ul{margin:0;padding:0;list-style:none}
+.project li{padding-left:1.4rem;position:relative;margin:.45rem 0}
+.project li::before{content:"▸";position:absolute;left:0;color:var(--teal)}
+.diagram{width:100%;height:auto;align-self:center}
+.diagram .flow{stroke-dasharray:6 6;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-12}}
+
+/* ---------- Цели / образование ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.goals,.edu,.about{padding:1.6rem}
+.goal{display:flex;gap:.9rem;align-items:flex-start;margin:.7rem 0}
+.goal i{color:var(--teal);margin-top:.3rem;width:1.2em;text-align:center}
+.edu-item{padding:.8rem 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+.edu-item:last-child{border-bottom:0}
+.edu-item b{display:block}
+.edu-item span{color:var(--muted);font-size:.92rem}
+.edu-item .yr{font-family:'Orbitron',sans-serif;color:var(--purple);font-size:.8rem;letter-spacing:1px}
+.about p{margin:.3rem 0 .9rem}
+.langs{display:flex;gap:.6rem;flex-wrap:wrap}
+
+/* ---------- Контакты ---------- */
+.contact{padding:2.2rem;text-align:center}
+.contact h2{margin-bottom:.5rem}
+.contact p{color:var(--muted);margin:0 auto 1.6rem;max-width:560px}
+.contact .btns{justify-content:center}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:3rem 1rem 2.5rem}
+footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in-out infinite}
+@keyframes beat{50%{transform:scale(1.25);color:var(--orange)}}
+
+/* ---------- Адаптив ---------- */
+@media (max-width:900px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .project,.two{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .nav-links{display:none}
+  .lang{margin-left:auto}
+  .hero{padding:3rem 0 2rem}
+  .hero-grid{grid-template-columns:1fr;gap:1.8rem;text-align:left}
+  .orbit{width:150px;height:150px}
+  .planet{inset:27px;font-size:1.7rem}
+  .skills{grid-template-columns:1fr}
+  .job{padding:1.3rem 1.2rem}
+  .timeline{padding-left:1.6rem}
+  .job::before{left:calc(-1.6rem + 1px)}
+  section{padding-top:3.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-        <button class="language-btn active" onclick="changeLanguage('ru')">RU</button>
-        <button class="language-btn" onclick="changeLanguage('en')">EN</button>
+<div class="nebula"></div>
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top">DN<span>://</span>SRE</a>
+    <div class="nav-links">
+      <a href="#experience" data-i18n="navExp"></a>
+      <a href="#skills" data-i18n="navSkills"></a>
+      <a href="#project" data-i18n="navProject"></a>
+      <a href="#contact" data-i18n="navContact"></a>
     </div>
-    <div class="space-bg"></div>
-    <!-- Cloud Layers for transition effect -->
-    <div class="cloud-layer"></div>
-    <div class="cloud-layer"></div>
-    <div class="cloud-layer"></div>
-    <!-- Network Visualization -->
-    <div class="network-visualization" id="network"></div>
-    <div class="container">
-        <header>
-            <h1 id="title">Нефедов Денис Олегович</h1>
-            <p class="tagline" id="tagline">DevOps Engineer / Системный администратор Linux</p>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <i class="fas fa-birthday-cake contact-icon"></i>
-                    <div>
-                        <div id="age-label">28 лет</div>
-                        <small>26.12.1996</small>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <i class="fas fa-phone contact-icon"></i>
-                    <div>
-                        <div id="phone-label">Телефон</div>
-                        <small>+7 (987) 523-17-87</small>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <i class="fas fa-envelope contact-icon"></i>
-                    <div>
-                        <div id="email-label">Email</div>
-                        <small>invorkel58@gmail.com</small>
-                    </div>
-                </div>
-                <div class="contact-card">
-                    <i class="fas fa-map-marker-alt contact-icon"></i>
-                    <div>
-                        <div id="location-label">Локация</div>
-                        <small id="location-value">Пенза (готов к переезду)</small>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <section class="section section-blue scroll-animate">
-            <h2><i class="fas fa-briefcase section-icon"></i><span id="experience-title">Опыт работы</span></h2>
-            <div class="experience-item">
-                <div class="job-title" id="job1-title">Системный администратор / DevOps Engineer</div>
-                <div class="job-period">Декабрь 2022 — настоящее время (3 года)</div>
-                <ul id="job1-desc">
-                    <li>Автоматизировал задачи через <span class="highlight">Bash-скрипты</span> (экономия 30% времени)</li>
-                    <li>Настроил <span class="highlight">Ansible</span> для массового обновления серверов (развертывание с 4ч → 30мин)</li>
-                    <li>Развернул <span class="highlight">Zabbix + Telegram-бот</span> (реакция на инциденты с 2ч → 15мин)</li>
-                    <li>Оптимизировал веб-сервера (<span class="highlight">Битрикс</span> на CentOS)</li>
-                    <li>Настроил <span class="highlight">Proxmox/KVM</span> (+25% к утилизации ресурсов)</li>
-                    <li>Конфигурировал <span class="highlight">VPN (IPsec, SSL-VPN)</span>, DHCP, DNS</li>
-                    <li>Администрирование <span class="highlight">Windows Server</span> (AD, RDP, резервное копирование)</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <div class="job-title" id="job2-title">Менеджер IT-проектов</div>
-                <div class="job-period">Сентябрь 2022 — Декабрь 2022 (4 месяца)</div>
-                <ul id="job2-desc">
-                    <li>Управление системными администраторами и инженерами</li>
-                    <li>Автоматизация учета оборудования через <span class="highlight">Excel</span> (-20% времени отчетности)</li>
-                    <li>Работа с ITSM (<span class="highlight">1C Itilium</span>, Service Desk)</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <div class="job-title" id="job3-title">Сетевой инженер</div>
-                <div class="job-period">Июнь 2022 — Сентябрь 2022 (4 месяца)</div>
-                <ul id="job3-desc">
-                    <li>Настройка <span class="highlight">VPN-туннелей</span> для удаленных объектов</li>
-                    <li>Диагностика сетей через <span class="highlight">Wireshark</span> (-40% времени на устранение неисправностей)</li>
-                    <li>Работа с сетевым оборудованием (<span class="highlight">MikroTik, Zyxel</span>)</li>
-                </ul>
-            </div>
-        </section>
-        <section class="section section-purple scroll-animate">
-            <h2><i class="fas fa-code section-icon"></i><span id="skills-title">Технические навыки</span></h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3 id="os-title">Операционные системы</h3>
-                    <span class="skill-tag">Linux (RHEL, CentOS, Debian, Ubuntu)</span>
-                    <span class="skill-tag">Windows Server</span>
-                </div>
-                <div class="skill-category">
-                    <h3>DevOps</h3>
-                    <span class="skill-tag">Ansible</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">GitLab CI/CD</span>
-                    <span class="skill-tag">Zabbix</span>
-                    <span class="skill-tag">Prometheus</span>
-                </div>
-                <div class="skill-category">
-                    <h3 id="virt-title">Виртуализация</h3>
-                    <span class="skill-tag">Proxmox</span>
-                    <span class="skill-tag">KVM</span>
-                    <span class="skill-tag">Hyper-V</span>
-                </div>
-                <div class="skill-category">
-                    <h3 id="net-title">Сети</h3>
-                    <span class="skill-tag">VPN (IPsec/SSL)</span>
-                    <span class="skill-tag">MikroTik</span>
-                    <span class="skill-tag">DHCP/DNS</span>
-                    <span class="skill-tag">TCP/IP</span>
-                    <span class="skill-tag">Wireshark</span>
-                </div>
-                <div class="skill-category">
-                    <h3 id="prog-title">Программирование</h3>
-                    <span class="skill-tag">Bash</span>
-                    <span class="skill-tag">Python (базовый)</span>
-                    <span class="skill-tag">PowerShell</span>
-                </div>
-                <div class="skill-category">
-                    <h3 id="other-title">Другое</h3>
-                    <!-- Удалено: <span class="skill-tag">1С Администрирование</span> -->
-                    <span class="skill-tag">Битрикс</span>
-                    <span class="skill-tag">ITSM</span>
-                    <span class="skill-tag">Excel</span>
-                    <span class="skill-tag">Systemd</span>
-                    <span class="skill-tag">SSH</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">RAID</span>
-                </div>
-            </div>
-        </section>
-        <section class="section section-orange scroll-animate">
-            <h2><i class="fas fa-graduation-cap section-icon"></i><span id="education-title">Образование</span></h2>
-            <div class="experience-item">
-                <div class="job-title" id="edu1-title">Пензенский государственный технический университет</div>
-                <div class="job-period">2018 | Прикладная информатика</div>
-            </div>
-            <div class="experience-item">
-                <div class="job-title" id="edu2-title">Пензенский колледж информационных технологий</div>
-                <div class="job-period">2017 | Компьютерные системы и комплексы</div>
-            </div>
-            <div class="experience-item">
-                <div class="job-title" id="edu3-title">Открытый университет экономики, управления и права</div>
-                <div class="job-period">2024 | Психология (бакалавр)</div>
-            </div>
-        </section>
-        <section class="section section-blue scroll-animate">
-            <h2><i class="fas fa-rocket section-icon"></i><span id="goals-title">Цели развития</span></h2>
-            <ul id="goals-list">
-                <li>Углубление знаний в <span class="highlight">Kubernetes</span> и оркестрации контейнеров</li>
-                <li>Освоение облачных платформ <span class="highlight">AWS/GCP</span></li>
-                <li>Автоматизация инфраструктуры через <span class="highlight">Terraform</span></li>
-                <li>Развитие навыков CI/CD в <span class="highlight">GitHub Actions</span></li>
-                <li>Изучение <span class="highlight">Python</span> для DevOps-автоматизации</li>
-            </ul>
-        </section>
-        <section class="section section-purple scroll-animate">
-            <h2><i class="fas fa-user-astronaut section-icon"></i><span id="about-title">Обо мне</span></h2>
-            <p id="about-text">Ответственный, обучаемый специалист с аналитическим мышлением. Увлекаюсь IT-технологиями, психологией и здоровым образом жизни. Имею опыт в управлении проектами и клиентоориентированности.</p>
-            <p><strong>Telegram:</strong> @invorkel322</p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/invorkel322" style="color: var(--neon-purple);">github.com/invorkel322</a></p>
-        </section>
-        <section class="section section-teal scroll-animate">
-            <h2><i class="fas fa-microchip section-icon"></i><span id="tech-title">Технологии дня</span></h2>
-            <div class="api-container">
-                <div class="api-card">
-                    <h3><i class="fas fa-laptop-code"></i> GitHub Trending</h3>
-                    <div class="api-media" id="github-media">
-                        <div class="terminal">
-                            <div class="terminal-header">
-                                <div class="terminal-dot dot-red"></div>
-                                <div class="terminal-dot dot-yellow"></div>
-                                <div class="terminal-dot dot-green"></div>
-                                <div class="terminal-title">github_trending.sh</div>
-                            </div>
-                            <div class="terminal-body" id="github-content">
-                                Загрузка топ репозиториев...
-                            </div>
-                        </div>
-                    </div>
-                    <div class="api-content">
-                        <p>Популярные репозитории на GitHub сегодня</p>
-                        <a href="https://github.com/trending" target="_blank" class="api-link">Посмотреть на GitHub</a>
-                    </div>
-                </div>
-                <div class="api-card">
-                    <h3><i class="fas fa-robot"></i> AI Новости</h3>
-                    <div class="api-media" id="ai-media">
-                        <div class="terminal">
-                            <div class="terminal-header">
-                                <div class="terminal-dot dot-red"></div>
-                                <div class="terminal-dot dot-yellow"></div>
-                                <div class="terminal-dot dot-green"></div>
-                                <div class="terminal-title">ai_news.py</div>
-                            </div>
-                            <div class="terminal-body" id="ai-content">
-                                Загрузка последних новостей ИИ...
-                            </div>
-                        </div>
-                    </div>
-                    <div class="api-content">
-                        <p>Последние достижения в области искусственного интеллекта</p>
-                        <a href="https://ai.googleblog.com/" target="_blank" class="api-link">Читать на AI Blog</a>
-                    </div>
-                </div>
-                <div class="api-card">
-                    <h3><i class="fas fa-satellite"></i> Космические новости</h3>
-                    <div class="api-media" id="space-media">
-                        <div class="terminal">
-                            <div class="terminal-header">
-                                <div class="terminal-dot dot-red"></div>
-                                <div class="terminal-dot dot-yellow"></div>
-                                <div class="terminal-dot dot-green"></div>
-                                <div class="terminal-title">space_news.js</div>
-                            </div>
-                            <div class="terminal-body" id="space-content">
-                                Загрузка космических новостей...
-                            </div>
-                        </div>
-                    </div>
-                    <div class="api-content">
-                        <p>Последние события в мире космических технологий</p>
-                        <a href="https://www.space.com/" target="_blank" class="api-link">Читать на Space.com</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <footer>
-            <div class="social-links">
-                <a href="https://github.com/invorkel322" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://t.me/invorkel322" class="social-link" target="_blank"><i class="fab fa-telegram"></i></a>
-                <a href="mailto:invorkel58@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <p id="footer-text">© 2025 Cosmic DevOps | Сделано с <i class="fas fa-heart" style="color: var(--neon-purple);"></i> и kubectl</p>
-        </footer>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="ru">RU</button>
+      <button type="button" data-lang="en">EN</button>
     </div>
-    <script>
-        // Translations
-        const translations = {
-            ru: {
-                title: "Нефедов Денис Олегович",
-                tagline: "DevOps Engineer / Системный администратор Linux",
-                ageLabel: "29)",
-                phoneLabel: "Телефон",
-                emailLabel: "Email",
-                locationLabel: "Локация",
-                locationValue: "Пенза (готов к переезду)",
-                experienceTitle: "Опыт работы",
-                job1Title: "Системный администратор",
-                job1Desc: [
-                    "Автоматизировал задачи через <span class='highlight'>Bash-скрипты</span> (экономия 30% времени)",
-                    "Настроил <span class='highlight'>Ansible</span> для массового обновления серверов (развертывание с 4ч → 30мин)",
-                    "Развернул <span class='highlight'>Zabbix + Telegram-бот</span> (реакция на инциденты с 2ч → 15мин)",
-                    "Оптимизировал веб-сервера (<span class='highlight'>Битрикс</span> на CentOS)",
-                    "Настроил <span class='highlight'>Proxmox/KVM</span> (+25% к утилизации ресурсов)",
-                    "Конфигурировал <span class='highlight'>VPN (IPsec, SSL-VPN)</span>, DHCP, DNS",
-                    "Администрирование <span class='highlight'>Windows Server</span> (AD, RDP, резервное копирование)"
-                ],
-                job2Title: "Менеджер IT-проектов",
-                job2Desc: [
-                    "Управление системными администраторами и инженерами",
-                    "Автоматизация учета оборудования через <span class='highlight'>Excel</span> (-20% времени отчетности)",
-                    "Работа с ITSM (<span class='highlight'>1C Itilium</span>, Service Desk)"
-                ],
-                job3Title: "Сетевой инженер",
-                job3Desc: [
-                    "Настройка <span class='highlight'>VPN-туннелей</span> для удаленных объектов",
-                    "Диагностика сетей через <span class='highlight'>Wireshark</span> (-40% времени на устранение неисправностей)",
-                    "Работа с сетевым оборудованием (<span class='highlight'>MikroTik, Zyxel</span>)"
-                ],
-                skillsTitle: "Технические навыки",
-                osTitle: "Операционные системы",
-                virtTitle: "Виртуализация",
-                netTitle: "Сети",
-                progTitle: "Программирование",
-                otherTitle: "Другое",
-                // Удалено: "1С Администрирование",
-                educationTitle: "Образование",
-                edu1Title: "Пензенский государственный технический университет",
-                edu2Title: "Пензенский колледж информационных технологий",
-                edu3Title: "Открытый университет экономики, управления и права",
-                goalsTitle: "Цели развития",
-                goalsList: [
-                    "Углубление знаний в <span class='highlight'>Kubernetes</span> и оркестрации контейнеров",
-                    "Освоение облачных платформ <span class='highlight'>AWS/GCP</span>",
-                    "Автоматизация инфраструктуры через <span class='highlight'>Terraform</span>",
-                    "Развитие навыков CI/CD в <span class='highlight'>GitHub Actions</span>",
-                    "Изучение <span class='highlight'>Python</span> для DevOps-автоматизации"
-                ],
-                aboutTitle: "Обо мне",
-                aboutText: "Ответственный, обучаемый специалист с аналитическим мышлением. Увлекаюсь IT-технологиями, психологией и здоровым образом жизни. Имею опыт в управлении проектами и клиентоориентированности.",
-                techTitle: "Технологии дня",
-                footerText: "© 2026 Cosmic DevOps | Сделано с <i class='fas fa-heart' style='color: var(--neon-purple);'></i> и kubectl"
-            },
-            en: {
-                title: "Denis Nefedov",
-                tagline: "DevOps Engineer / Linux System Administrator",
-                ageLabel: "28 years",
-                phoneLabel: "Phone",
-                emailLabel: "Email",
-                locationLabel: "Location",
-                locationValue: "Penza (ready to relocate)",
-                experienceTitle: "Work Experience",
-                job1Title: "System Administrator / DevOps Engineer",
-                job1Desc: [
-                    "Automated tasks using <span class='highlight'>Bash scripts</span> (30% time savings)",
-                    "Configured <span class='highlight'>Ansible</span> for mass server updates (deployment from 4h → 30min)",
-                    "Deployed <span class='highlight'>Zabbix + Telegram bot</span> (incident response from 2h → 15min)",
-                    "Optimized web servers (<span class='highlight'>Bitrix</span> on CentOS)",
-                    "Configured <span class='highlight'>Proxmox/KVM</span> (+25% resource utilization)",
-                    "Configured <span class='highlight'>VPN (IPsec, SSL-VPN)</span>, DHCP, DNS",
-                    "Administered <span class='highlight'>Windows Server</span> (AD, RDP, backups)"
-                ],
-                job2Title: "IT Project Manager",
-                job2Desc: [
-                    "Managed teams of <span class='highlight'>system administrators and engineers</span>",
-                    "Automated equipment accounting via <span class='highlight'>Excel</span> (-20% reporting time)",
-                    "Worked with ITSM (<span class='highlight'>1C Itilium</span>, Service Desk)"
-                ],
-                job3Title: "Network Engineer",
-                job3Desc: [
-                    "Configured <span class='highlight'>VPN tunnels</span> for remote sites",
-                    "Network diagnostics with <span class='highlight'>Wireshark</span> (-40% troubleshooting time)",
-                    "Worked with network equipment (<span class='highlight'>MikroTik, Zyxel</span>)"
-                ],
-                skillsTitle: "Technical Skills",
-                osTitle: "Operating Systems",
-                virtTitle: "Virtualization",
-                netTitle: "Networking",
-                progTitle: "Programming",
-                otherTitle: "Other",
-                // Удалено: "1C Administration",
-                educationTitle: "Education",
-                edu1Title: "Penza State Technical University",
-                edu2Title: "Penza College of Information Technologies",
-                edu3Title: "Open University of Economics, Management and Law",
-                goalsTitle: "Development Goals",
-                goalsList: [
-                    "Deepening knowledge in <span class='highlight'>Kubernetes</span> and container orchestration",
-                    "Mastering cloud platforms <span class='highlight'>AWS/GCP</span>",
-                    "Infrastructure automation with <span class='highlight'>Terraform</span>",
-                    "Developing CI/CD skills in <span class='highlight'>GitHub Actions</span>",
-                    "Learning <span class='highlight'>Python</span> for DevOps automation"
-                ],
-                aboutTitle: "About Me",
-                aboutText: "Responsible, trainable specialist with analytical thinking. Passionate about IT technologies, psychology and healthy lifestyle. Have experience in project management and customer orientation.",
-                techTitle: "Technologies of the Day",
-                footerText: "© 2026 Cosmic DevOps | Made with <i class='fas fa-heart' style='color: var(--neon-purple);'></i> and kubectl"
-            }
-        };
-        // Language switcher
-        function changeLanguage(lang) {
-            // Update active button
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.textContent === lang.toUpperCase()) {
-                    btn.classList.add('active');
-                }
-            });
-            // Change html lang attribute
-            document.documentElement.lang = lang;
-            // Update all translatable elements
-            const trans = translations[lang];
-            // Header
-            document.getElementById('title').textContent = trans.title;
-            document.getElementById('tagline').textContent = trans.tagline;
-            document.getElementById('age-label').textContent = trans.ageLabel;
-            document.getElementById('phone-label').textContent = trans.phoneLabel;
-            document.getElementById('email-label').textContent = trans.emailLabel;
-            document.getElementById('location-label').textContent = trans.locationLabel;
-            document.getElementById('location-value').textContent = trans.locationValue;
-            // Experience
-            document.getElementById('experience-title').textContent = trans.experienceTitle;
-            document.getElementById('job1-title').textContent = trans.job1Title;
-            document.getElementById('job2-title').textContent = trans.job2Title;
-            document.getElementById('job3-title').textContent = trans.job3Title;
-            const job1List = document.getElementById('job1-desc');
-            job1List.innerHTML = '';
-            trans.job1Desc.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = item;
-                job1List.appendChild(li);
-            });
-            const job2List = document.getElementById('job2-desc');
-            job2List.innerHTML = '';
-            trans.job2Desc.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = item;
-                job2List.appendChild(li);
-            });
-            const job3List = document.getElementById('job3-desc');
-            job3List.innerHTML = '';
-            trans.job3Desc.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = item;
-                job3List.appendChild(li);
-            });
-            // Skills
-            document.getElementById('skills-title').textContent = trans.skillsTitle;
-            document.getElementById('os-title').textContent = trans.osTitle;
-            document.getElementById('virt-title').textContent = trans.virtTitle;
-            document.getElementById('net-title').textContent = trans.netTitle;
-            document.getElementById('prog-title').textContent = trans.progTitle;
-            document.getElementById('other-title').textContent = trans.otherTitle;
-            // Education
-            document.getElementById('education-title').textContent = trans.educationTitle;
-            document.getElementById('edu1-title').textContent = trans.edu1Title;
-            document.getElementById('edu2-title').textContent = trans.edu2Title;
-            document.getElementById('edu3-title').textContent = trans.edu3Title;
-            // Goals
-            document.getElementById('goals-title').textContent = trans.goalsTitle;
-            const goalsList = document.getElementById('goals-list');
-            goalsList.innerHTML = '';
-            trans.goalsList.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = item;
-                goalsList.appendChild(li);
-            });
-            // About
-            document.getElementById('about-title').textContent = trans.aboutTitle;
-            document.getElementById('about-text').textContent = trans.aboutText;
-            // Tech section
-            document.getElementById('tech-title').textContent = trans.techTitle;
-            // Footer
-            document.getElementById('footer-text').innerHTML = trans.footerText;
-            // Save preference
-            localStorage.setItem('language', lang);
-        }
-        // Initialize language
-        function initLanguage() {
-            const savedLang = localStorage.getItem('language') || 'ru';
-            changeLanguage(savedLang);
-        }
-        // Create network visualization
-        function createNetwork() {
-            const networkContainer = document.getElementById('network');
-            if (!networkContainer) return;
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-            // Create nodes
-            const nodes = [];
-            const nodeCount = Math.min(20, Math.floor(width * height / 40000));
-            for (let i = 0; i < nodeCount; i++) {
-                const node = document.createElement('div');
-                node.className = 'network-node';
-                const x = Math.random() * width;
-                const y = Math.random() * height;
-                node.style.left = `${x}px`;
-                node.style.top = `${y}px`;
-                node.style.animationDelay = `${Math.random() * 3}s`;
-                networkContainer.appendChild(node);
-                nodes.push({x, y, element: node});
-            }
-            // Create connections
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    if (Math.random() > 0.7) {
-                        const node1 = nodes[i];
-                        const node2 = nodes[j];
-                        const length = Math.sqrt(
-                            Math.pow(node2.x - node1.x, 2) +
-                            Math.pow(node2.y - node1.y, 2)
-                        );
-                        if (length > Math.min(width, height) / 3) continue;
-                        const angle = Math.atan2(
-                            node2.y - node1.y,
-                            node2.x - node1.x
-                        ) * 180 / Math.PI;
-                        const connection = document.createElement('div');
-                        connection.className = 'network-connection';
-                        connection.style.width = `${length}px`;
-                        connection.style.left = `${node1.x}px`;
-                        connection.style.top = `${node1.y}px`;
-                        connection.style.transform = `rotate(${angle}deg)`;
-                        connection.style.animationDelay = `${Math.random() * 4}s`;
-                        networkContainer.appendChild(connection);
-                    }
-                }
-            }
-        }
-        // Scroll animation handler
-        function handleScrollAnimation() {
-            const elements = document.querySelectorAll('.scroll-animate');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('animated');
-                }
-            });
-        }
-        // Simulate GitHub trending repositories
-        function fetchGitHubTrending() {
-            const githubContent = document.getElementById('github-content');
-            if (!githubContent) return;
-            // Simulated data
-            const repos = [
-                { name: "facebook/react", description: "A declarative, efficient, and flexible JavaScript library for building user interfaces.", stars: "205k" },
-                { name: "microsoft/vscode", description: "Visual Studio Code is a lightweight but powerful source code editor.", stars: "142k" },
-                { name: "tensorflow/tensorflow", description: "An Open Source Machine Learning Framework for Everyone.", stars: "175k" },
-                { name: "kubernetes/kubernetes", description: "Production-Grade Container Scheduling and Management.", stars: "102k" }
-            ];
-            let content = "";
-            repos.forEach(repo => {
-                content += `> ${repo.name}
-  ${repo.description}
-  ★ ${repo.stars}
-`;
-            });
-            githubContent.innerHTML = content;
-        }
-        // Simulate AI news
-        function fetchAINews() {
-            const aiContent = document.getElementById('ai-content');
-            if (!aiContent) return;
-            // Simulated data
-            const news = [
-                "Новый алгоритм GPT-5 демонстрирует рекордные результаты в понимании естественного языка",
-                "Google представила революционную модель для генерации изображений из текста",
-                "Искусственный интеллект успешно прошел тест Тьюринга в 78% случаев",
-                "OpenAI анонсировала прорыв в области обучения с подкреплением"
-            ];
-            let content = "";
-            news.forEach(item => {
-                content += `• ${item}
-`;
-            });
-            aiContent.innerHTML = content;
-        }
-        // Simulate space news
-        function fetchSpaceNews() {
-            const spaceContent = document.getElementById('space-content');
-            if (!spaceContent) return;
-            // Simulated data
-            const news = [
-                "SpaceX успешно запустила 54 спутника Starlink на орбиту",
-                "NASA обнаружила новую экзопланету в обитаемой зоне",
-                "Китайский космический корабль завершил миссию на Марсе",
-                "Астрономы зафиксировали мощнейший выброс гамма-излучения"
-            ];
-            let content = "";
-            news.forEach(item => {
-                content += `• ${item}
-`;
-            });
-            spaceContent.innerHTML = content;
-        }
-        // Initialize everything when page loads
-        window.onload = function() {
-            initLanguage();
-            createNetwork();
-            handleScrollAnimation();
-            // Create stars
-            const numStars = Math.min(200, Math.floor(window.innerWidth * window.innerHeight / 10000));
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.width = `${Math.random() * 3}px`;
-                star.style.height = star.style.width;
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.top = `${Math.random() * 100}%`;
-                star.style.animationDelay = `${Math.random() * 5}s`;
-                star.style.animationDuration = `${3 + Math.random() * 5}s`;
-                document.body.appendChild(star);
-            }
-            // Create comets
-            function createComet() {
-                const comet = document.createElement('div');
-                comet.className = 'comet';
-                let startX, startY;
-                if (Math.random() > 0.5) {
-                    startX = Math.random() * window.innerWidth;
-                    startY = -50;
-                } else {
-                    startX = -100;
-                    startY = Math.random() * window.innerHeight * 0.5;
-                }
-                comet.style.left = `${startX}px`;
-                comet.style.top = `${startY}px`;
-                comet.style.animationDelay = `${Math.random() * 10}s`;
-                comet.style.animationDuration = `${3 + Math.random() * 4}s`;
-                document.body.appendChild(comet);
-                setTimeout(() => {
-                    comet.remove();
-                }, parseFloat(comet.style.animationDuration.replace('s','')) * 1000 + 500);
-            }
-            // Launch several comets periodically
-            for (let i = 0; i < 3; i++) {
-                 setTimeout(createComet, Math.random() * 5000);
-            }
-            // Add more comets over time
-            setInterval(createComet, 8000 + Math.random() * 5000);
-            // Fetch tech data
-            setTimeout(fetchGitHubTrending, 1000);
-            setTimeout(fetchAINews, 1500);
-            setTimeout(fetchSpaceNews, 2000);
-            // Parallax effect for stars
-            document.addEventListener('mousemove', (e) => {
-                const x = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
-                const y = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
-                const stars = document.querySelectorAll('.star');
-                stars.forEach((star, index) => {
-                    const depth = (index % 5 + 1) * 0.005;
-                    star.style.transform = `translate(${x * window.innerWidth * depth}px, ${y * window.innerHeight * depth}px) scale(${star.style.animationDelay > '2.5s' ? 1.1 : 1})`;
-                });
-                const networkNodes = document.querySelectorAll('.network-node, .network-connection');
-                networkNodes.forEach((node, index) => {
-                    const depth = (index % 10 + 1) * 0.001;
-                    node.style.transformOrigin = 'center center';
-                    const originalTransform = node.style.transform.replace(/translate\([^)]*\)/g, '').trim();
-                    node.style.transform = `translate(${x * window.innerWidth * depth}px, ${y * window.innerHeight * depth}px) ${originalTransform}`;
-                });
-            });
-            window.addEventListener('scroll', handleScrollAnimation);
-        };
-    </script>
-      <footer>
-    <p> 👋</p>
-    <!-- hitwebcounter Code START -->
-    <a href="https://www.hitwebcounter.com/" target="_blank">
-      <img src="https://hitwebcounter.com/counter/counter.php?page=21437935&style=0007&nbdigits=5&type=page&initCount=0" title="Website" alt="Website" border="0" />
-    </a>
-  </footer>
-</body>
+  </div>
+</nav>
+
+<main id="top">
+  <!-- HERO -->
+  <header class="hero wrap">
+    <div class="hero-grid">
+      <div class="orbit reveal" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="ring r2"></div>
+        <div class="planet">DN</div>
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">~$ whoami</div>
+        <h1 data-i18n="name"></h1>
+        <p class="role">SRE / DEVOPS ENGINEER</p>
+        <p class="hero-sub" data-i18n="heroSub"></p>
+        <div class="meta">
+          <span><i class="fas fa-location-dot"></i><span data-i18n="location"></span></span>
+          <span><i class="fas fa-user-astronaut"></i><span id="age"></span></span>
+          <span><i class="fas fa-laptop-house"></i><span data-i18n="format"></span></span>
+        </div>
+        <div class="btns">
+          <a class="btn primary" href="https://t.me/invorkel322" target="_blank" rel="noopener"><i class="fab fa-telegram"></i>Telegram</a>
+          <a class="btn" href="https://www.linkedin.com/in/denis-nefedov-sre" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i>LinkedIn</a>
+          <a class="btn" href="https://github.com/invorkel322" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub</a>
+          <a class="btn" href="mailto:cold6319@rambler.ru"><i class="fas fa-envelope"></i>Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="terminal card reveal">
+      <div class="term-bar">
+        <span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span>
+        <span class="t-title">denis@prod: ~</span>
+      </div>
+      <div class="term-body" id="term" aria-live="off"></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat card reveal"><b>4+</b><span data-i18n="st1"></span></div>
+      <div class="stat card reveal"><b>7M+</b><span data-i18n="st2"></span></div>
+      <div class="stat card reveal"><b>10–15<small style="font-size:.5em"> min</small></b><span data-i18n="st3"></span></div>
+      <div class="stat card reveal"><b>~20</b><span data-i18n="st4"></span></div>
+    </div>
+  </header>
+
+  <!-- ОПЫТ -->
+  <section id="experience" class="wrap">
+    <div class="section-head reveal"><span class="num">01</span><h2 data-i18n="expTitle"></h2><span class="line"></span></div>
+    <div class="timeline">
+
+      <article class="job card current reveal">
+        <div class="job-top">
+          <h3><span data-i18n="j1Title"></span><span class="badge" data-i18n="now"></span></h3>
+          <span class="period" data-i18n="j1Period"></span>
+        </div>
+        <div class="job-sub"><span class="company" data-i18n="j1Company"></span> · <span data-i18n="j1Sub"></span></div>
+        <ul data-i18n-list="j1List"></ul>
+        <div class="stack"><span>Zabbix</span><span>Grafana</span><span>ELK</span><span>Jenkins</span><span>Bitbucket</span><span>Nexus</span><span>DropApp (K8s)</span><span>OpenShift</span><span>SecMan</span><span>Jira</span><span>Confluence</span></div>
+      </article>
+
+      <article class="job card reveal">
+        <div class="job-top">
+          <h3 data-i18n="j2Title"></h3>
+          <span class="period" data-i18n="j2Period"></span>
+        </div>
+        <div class="job-sub"><span class="company" data-i18n="j2Company"></span> · <span data-i18n="j2Sub"></span></div>
+        <ul data-i18n-list="j2List"></ul>
+        <div class="wins">
+          <h4 data-i18n="winsTitle"></h4>
+          <ul data-i18n-list="j2Wins"></ul>
+        </div>
+        <div class="stack"><span>Linux</span><span>Zabbix</span><span>Prometheus</span><span>Grafana</span><span>Bash</span><span>Ansible</span><span>Docker</span><span>Proxmox/KVM</span><span>Terraform</span></div>
+      </article>
+
+      <article class="job card reveal">
+        <div class="job-top">
+          <h3 data-i18n="j3Title"></h3>
+          <span class="period" data-i18n="j3Period"></span>
+        </div>
+        <div class="job-sub"><span class="company" data-i18n="j3Company"></span> · <span data-i18n="j3Sub"></span></div>
+        <ul data-i18n-list="j3List"></ul>
+      </article>
+
+      <article class="job card reveal">
+        <div class="job-top">
+          <h3 data-i18n="j4Title"></h3>
+          <span class="period" data-i18n="j4Period"></span>
+        </div>
+        <div class="job-sub"><span class="company" data-i18n="j4Company"></span> · <span data-i18n="j4Sub"></span></div>
+        <ul data-i18n-list="j4List"></ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- НАВЫКИ -->
+  <section id="skills" class="wrap">
+    <div class="section-head reveal"><span class="num">02</span><h2 data-i18n="skillsTitle"></h2><span class="line"></span></div>
+    <div class="legend reveal">
+      <span><span class="tag l3" style="padding:.1rem .6rem"></span><span data-i18n="lvl3"></span></span>
+      <span><span class="tag l2" style="padding:.1rem .6rem"></span><span data-i18n="lvl2"></span></span>
+      <span><span class="tag l1" style="padding:.1rem .6rem"></span><span data-i18n="lvl1"></span></span>
+    </div>
+    <div class="skills" id="skillsGrid"></div>
+  </section>
+
+  <!-- ПРОЕКТ -->
+  <section id="project" class="wrap">
+    <div class="section-head reveal"><span class="num">03</span><h2 data-i18n="projTitle"></h2><span class="line"></span></div>
+    <div class="project card reveal">
+      <div>
+        <h3 data-i18n="projName"></h3>
+        <p data-i18n="projDesc"></p>
+        <ul data-i18n-list="projList"></ul>
+        <div class="stack"><span>Xray</span><span>REALITY</span><span>Remnawave</span><span>Prometheus</span><span>Grafana</span><span>Ansible</span><span>Linux</span></div>
+      </div>
+      <svg class="diagram" viewBox="0 0 420 260" role="img" aria-label="Схема распределённой VPN-инфраструктуры">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#9d4dff"/><stop offset="1" stop-color="#00ffee"/></linearGradient>
+        </defs>
+        <g font-family="JetBrains Mono, monospace" font-size="12" fill="#e8e9f5" text-anchor="middle">
+          <path class="flow" d="M70 90 H160" stroke="url(#g1)" stroke-width="2" fill="none"/>
+          <path class="flow" d="M250 90 H340" stroke="url(#g1)" stroke-width="2" fill="none"/>
+          <path d="M205 195 V120" stroke="#ffe600" stroke-width="1.5" stroke-dasharray="3 5" fill="none" opacity=".7"/>
+          <path d="M205 195 Q300 195 375 120" stroke="#ffe600" stroke-width="1.5" stroke-dasharray="3 5" fill="none" opacity=".7"/>
+
+          <circle cx="40" cy="90" r="28" fill="rgba(157,77,255,.15)" stroke="#9d4dff"/>
+          <text x="40" y="94">client</text>
+
+          <rect x="160" y="62" width="90" height="56" rx="10" fill="rgba(157,77,255,.18)" stroke="#9d4dff"/>
+          <text x="205" y="86">RU</text><text x="205" y="103" font-size="10" fill="#9aa0c3">entry</text>
+
+          <rect x="340" y="62" width="70" height="56" rx="10" fill="rgba(0,255,238,.1)" stroke="#00ffee"/>
+          <text x="375" y="86">EU</text><text x="375" y="103" font-size="10" fill="#9aa0c3">exit</text>
+
+          <rect x="135" y="195" width="140" height="44" rx="10" fill="rgba(255,230,0,.08)" stroke="#ffe600"/>
+          <text x="205" y="214">Prometheus</text><text x="205" y="230" font-size="10" fill="#9aa0c3">+ Grafana · alerts</text>
+
+          <text x="115" y="80" font-size="10" fill="#9aa0c3">REALITY</text>
+          <text x="295" y="80" font-size="10" fill="#9aa0c3">routing</text>
+          <text x="330" y="175" font-size="10" fill="#9aa0c3">metrics</text>
+          <text x="40" y="160" font-size="10" fill="#9aa0c3">Ansible</text>
+          <path d="M40 150 L40 125" stroke="#9aa0c3" stroke-width="1" stroke-dasharray="2 4"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ЦЕЛИ + ОБРАЗОВАНИЕ -->
+  <section class="wrap">
+    <div class="section-head reveal"><span class="num">04</span><h2 data-i18n="growTitle"></h2><span class="line"></span></div>
+    <div class="two">
+      <div class="goals card reveal" id="goals"></div>
+      <div class="edu card reveal">
+        <div class="edu-item"><span class="yr">2024</span><b data-i18n="e1"></b><span data-i18n="e1s"></span></div>
+        <div class="edu-item"><span class="yr">2018</span><b data-i18n="e2"></b><span data-i18n="e2s"></span></div>
+        <div class="edu-item"><span class="yr">2017</span><b data-i18n="e3"></b><span data-i18n="e3s"></span></div>
+      </div>
+    </div>
+    <div class="about card reveal" style="margin-top:1rem">
+      <h3 style="margin:0 0 .5rem" data-i18n="aboutTitle"></h3>
+      <p data-i18n="aboutText"></p>
+      <div class="langs"><span class="tag l3"><span class="t" data-i18n="ru"></span></span><span class="tag l2"><span class="t" data-i18n="en"></span></span></div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section id="contact" class="wrap">
+    <div class="contact card reveal">
+      <h2 data-i18n="contactTitle"></h2>
+      <p data-i18n="contactText"></p>
+      <div class="btns">
+        <a class="btn primary" href="https://t.me/invorkel322" target="_blank" rel="noopener"><i class="fab fa-telegram"></i>@invorkel322</a>
+        <a class="btn" href="mailto:cold6319@rambler.ru"><i class="fas fa-envelope"></i>cold6319@rambler.ru</a>
+        <a class="btn" href="tel:+79875231787"><i class="fas fa-phone"></i>+7 (987) 523-17-87</a>
+        <a class="btn" href="https://www.linkedin.com/in/denis-nefedov-sre" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i>LinkedIn</a>
+        <a class="btn" href="https://github.com/invorkel322" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Cosmic SRE · <span data-i18n="footer"></span> <span class="heart">♥</span> &amp; kubectl
+</footer>
+
+<script>
+(() => {
+  "use strict";
+
+  /* ================= Тексты RU / EN ================= */
+  const I18N = {
+    ru: {
+      docTitle: "Нефедов Денис | SRE / DevOps Engineer",
+      navExp: "Опыт", navSkills: "Навыки", navProject: "Проект", navContact: "Контакты",
+      name: "Нефедов Денис",
+      heroSub: "Отвечаю за стабильность production: выкатываю релизы на высоконагруженные системы, разбираю инциденты, строю мониторинг и автоматизирую рутину эксплуатации.",
+      location: "Москва", format: "Удалённо / гибрид",
+      age: n => `${n} ${plural(n, ["год", "года", "лет"])}`,
+      st1: "года в эксплуатации и поддержке production",
+      st2: "пользователей на одном блоке, куда выкатываю релизы",
+      st3: "MTTR после внедрения мониторинга и алертинга",
+      st4: "блоков в поэтапной раскатке релиза",
+      expTitle: "Опыт работы", now: "NOW",
+      j1Title: "Старший инженер по сопровождению", j1Company: "Сбер", j1Sub: "Москва · финтех",
+      j1Period: "июнь 2026 — н. в.",
+      j1List: [
+        "Вывожу релизы в production на <span class='hl'>высоконагруженные блоки — более 7 млн пользователей</span> на одном блоке: планирование, согласование, технические перерывы.",
+        "Поэтапная раскатка средствами DevOps на <span class='hl'>~20 блоков</span> по план-графику в ночные окна с проверкой после каждого блока.",
+        "Раскатал <span class='hl'>4 новых инфраструктурных блока</span> для разных ФП плейбуками — со сверкой параметров конфигурации.",
+        "Участвовал в переходе на новые репозитории <span class='hl'>Bitbucket</span>: очистка, настройка деплоя, расписания запуска.",
+        "Проверка изменений на ПСИ-стенде: переключение <span class='hl'>feature toggles</span>, контроль поведения сервисов до выхода в prod.",
+        "Разбор инцидентов: зависимости, latency, ошибки, логи в <span class='hl'>ELK</span>; еженедельный разбор инцидентов и TOP-10 триггеров мониторинга.",
+        "Мониторинг в <span class='hl'>Zabbix и Grafana</span>, работа с <span class='hl'>DropApp (Kubernetes)</span>, базово OpenShift; Jenkins, Nexus, SecMan.",
+        "Инициировал и проводил встречи с предложениями по <span class='hl'>автоматизации</span> эксплуатационных процессов.",
+        "Контроль рисков, кибербезопасности и техдолга по закреплённым ФП; планирование внедрений на другие площадки."
+      ],
+      j2Title: "Системный администратор / SRE", j2Company: "Пензенское Управление Строительства", j2Sub: "Пенза",
+      j2Period: "дек 2022 — янв 2026",
+      j2List: [
+        "Построил централизованный мониторинг на <span class='hl'>Zabbix и Prometheus + Grafana</span> с уведомлениями в Telegram.",
+        "Автоматизация обслуживания и устранения типовых инцидентов на <span class='hl'>Bash</span>; управление конфигурацией и восстановление сервисов через <span class='hl'>Ansible</span>.",
+        "Контейнеризация сервисов в <span class='hl'>Docker</span>, виртуализация на Proxmox/KVM, Terraform для тестовых сред.",
+        "Администрирование Linux (Debian, Ubuntu, CentOS), настройка VPN и DNS, диагностика сетевых проблем."
+      ],
+      winsTitle: "КЛЮЧЕВЫЕ РЕЗУЛЬТАТЫ",
+      j2Wins: [
+        "Снизил MTTR до ~10–15 минут за счёт мониторинга и алертинга.",
+        "Массовые обновления серверов через Ansible: с ~4 часов до 30 минут.",
+        "Автоматизировал восстановление сервисов, сократив ручные операции."
+      ],
+      j3Title: "Менеджер IT-проектов", j3Company: "Доктор Байт", j3Sub: "Пенза · системная интеграция",
+      j3Period: "сен 2022 — ноя 2022",
+      j3List: [
+        "Координация заявок и инцидентов через Service Desk: приоритизация, распределение между инженерами, контроль сроков.",
+        "Работа по ITSM-процессам: управление инцидентами и запросами на обслуживание."
+      ],
+      j4Title: "Сетевой инженер", j4Company: "Pentaplex", j4Sub: "Пенза · системы безопасности",
+      j4Period: "июн 2022 — авг 2022",
+      j4List: [
+        "Настройка VPN-туннелей для удалённых объектов.",
+        "Работа с сетевым оборудованием MikroTik и Zyxel, диагностика сетей в Wireshark."
+      ],
+      skillsTitle: "Навыки", lvl3: "продвинутый", lvl2: "средний", lvl1: "базовый",
+      cat: {
+        obs: "Мониторинг и observability", auto: "Автоматизация и CI/CD", cont: "Контейнеры и платформы",
+        linux: "Linux и виртуализация", net: "Сети", proc: "Процессы и инструменты"
+      },
+      projTitle: "Личный проект",
+      projName: "Распределённая VPN-инфраструктура",
+      projDesc: "Своя отказоустойчивая инфраструктура на нескольких серверах: точка входа в РФ, выход в ЕС. Полигон для практики SRE вне работы.",
+      projList: [
+        "Настроил маршрутизацию и оптимизировал задержки между узлами.",
+        "Мониторинг и алертинг доступности на Prometheus + Grafana.",
+        "Управление конфигурацией всех серверов через Ansible."
+      ],
+      growTitle: "Развитие и образование",
+      goalsHead: "Куда расту",
+      goals: [
+        ["fa-dharmachakra", "<b>Kubernetes</b> — от диагностики к полноценной эксплуатации кластеров"],
+        ["fa-code-branch", "<b>CI/CD и GitOps</b> — GitLab CI, ArgoCD, Helm"],
+        ["fa-gauge-high", "<b>Практики SRE</b> — SLI/SLO, error budgets, постмортемы"],
+        ["fa-cloud", "<b>IaC и облака</b> — Terraform, облачные платформы"],
+        ["fa-python fab", "<b>Python</b> для автоматизации эксплуатации"]
+      ],
+      e1: "Открытый университет экономики, управления и права", e1s: "Психология",
+      e2: "Пензенский государственный технический университет", e2s: "Прикладная информатика",
+      e3: "Пензенский колледж информационных и промышленных технологий", e3s: "Компьютерные системы и комплексы",
+      aboutTitle: "Обо мне",
+      aboutText: "Люблю, когда система работает предсказуемо, а инцидент заканчивается не только исправлением, но и изменением, после которого он не повторится. Психологическое образование помогает в работе с командами: спокойно разбирать инциденты и договариваться с разработкой, архитекторами и владельцами систем.",
+      ru: "Русский — родной", en: "English — B1",
+      contactTitle: "Давайте на связь",
+      contactText: "Открыт к интересным задачам в SRE и DevOps. Быстрее всего отвечаю в Telegram.",
+      footer: "сделано с",
+      term: [
+        ["uptime", "4+ years in production, load: stable"],
+        ["kubectl get pods -n prod", "all pods Running ✓"],
+        ["zabbix_get problems --severity high", "0 active problems ✓"],
+        ["ansible-playbook rollout.yml --limit new_blocks", "4 blocks deployed, 0 failed ✓"]
+      ]
+    },
+    en: {
+      docTitle: "Denis Nefedov | SRE / DevOps Engineer",
+      navExp: "Experience", navSkills: "Skills", navProject: "Project", navContact: "Contact",
+      name: "Denis Nefedov",
+      heroSub: "I keep production stable: rolling out releases to high-load systems, handling incidents, building monitoring and automating routine operations.",
+      location: "Moscow, Russia", format: "Remote / hybrid",
+      age: n => `${n} years old`,
+      st1: "years running and supporting production",
+      st2: "users on a single block I release to",
+      st3: "MTTR after introducing monitoring and alerting",
+      st4: "blocks in a staged release rollout",
+      expTitle: "Experience", now: "NOW",
+      j1Title: "Senior Operations Engineer", j1Company: "Sber", j1Sub: "Moscow · fintech",
+      j1Period: "Jun 2026 — present",
+      j1List: [
+        "Rolling out production releases to <span class='hl'>high-load blocks — 7M+ users</span> on a single block: planning, approvals, maintenance windows.",
+        "Staged DevOps rollouts across <span class='hl'>~20 blocks</span> on a schedule during night windows, with verification after each block.",
+        "Deployed <span class='hl'>4 new infrastructure blocks</span> for different subsystems using playbooks, with configuration parity checks.",
+        "Took part in the migration to new <span class='hl'>Bitbucket</span> repositories: cleanup, deployment setup, run schedules.",
+        "Validating changes on the acceptance environment: switching <span class='hl'>feature toggles</span> and checking service behaviour before prod.",
+        "Incident analysis: dependencies, latency, errors, logs in <span class='hl'>ELK</span>; weekly incident reviews and TOP-10 alert trigger reviews.",
+        "Monitoring in <span class='hl'>Zabbix and Grafana</span>, working with <span class='hl'>DropApp (Kubernetes)</span>, basic OpenShift; Jenkins, Nexus, SecMan.",
+        "Initiated and ran meetings proposing <span class='hl'>automation</span> of operational processes.",
+        "Tracking risk, cybersecurity and tech-debt items for assigned subsystems; planning rollouts to other sites."
+      ],
+      j2Title: "System Administrator / SRE", j2Company: "Penza Construction Directorate", j2Sub: "Penza",
+      j2Period: "Dec 2022 — Jan 2026",
+      j2List: [
+        "Built centralized monitoring with <span class='hl'>Zabbix and Prometheus + Grafana</span>, alerts to Telegram.",
+        "Automated maintenance and routine incident fixes in <span class='hl'>Bash</span>; configuration management and service recovery with <span class='hl'>Ansible</span>.",
+        "Containerized services with <span class='hl'>Docker</span>, virtualization on Proxmox/KVM, Terraform for test environments.",
+        "Linux administration (Debian, Ubuntu, CentOS), VPN and DNS setup, network troubleshooting."
+      ],
+      winsTitle: "KEY RESULTS",
+      j2Wins: [
+        "Reduced MTTR to ~10–15 minutes through monitoring and alerting.",
+        "Mass server updates via Ansible: from ~4 hours down to 30 minutes.",
+        "Automated service recovery, cutting manual operations."
+      ],
+      j3Title: "IT Project Manager", j3Company: "Doctor Byte", j3Sub: "Penza · systems integration",
+      j3Period: "Sep 2022 — Nov 2022",
+      j3List: [
+        "Coordinated tickets and incidents via Service Desk: prioritization, routing to engineers, SLA tracking.",
+        "Worked within ITSM processes: incident and service request management."
+      ],
+      j4Title: "Network Engineer", j4Company: "Pentaplex", j4Sub: "Penza · security systems",
+      j4Period: "Jun 2022 — Aug 2022",
+      j4List: [
+        "Configured VPN tunnels for remote sites.",
+        "Worked with MikroTik and Zyxel network hardware, network diagnostics with Wireshark."
+      ],
+      skillsTitle: "Skills", lvl3: "advanced", lvl2: "intermediate", lvl1: "basic",
+      cat: {
+        obs: "Monitoring & observability", auto: "Automation & CI/CD", cont: "Containers & platforms",
+        linux: "Linux & virtualization", net: "Networking", proc: "Processes & tools"
+      },
+      projTitle: "Side project",
+      projName: "Distributed VPN infrastructure",
+      projDesc: "My own fault-tolerant multi-server setup: entry point in Russia, exit in the EU. A playground for SRE practice outside work.",
+      projList: [
+        "Set up routing and optimized latency between nodes.",
+        "Availability monitoring and alerting with Prometheus + Grafana.",
+        "Configuration management for all servers with Ansible."
+      ],
+      growTitle: "Growth & education",
+      goalsHead: "Where I'm heading",
+      goals: [
+        ["fa-dharmachakra", "<b>Kubernetes</b> — from troubleshooting to full cluster operations"],
+        ["fa-code-branch", "<b>CI/CD & GitOps</b> — GitLab CI, ArgoCD, Helm"],
+        ["fa-gauge-high", "<b>SRE practices</b> — SLI/SLO, error budgets, postmortems"],
+        ["fa-cloud", "<b>IaC & cloud</b> — Terraform, cloud platforms"],
+        ["fa-python fab", "<b>Python</b> for operations automation"]
+      ],
+      e1: "Open University of Economics, Management and Law", e1s: "Psychology",
+      e2: "Penza State Technological University", e2s: "Applied Informatics",
+      e3: "Penza College of Information and Industrial Technologies", e3s: "Computer Systems and Complexes",
+      aboutTitle: "About me",
+      aboutText: "I like systems that behave predictably, and incidents that end not just with a fix but with a change that keeps them from happening again. A psychology degree helps me work with people: calm incident reviews and clear agreements with developers, architects and system owners.",
+      ru: "Russian — native", en: "English — B1",
+      contactTitle: "Let's talk",
+      contactText: "Open to interesting SRE and DevOps challenges. Telegram is the fastest way to reach me.",
+      footer: "made with",
+      term: null
+    }
+  };
+  I18N.en.term = I18N.ru.term;
+
+  /* ================= Навыки: 3 — продвинутый, 2 — средний, 1 — базовый ================= */
+  const SKILLS = [
+    ["obs",   "fa-chart-line",    [["Zabbix",3],["Grafana",3],["Prometheus",2],["ELK",2],["Alerting",3]]],
+    ["auto",  "fa-gears",         [["Bash",3],["Ansible",2],["Jenkins",2],["GitLab",2],["Bitbucket",2],["Git",2],["Nexus",2],["CI/CD",2],["Terraform",1],["PowerShell",1]]],
+    ["cont",  "fa-cubes",         [["Docker",2],["Kubernetes (DropApp)",1],["OpenShift",1]]],
+    ["linux", "fa-server",        [["Linux",3],["Debian",3],["Ubuntu",3],["CentOS",2],["Nginx",2],["Proxmox",2],["KVM",2]]],
+    ["net",   "fa-network-wired", [["TCP/IP",3],["DNS",3],["VPN",3],["MikroTik",2],["Wireshark",2]]],
+    ["proc",  "fa-diagram-project",[["Release management",2],["Incident management",2],["Jira",2],["Confluence",2],["ITSM / SM",2]]]
+  ];
+
+  const BIRTH = new Date(1996, 11, 26);
+
+  function plural(n, forms) {
+    const n10 = n % 10, n100 = n % 100;
+    if (n10 === 1 && n100 !== 11) return forms[0];
+    if (n10 >= 2 && n10 <= 4 && (n100 < 10 || n100 >= 20)) return forms[1];
+    return forms[2];
+  }
+  function getAge() {
+    const d = new Date();
+    let a = d.getFullYear() - BIRTH.getFullYear();
+    if (d.getMonth() < BIRTH.getMonth() || (d.getMonth() === BIRTH.getMonth() && d.getDate() < BIRTH.getDate())) a--;
+    return a;
+  }
+  function safeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function safeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  /* ================= Применение языка ================= */
+  function applyLang(lang) {
+    const t = I18N[lang] || I18N.ru;
+    document.documentElement.lang = lang;
+    document.title = t.docTitle;
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const v = t[el.dataset.i18n];
+      if (typeof v === "string") el.innerHTML = v;
+    });
+    document.querySelectorAll("[data-i18n-list]").forEach(el => {
+      const arr = t[el.dataset.i18nList] || [];
+      el.innerHTML = arr.map(x => `<li>${x}</li>`).join("");
+    });
+
+    document.getElementById("age").textContent = t.age(getAge());
+
+    document.getElementById("skillsGrid").innerHTML = SKILLS.map(([key, icon, items]) => `
+      <div class="skill-cat card">
+        <h3><i class="fas ${icon}"></i>${t.cat[key]}</h3>
+        <div class="tags">${items.map(([n, l]) => `<span class="tag l${l}"><span class="t">${n}</span></span>`).join("")}</div>
+      </div>`).join("");
+
+    document.getElementById("goals").innerHTML =
+      `<h3 style="margin:0 0 .6rem">${t.goalsHead}</h3>` +
+      t.goals.map(([ic, txt]) => {
+        const cls = ic.includes("fab") ? ic : "fas " + ic;
+        return `<div class="goal"><i class="${cls}"></i><div>${txt}</div></div>`;
+      }).join("");
+
+    document.querySelectorAll(".lang button").forEach(b => {
+      const on = b.dataset.lang === lang;
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-pressed", on);
+    });
+    safeSet("lang", lang);
+  }
+
+  document.querySelectorAll(".lang button").forEach(b =>
+    b.addEventListener("click", () => applyLang(b.dataset.lang)));
+
+  const initial = safeGet("lang") || ((navigator.language || "ru").startsWith("ru") ? "ru" : "en");
+  applyLang(initial);
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ================= Появление при прокрутке ================= */
+  const reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add("in"));
+  }
+
+  /* ================= Терминал ================= */
+  const term = document.getElementById("term");
+  const lines = I18N.ru.term;
+  function esc(s) { return s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c])); }
+  if (reduceMotion) {
+    term.innerHTML = lines.map(([c, o]) => `<div><span class="p">$</span> ${esc(c)}</div><div class="ok">${esc(o)}</div>`).slice(0, 4).join("");
+  } else {
+    let li = 0;
+    const typeLine = () => {
+      const [cmd, out] = lines[li % lines.length];
+      let i = 0;
+      const tick = () => {
+        term.innerHTML = `<div><span class="p">$</span> ${esc(cmd.slice(0, i))}<span class="cursor"></span></div>`;
+        if (i++ < cmd.length) return setTimeout(tick, 38 + Math.random() * 40);
+        setTimeout(() => {
+          term.innerHTML = `<div><span class="p">$</span> ${esc(cmd)}</div><div class="ok">${esc(out)}</div><div><span class="p">$</span> <span class="cursor"></span></div>`;
+          li++;
+          setTimeout(typeLine, 2600);
+        }, 350);
+      };
+      tick();
+    };
+    typeLine();
+  }
+
+  /* ================= Звёздное небо на canvas ================= */
+  const cv = document.getElementById("stars");
+  const ctx = cv.getContext("2d");
+  let W, H, DPR, stars = [], comets = [];
+  let mx = 0, my = 0, tx = 0, ty = 0;
+
+  function resize() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.width = Math.floor(innerWidth * DPR);
+    H = cv.height = Math.floor(innerHeight * DPR);
+    cv.style.width = innerWidth + "px";
+    cv.style.height = innerHeight + "px";
+    const count = Math.min(260, Math.floor(innerWidth * innerHeight / 6500));
+    const palette = ["255,255,255", "255,255,255", "200,180,255", "180,255,250", "255,240,180"];
+    stars = Array.from({ length: count }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: (Math.random() * 1.3 + 0.2) * DPR,
+      z: Math.random() * 0.9 + 0.1,
+      tw: Math.random() * Math.PI * 2,
+      sp: 0.6 + Math.random() * 1.8,
+      c: palette[(Math.random() * palette.length) | 0]
+    }));
+  }
+
+  function spawnComet() {
+    const fromTop = Math.random() > 0.5;
+    comets.push({
+      x: fromTop ? Math.random() * W * 0.8 : -50 * DPR,
+      y: fromTop ? -50 * DPR : Math.random() * H * 0.4,
+      vx: (6 + Math.random() * 4) * DPR, vy: (3 + Math.random() * 3) * DPR,
+      life: 0, max: 110 + Math.random() * 60
+    });
+  }
+
+  function draw(t) {
+    ctx.clearRect(0, 0, W, H);
+    mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
+    for (const s of stars) {
+      const a = 0.35 + 0.65 * (0.5 + 0.5 * Math.sin(t * 0.001 * s.sp + s.tw));
+      let x = s.x + mx * 30 * s.z * DPR, y = s.y + my * 30 * s.z * DPR;
+      x = (x + W) % W; y = (y + H) % H;
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(${s.c},${a * s.z + 0.1})`;
+      ctx.arc(x, y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    for (let i = comets.length - 1; i >= 0; i--) {
+      const c = comets[i];
+      c.x += c.vx; c.y += c.vy; c.life++;
+      const fade = Math.sin(Math.PI * c.life / c.max);
+      const g = ctx.createLinearGradient(c.x, c.y, c.x - c.vx * 14, c.y - c.vy * 14);
+      g.addColorStop(0, `rgba(255,255,255,${0.9 * fade})`);
+      g.addColorStop(0.4, `rgba(157,77,255,${0.4 * fade})`);
+      g.addColorStop(1, "rgba(157,77,255,0)");
+      ctx.strokeStyle = g; ctx.lineWidth = 2 * DPR; ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(c.x, c.y); ctx.lineTo(c.x - c.vx * 14, c.y - c.vy * 14); ctx.stroke();
+      if (c.life > c.max) comets.splice(i, 1);
+    }
+    if (!reduceMotion) requestAnimationFrame(draw);
+  }
+
+  resize();
+  addEventListener("resize", resize);
+  if (reduceMotion) {
+    draw(0);
+  } else {
+    addEventListener("mousemove", e => {
+      tx = (e.clientX / innerWidth - 0.5);
+      ty = (e.clientY / innerHeight - 0.5);
+    }, { passive: true });
+    setInterval(() => { if (!document.hidden && comets.length < 2) spawnComet(); }, 5500);
+    setTimeout(spawnComet, 1200);
+    requestAnimationFrame(draw);
+  }
+})();
+</script>
 </body>
 </html>
