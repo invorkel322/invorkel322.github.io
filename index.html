@@ -8,6 +8,21 @@
 <meta property="og:title" content="Денис Нефедов — SRE / DevOps Engineer">
 <meta property="og:description" content="Мониторинг, релизы на высоконагруженные системы, инциденты, автоматизация.">
 <meta name="theme-color" content="#05060f">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://invorkel322.github.io/">
+<meta property="og:image" content="https://invorkel322.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://invorkel322.github.io/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Денис Нефедов","alternateName":"Denis Nefedov",
+ "jobTitle":"SRE / DevOps Engineer","email":"mailto:invorkel58@gmail.com","url":"https://invorkel322.github.io/",
+ "address":{"@type":"PostalAddress","addressLocality":"Москва","addressCountry":"RU"},
+ "sameAs":["https://github.com/invorkel322","https://www.linkedin.com/in/denis-nefedov-sre","https://t.me/invorkel322"],
+ "knowsAbout":["SRE","DevOps","Linux","Zabbix","Prometheus","Grafana","Ansible","Docker","Kubernetes","CI/CD","Incident management"]}
+</script>
+<!-- сан9 ыidor · if you are reading the source, you are hired (almost). press ` -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +105,7 @@ h2{margin:0;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;letter-spacing:
 .reveal.in{opacity:1;transform:none}
 
 /* ---------- Hero ---------- */
-.hero{padding:5rem 0 3rem}
+.hero{padding-top:5rem;padding-bottom:3rem}
 .hero-grid{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center}
 .orbit{position:relative;width:210px;height:210px;flex-shrink:0}
 .planet{
@@ -433,7 +448,7 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
   body{font-size:16px}
   .nav-links{display:none}
   .lang{margin-left:auto}
-  .hero{padding:3rem 0 2rem}
+  .hero{padding-top:2.2rem;padding-bottom:2rem}
   .hero-grid{grid-template-columns:1fr;gap:1.8rem;text-align:left}
   .orbit{width:150px;height:150px}
   .planet{inset:27px;font-size:1.7rem}
@@ -449,6 +464,248 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
   *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
 }
+/* ================= NEW: общие мелочи ================= */
+button.btn{font-family:inherit;color:var(--text);cursor:pointer}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.nav-tools{display:flex;align-items:center;gap:.5rem}
+.nav-btn{
+  display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;text-decoration:none;color:#fff;
+  font:600 .78rem 'JetBrains Mono',monospace;padding:.38rem .7rem;border-radius:999px;
+  border:1px solid var(--card-border);background:rgba(157,77,255,.12);transition:.2s;white-space:nowrap;
+}
+.nav-btn:hover{border-color:var(--teal);color:var(--teal)}
+.nav-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.nav-btn.cv{background:linear-gradient(120deg,var(--purple),#6a1fd1);border-color:transparent}
+.nav-btn.cv:hover{color:#fff;box-shadow:0 0 18px -4px var(--purple)}
+@media (max-width:1100px){.nav-links{display:none}.lang{margin-left:auto}}
+@media (max-width:480px){.nav-btn .lbl{display:none}.nav-inner{gap:.6rem}.logo{font-size:.9rem}}
+
+.terminal{cursor:pointer;position:relative}
+.term-hint{
+  position:absolute;right:.9rem;bottom:.7rem;font:500 .74rem 'JetBrains Mono',monospace;color:var(--muted);
+  padding:.2rem .5rem;border-radius:6px;border:1px dashed rgba(157,77,255,.4);background:rgba(5,6,15,.6);
+}
+.terminal:hover .term-hint{color:var(--teal);border-color:var(--teal)}
+kbd{font:600 .78em 'JetBrains Mono',monospace;padding:.05rem .35rem;border-radius:4px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06)}
+
+/* топливо = прогресс прокрутки */
+.fuel{position:fixed;left:0;right:0;top:0;height:3px;z-index:60;pointer-events:none}
+.fuel span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--teal),var(--yellow));box-shadow:0 0 12px var(--teal)}
+
+.dock{position:fixed;right:1rem;bottom:1rem;z-index:70;display:flex;flex-direction:column;gap:.6rem}
+.dock-btn{
+  width:48px;height:48px;border-radius:50%;cursor:pointer;display:grid;place-items:center;color:#fff;position:relative;
+  background:rgba(14,18,48,.85);border:1px solid var(--card-border);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  box-shadow:0 8px 24px -8px var(--purple);transition:.25s;font-size:1.05rem;
+}
+.dock-btn:hover{border-color:var(--teal);transform:translateY(-3px)}
+.dock-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.dock-btn .dock-t{position:absolute;font:700 .8rem 'JetBrains Mono',monospace;opacity:0}
+.no-icons .dock-btn .dock-t{opacity:1}
+.no-icons .dock-btn i{display:none}
+#dockTop.launch{animation:launch .9s ease-in forwards}
+@keyframes launch{to{transform:translateY(-120vh) rotate(-12deg);opacity:0}}
+
+.toasts{position:fixed;left:50%;bottom:1.2rem;transform:translateX(-50%);z-index:120;display:flex;flex-direction:column;gap:.5rem;align-items:center;pointer-events:none;width:min(92vw,520px)}
+.toast{
+  pointer-events:auto;padding:.7rem 1rem;border-radius:12px;font-size:.92rem;text-align:center;
+  background:rgba(14,18,48,.95);border:1px solid var(--purple);box-shadow:0 10px 30px -10px var(--purple);
+  animation:toastIn .3s ease-out;
+}
+.toast.out{animation:toastOut .3s ease-in forwards}
+@keyframes toastIn{from{opacity:0;transform:translateY(12px)}}
+@keyframes toastOut{to{opacity:0;transform:translateY(12px)}}
+
+/* навыки: клик = где применял */
+.skills .tag{cursor:pointer;font:inherit;font-size:.88rem}
+.skills .tag.sel{box-shadow:0 0 0 2px var(--teal),0 0 16px var(--teal)}
+.skill-hint{color:var(--muted);font-size:.88rem;margin:-.6rem 0 1.2rem}
+.match{background:linear-gradient(90deg,rgba(0,255,238,.16),transparent);border-radius:6px;box-shadow:inset 3px 0 0 var(--teal);transition:background .4s}
+.stack span.match{background:rgba(0,255,238,.3);color:#fff;box-shadow:0 0 10px var(--teal)}
+
+/* ================= ЦУП ================= */
+.mc-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:1rem;align-items:start}
+.mc{padding:1.4rem 1.5rem}
+.mc h3{margin:0 0 .9rem;font-size:1.08rem;display:flex;align-items:center;gap:.6rem}
+.mc h3 i{color:var(--purple)}
+.mc-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem}
+.mc-head h3{margin:0}
+.mc-note{color:var(--muted);font-size:.84rem;margin:.8rem 0 0}
+.mini-btn{
+  display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;color:var(--text);font:600 .8rem 'Exo 2',sans-serif;
+  padding:.35rem .7rem;border-radius:8px;border:1px solid var(--card-border);background:rgba(157,77,255,.1);
+}
+.mini-btn:hover{border-color:var(--teal)}
+.mini-btn:disabled{opacity:.5;cursor:wait}
+.st-overall{display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;border-radius:10px;margin-bottom:.8rem;font-weight:600;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.st-overall .dot{width:10px;height:10px;border-radius:50%;background:var(--muted)}
+.st-overall.ok{background:rgba(61,255,154,.07);border-color:rgba(61,255,154,.35)}
+.st-overall.ok .dot{background:#3dff9a;box-shadow:0 0 10px #3dff9a}
+.st-overall.warn{background:rgba(255,230,0,.06);border-color:rgba(255,230,0,.35)}
+.st-overall.warn .dot{background:var(--yellow);box-shadow:0 0 10px var(--yellow)}
+.st-row{display:grid;grid-template-columns:1fr auto auto;gap:.3rem 1rem;align-items:center;padding:.65rem .2rem;border-bottom:1px dashed rgba(255,255,255,.07)}
+.st-row:last-child{border-bottom:0}
+.st-name{min-width:0}
+.st-name b{display:block;font-size:.95rem}
+.st-name a{font:500 .76rem 'JetBrains Mono',monospace;color:var(--muted);text-decoration:none;word-break:break-all}
+.st-name a:hover{color:var(--teal)}
+.st-spark{width:90px;height:26px}
+.st-pill{font:700 .7rem 'Orbitron',sans-serif;letter-spacing:1px;padding:.25rem .55rem;border-radius:999px;border:1px solid;min-width:92px;text-align:center;white-space:nowrap}
+.st-pill.up{color:#3dff9a;border-color:rgba(61,255,154,.45);background:rgba(61,255,154,.07)}
+.st-pill.down{color:#ff6b6b;border-color:rgba(255,107,107,.45);background:rgba(255,107,107,.07)}
+.st-pill.wait{color:var(--muted);border-color:rgba(255,255,255,.2)}
+
+.uptime{font:700 clamp(1.25rem,3.4vw,1.8rem) 'JetBrains Mono',monospace;color:#fff;text-shadow:0 0 18px rgba(0,255,238,.45);letter-spacing:.5px}
+.uptime small{font-size:.55em;color:var(--muted);margin:0 .35em 0 .1em}
+.up-sub{color:var(--muted);font-size:.88rem;margin:.3rem 0 1rem}
+.up-bars{display:flex;gap:2px;height:30px;align-items:stretch}
+.up-bars i{flex:1;border-radius:2px;background:#3dff9a;opacity:.85}
+.up-bars i.gap{background:var(--purple);opacity:.9}
+.up-legend{display:flex;justify-content:space-between;color:var(--muted);font:500 .72rem 'JetBrains Mono',monospace;margin-top:.35rem}
+
+.slo-input{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .7rem;margin-bottom:.7rem}
+.slo-input input{
+  width:7.5rem;font:700 1.4rem 'JetBrains Mono',monospace;color:#fff;background:rgba(3,5,18,.7);
+  border:1px solid var(--card-border);border-radius:10px;padding:.35rem .6rem;
+}
+.slo-input input:focus{outline:2px solid var(--teal);outline-offset:1px}
+.pct{font:700 1.3rem 'JetBrains Mono',monospace;color:var(--muted);margin-left:-.3rem}
+.slo-presets{display:flex;flex-wrap:wrap;gap:.35rem}
+.slo-presets button{cursor:pointer;font:600 .8rem 'JetBrains Mono',monospace;color:var(--text);padding:.3rem .55rem;border-radius:8px;border:1px solid var(--card-border);background:rgba(157,77,255,.08)}
+.slo-presets button.on,.slo-presets button:hover{border-color:var(--teal);color:var(--teal)}
+#sloRange{width:100%;accent-color:var(--purple)}
+.slo-out{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.8rem}
+.slo-out div{padding:.6rem .5rem;border-radius:10px;background:rgba(3,5,18,.55);border:1px solid rgba(255,255,255,.07);text-align:center}
+.slo-out b{display:block;font:700 1rem 'JetBrains Mono',monospace;color:var(--yellow)}
+.slo-out span{font-size:.75rem;color:var(--muted)}
+
+.ir{list-style:none;margin:0;padding:0;display:grid;gap:.55rem;counter-reset:ir}
+.ir li{counter-increment:ir;display:grid;grid-template-columns:2.2rem 1fr;gap:.1rem .7rem;padding:.55rem .6rem;border-radius:10px;border:1px solid rgba(255,255,255,.06);background:rgba(3,5,18,.35);transition:.25s}
+.ir li:hover{border-color:var(--purple);transform:translateX(4px)}
+.ir li::before{content:counter(ir);grid-row:span 2;width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;font:700 .85rem 'Orbitron',sans-serif;color:#111;background:var(--c,var(--teal));box-shadow:0 0 12px var(--c,var(--teal))}
+.ir b{font-size:.95rem}
+.ir span{color:var(--muted);font-size:.84rem}
+
+@media (max-width:900px){.mc-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.slo-out{grid-template-columns:repeat(2,1fr)}.st-spark{display:none}.st-row{grid-template-columns:1fr auto}}
+
+/* ================= Терминал ================= */
+.shell{position:fixed;inset:0;z-index:110;display:flex;align-items:center;justify-content:center;padding:1rem;background:rgba(3,4,12,.72);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.shell[hidden]{display:none}
+.shell-win{
+  width:min(860px,100%);height:min(560px,86vh);display:flex;flex-direction:column;border-radius:14px;overflow:hidden;
+  background:rgba(4,6,20,.97);border:1px solid var(--purple);box-shadow:0 30px 80px -20px var(--purple),0 0 0 1px rgba(0,255,238,.08);
+  animation:shellIn .22s ease-out;
+}
+@keyframes shellIn{from{opacity:0;transform:scale(.97) translateY(8px)}}
+.shell-x{margin-left:auto;background:none;border:0;color:var(--muted);cursor:pointer;font-size:1rem;width:auto;height:auto;border-radius:0}
+.shell-x:hover{color:#fff}
+.shell-out{flex:1;overflow-y:auto;padding:1rem 1.1rem .4rem;font:400 .86rem/1.55 'JetBrains Mono',monospace;color:#c9f5dd;white-space:pre-wrap;word-break:break-word}
+.shell-out .cmd{color:#fff}
+.shell-out .ps{color:var(--purple)}
+.shell-out .dim{color:#6f7599}
+.shell-out .ok{color:#3dff9a}
+.shell-out .warn{color:var(--yellow)}
+.shell-out .err{color:#ff6b6b}
+.shell-out .acc{color:var(--teal)}
+.shell-out a{color:var(--teal)}
+.shell-in{display:flex;align-items:center;gap:.5rem;padding:.6rem 1.1rem .8rem;border-top:1px solid rgba(255,255,255,.06)}
+.ps1{font:600 .86rem 'JetBrains Mono',monospace;color:var(--purple);white-space:nowrap}
+.shell-in input{flex:1;min-width:0;background:none;border:0;color:#fff;font:400 .92rem 'JetBrains Mono',monospace;caret-color:var(--teal)}
+.shell-in input:focus{outline:none}
+.shell-in input::placeholder{color:#4b5070}
+@media (max-width:520px){.shell-in{margin:.4rem .8rem .6rem;padding:.5rem .7rem;border:1px solid var(--card-border);border-radius:10px}}
+.shell-hints{display:flex;flex-wrap:wrap;gap:.35rem;padding:0 1.1rem .8rem}
+.shell-hints button{cursor:pointer;font:500 .74rem 'JetBrains Mono',monospace;color:var(--muted);padding:.2rem .5rem;border-radius:6px;border:1px solid rgba(255,255,255,.12);background:none}
+.shell-hints button:hover{color:var(--teal);border-color:var(--teal)}
+@media (max-width:520px){.ps1{display:none}.shell-out{font-size:.8rem}}
+
+/* ================= Пасхалка ================= */
+.egg{color:transparent;user-select:text;font-size:.7rem;letter-spacing:2px}
+.egg::selection{color:#fff;background:var(--purple)}
+.egg-overlay{position:fixed;inset:0;z-index:130;display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,#1a0b3d,#030410 70%);cursor:pointer;animation:shellIn .4s ease-out}
+.egg-overlay[hidden]{display:none}
+#eggCanvas{position:absolute;inset:0;width:100%;height:100%}
+.egg-text{position:relative;text-align:center;padding:1rem}
+.egg-big{
+  font:900 clamp(2.6rem,11vw,7rem) 'Orbitron',sans-serif;letter-spacing:.06em;line-height:1.1;
+  background:linear-gradient(100deg,#fff,#c9a4ff 40%,var(--teal) 70%,var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 24px rgba(157,77,255,.8));animation:eggPulse 2.4s ease-in-out infinite;
+}
+@keyframes eggPulse{50%{filter:drop-shadow(0 0 42px rgba(0,255,238,.9))}}
+.egg-small{font:500 .85rem 'JetBrains Mono',monospace;color:var(--muted);margin:.8rem 0}
+
+/* ================= Печать / PDF ================= */
+.print-only{display:none}
+@media print{
+  @page{size:A4;margin:12mm 13mm}
+  :root{--text:#15172b;--muted:#4b5070}
+  html,body{background:#fff!important;color:#15172b!important;font-size:9.6pt;line-height:1.38}
+  *{box-shadow:none!important;text-shadow:none!important;animation:none!important;transition:none!important}
+  .nebula,#stars,.nav,.terminal,.orbit,.btns,.dock,.fuel,.toasts,.shell,.egg-overlay,.lightbox,#crew,#mission,#radar,
+  .gallery-wrap,.diagram,.tree-box,.try,.note,.meme,.langs,.legend,.skill-hint,.stats,footer,.contact,.eyebrow,.status::before,.hero .meta i{display:none!important}
+  .print-only{display:block}
+  .reveal{opacity:1!important;transform:none!important}
+  .card{background:none!important;border:0!important;backdrop-filter:none!important;padding:0!important}
+  .wrap{max-width:none;padding:0}
+  section{padding:0;margin-top:4mm}
+  .hero-sub{font-size:9.6pt}
+  .meta{font-size:8.5pt;margin:0}
+  .hero{padding:0}
+  .hero-grid{display:block}
+  h1{background:none!important;-webkit-background-clip:initial;background-clip:initial;color:#15172b!important;font-size:22pt}
+  .role{color:#6a1fd1!important;font-size:11pt;margin:.1rem 0}
+  .hero-sub{color:#15172b!important;margin:.3rem 0;max-width:none}
+  .print-contacts{font-size:9.5pt;color:#15172b;margin:.2rem 0 .3rem;border-bottom:1.5pt solid #6a1fd1;padding-bottom:.35rem}
+  .print-contacts b{color:#6a1fd1}
+  .section-head{margin:0 0 2mm;break-after:avoid}
+  .section-head h2{font-size:13pt;color:#6a1fd1}
+  .section-head .num{display:none}
+  .section-head .line{background:#d8d2f0}
+  .section-lead{display:none}
+  .timeline{padding-left:0}
+  .timeline::before,.job::before{display:none}
+  .job{margin:0 0 3mm;break-inside:auto}
+  .job-top,.job-sub{break-after:avoid}
+  .job li{break-inside:avoid}
+  .job h3,.p-titles h3{color:#15172b!important;font-size:11pt}
+  .company{color:#15172b}
+  .job-sub,.period,.p-meta{color:#4b5070!important}
+  .badge{border-color:#6a1fd1;color:#6a1fd1;background:none}
+  .job li,.p-list li{margin:.1rem 0}
+  .job li::before,.p-list li::before{color:#6a1fd1}
+  .hl{color:#15172b;font-weight:700}
+  .wins{background:none;border:1pt solid #e6dfb0;padding:2mm 3mm}
+  .wins h4{color:#8a6d00}
+  .stack{margin-top:1.5mm}
+  .stack span{background:#f0ebff;color:#3a0f7a;font-size:7.5pt}
+  .skills{grid-template-columns:repeat(3,1fr);gap:2mm}
+  .skill-cat{padding:0!important;break-inside:avoid}
+  .skill-cat h3{font-size:9.5pt;margin-bottom:1mm}
+  .skill-cat h3 i{display:none}
+  .tag{font-size:8pt;padding:.05rem .45rem;background:none!important;color:#15172b!important}
+  .tag::before{display:none}
+  .l3{border-color:#c9a400!important}.l2{border-color:#9d4dff!important}.l1{border-color:#8fd!important}
+  .pcard{margin:0 0 2.5mm;break-inside:avoid}
+  #p-k8s .p-list,#p-bridge .p-list,.flowline,.roadmap,.skill-cat .tag::before{display:none!important}
+  #p-k8s .p-body p,#p-bridge .p-body p{margin-bottom:.1rem}
+  .p-icon{display:none}
+  .p-head{margin-bottom:1mm}
+  .two-col{display:block}
+  .p-body p{color:#15172b;margin:.1rem 0 .3rem}
+  .status{border-color:#9aa0c3;color:#4b5070!important;background:none}
+  .roadmap{grid-template-columns:repeat(3,1fr);gap:2mm}
+  .rm{padding:1.5mm 2mm;border-color:#ccc!important;background:none!important}
+  .two{grid-template-columns:1fr 1fr;gap:4mm}
+  .goals,.edu,.about{padding:0!important}
+  .goal i{display:none}
+  .edu-item{padding:1mm 0}
+  .about{margin-top:2mm!important}
+  a{color:#15172b;text-decoration:none}
+  #experience{margin-top:4mm}
+}
+
 </style>
 </head>
 <body>
@@ -463,8 +720,13 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
       <a href="#skills" data-i18n="navSkills"></a>
       <a href="#project" data-i18n="navProject"></a>
       <a href="#crew" data-i18n="navCrew"></a>
+      <a href="#mission" data-i18n="navMission"></a>
       <a href="#radar" data-i18n="navRadar"></a>
       <a href="#contact" data-i18n="navContact"></a>
+    </div>
+    <div class="nav-tools">
+      <button type="button" class="nav-btn" data-shell title="` / Ctrl+K"><span aria-hidden="true">&gt;_</span><span class="lbl" data-i18n="btnShell"></span></button>
+      <a class="nav-btn cv" href="assets/Nefedov_Denis_SRE_CV.pdf" data-cv><span aria-hidden="true">⤓</span><span class="lbl" data-i18n="btnCv"></span></a>
     </div>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-lang="ru">RU</button>
@@ -487,6 +749,7 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
         <h1 data-i18n="name"></h1>
         <p class="role">SRE / DEVOPS ENGINEER</p>
         <p class="hero-sub" data-i18n="heroSub"></p>
+        <div class="print-only print-contacts"><b>invorkel58@gmail.com</b> · +7 (987) 523-17-87 · t.me/invorkel322 · linkedin.com/in/denis-nefedov-sre · github.com/invorkel322 · invorkel322.github.io · Москва, удалённо / гибрид</div>
         <div class="meta">
           <span><i class="fas fa-location-dot"></i><span data-i18n="location"></span></span>
           <span><i class="fas fa-user-astronaut"></i><span id="age"></span></span>
@@ -507,6 +770,7 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
         <span class="t-title">denis@prod: ~</span>
       </div>
       <div class="term-body" id="term" aria-live="off"></div>
+      <span class="term-hint" data-i18n="termHint"></span>
     </div>
 
     <div class="stats">
@@ -575,6 +839,7 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
       <span><span class="tag l2" style="padding:.1rem .6rem"></span><span data-i18n="lvl2"></span></span>
       <span><span class="tag l1" style="padding:.1rem .6rem"></span><span data-i18n="lvl1"></span></span>
     </div>
+    <p class="skill-hint reveal" data-i18n="skillHint"></p>
     <div class="skills" id="skillsGrid"></div>
   </section>
 
@@ -809,9 +1074,64 @@ save_state(state)</pre>
     <div class="crew" id="crewGrid"></div>
   </section>
 
+  <!-- ЦУП: ЦЕНТР УПРАВЛЕНИЯ ПОЛЁТАМИ -->
+  <section id="mission" class="wrap">
+    <div class="section-head reveal"><span class="num">05</span><h2 data-i18n="misTitle"></h2><span class="line"></span></div>
+    <p class="section-lead reveal" data-i18n="misLead"></p>
+
+    <div class="mc-grid">
+      <!-- Статус-страница -->
+      <div class="card mc status-card reveal">
+        <div class="mc-head">
+          <h3><i class="fas fa-satellite-dish"></i><span data-i18n="stTitle"></span></h3>
+          <button type="button" class="mini-btn" id="stRecheck"><i class="fas fa-rotate"></i><span data-i18n="stRecheck"></span></button>
+        </div>
+        <div class="st-overall" id="stOverall"><span class="dot"></span><span id="stOverallText"></span></div>
+        <div class="st-rows" id="stRows"></div>
+        <p class="mc-note" data-i18n="stNote"></p>
+      </div>
+
+      <!-- Аптайм -->
+      <div class="card mc uptime-card reveal">
+        <h3><i class="fas fa-clock"></i><span data-i18n="upTitle"></span></h3>
+        <div class="uptime" id="uptime" aria-live="off"></div>
+        <div class="up-sub" data-i18n="upSub"></div>
+        <div class="up-bars" id="upBars" aria-hidden="true"></div>
+        <div class="up-legend"><span data-i18n="upFrom"></span><span data-i18n="upNow"></span></div>
+      </div>
+
+      <!-- Калькулятор SLO -->
+      <div class="card mc slo-card reveal">
+        <h3><i class="fas fa-gauge-high"></i><span data-i18n="sloTitle"></span></h3>
+        <p class="mc-note" style="margin-top:0" data-i18n="sloLead"></p>
+        <div class="slo-input">
+          <label for="sloVal" class="sr-only">SLO %</label>
+          <input id="sloVal" type="number" min="90" max="99.9999" step="0.01" value="99.9" inputmode="decimal">
+          <span class="pct">%</span>
+          <div class="slo-presets">
+            <button type="button" data-slo="99">99</button>
+            <button type="button" data-slo="99.5">99.5</button>
+            <button type="button" data-slo="99.9" class="on">99.9</button>
+            <button type="button" data-slo="99.95">99.95</button>
+            <button type="button" data-slo="99.99">99.99</button>
+          </div>
+        </div>
+        <input id="sloRange" type="range" min="0" max="1000" value="700" aria-label="SLO slider">
+        <div class="slo-out" id="sloOut"></div>
+        <p class="mc-note" id="sloHint"></p>
+      </div>
+
+      <!-- Протокол инцидента -->
+      <div class="card mc ir-card reveal">
+        <h3><i class="fas fa-fire-extinguisher"></i><span data-i18n="irTitle"></span></h3>
+        <ol class="ir" id="irSteps"></ol>
+      </div>
+    </div>
+  </section>
+
   <!-- IT-РАДАР -->
   <section id="radar" class="wrap">
-    <div class="section-head reveal"><span class="num">05</span><h2 data-i18n="radarTitle"></h2><span class="line"></span></div>
+    <div class="section-head reveal"><span class="num">06</span><h2 data-i18n="radarTitle"></h2><span class="line"></span></div>
     <p class="section-lead reveal" data-i18n="radarLead"></p>
     <div class="radar card reveal">
       <div class="radar-tabs" role="tablist">
@@ -825,8 +1145,8 @@ save_state(state)</pre>
   </section>
 
   <!-- ЦЕЛИ + ОБРАЗОВАНИЕ -->
-  <section class="wrap">
-    <div class="section-head reveal"><span class="num">06</span><h2 data-i18n="growTitle"></h2><span class="line"></span></div>
+  <section class="wrap" id="growth">
+    <div class="section-head reveal"><span class="num">07</span><h2 data-i18n="growTitle"></h2><span class="line"></span></div>
     <div class="two">
       <div class="goals card reveal" id="goals"></div>
       <div class="edu card reveal">
@@ -869,6 +1189,11 @@ save_state(state)</pre>
         <a class="btn" href="https://www.linkedin.com/in/denis-nefedov-sre" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i>LinkedIn</a>
         <a class="btn" href="https://github.com/invorkel322" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub</a>
       </div>
+      <div class="btns" style="margin-top:.7rem">
+        <a class="btn primary" href="assets/Nefedov_Denis_SRE_CV.pdf" data-cv><i class="fas fa-file-arrow-down"></i><span data-i18n="btnCv"></span></a>
+        <button type="button" class="btn" data-vcard><i class="fas fa-address-card"></i><span data-i18n="btnVcard"></span></button>
+        <button type="button" class="btn" data-shell><i class="fas fa-terminal"></i>&gt;_ <span data-i18n="btnShell"></span></button>
+      </div>
     </div>
   </section>
 </main>
@@ -883,7 +1208,44 @@ save_state(state)</pre>
 
 <footer>
   © <span id="year"></span> Cosmic SRE · <span data-i18n="footer"></span> <span class="heart">♥</span> &amp; kubectl
+
+  <div><span class="egg" title="🥚">сан9 ыidor</span></div>
 </footer>
+
+<!-- Интерактивный терминал -->
+<div class="shell" id="shell" role="dialog" aria-modal="true" aria-label="Interactive terminal" hidden>
+  <div class="shell-win">
+    <div class="term-bar">
+      <span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span>
+      <span class="t-title">denis@sre-station: ~ — bash</span>
+      <button type="button" class="shell-x" id="shellClose" aria-label="Close">✕</button>
+    </div>
+    <div class="shell-out" id="shellOut"></div>
+    <form class="shell-in" id="shellForm" autocomplete="off">
+      <span class="ps1">guest@sre-station:~$</span>
+      <input id="shellInput" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="send" placeholder="help" aria-label="command">
+    </form>
+    <div class="shell-hints" id="shellHints"></div>
+  </div>
+</div>
+
+<!-- Пасхалка -->
+<div class="egg-overlay" id="eggOverlay" hidden>
+  <canvas id="eggCanvas" aria-hidden="true"></canvas>
+  <div class="egg-text">
+    <div class="egg-small">// transmission received from deep space</div>
+    <div class="egg-big">сан9 ыidor</div>
+    <div class="egg-small">🛰️ click anywhere to return to orbit</div>
+  </div>
+</div>
+
+<!-- Тосты, прогресс, кнопки -->
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<div class="fuel" id="fuel" aria-hidden="true"><span></span></div>
+<div class="dock">
+  <button type="button" class="dock-btn" id="dockShell" aria-label="Open terminal"><i class="fas fa-terminal"></i><span class="dock-t">&gt;_</span></button>
+  <button type="button" class="dock-btn" id="dockTop" aria-label="Back to top" hidden><i class="fas fa-rocket"></i><span class="dock-t">↑</span></button>
+</div>
 
 <script>
 (() => {
@@ -1000,6 +1362,38 @@ save_state(state)</pre>
       rm2: "Следующий шаг", rm2s: "Вынести в отдельный сервис с удалённым доступом",
       rm3: "Дальше", rm3s: "Доступ после оплаты через Telegram-бота",
       crewTitle: "Экипаж 25/8",
+      navMission: "ЦУП",
+      btnShell: "терминал", btnCv: "Резюме PDF", btnVcard: "Сохранить контакт",
+      termHint: "▶ кликни или нажми <kbd>`</kbd> — это настоящий терминал",
+      skillHint: "Нажми на навык — подсвечу, где именно я его применял.",
+      skillHits: n => `${n} ${plural(n, ["упоминание", "упоминания", "упоминаний"])} в опыте и проектах`, skillNone: "пока только в планах изучения",
+      cvDl: "Скачиваю резюме PDF", cvPrint: "PDF ещё не загружен — открываю печать: выбери «Сохранить как PDF»",
+      vcardOk: "Контакт сохранён — открой файл, чтобы добавить в телефон",
+      misTitle: "Центр управления полётами",
+      misLead: "Живые инструменты по моей профессии: статус моих сервисов прямо из вашего браузера, калькулятор error budget и то, как я разбираю инциденты.",
+      stTitle: "Статус-страница", stRecheck: "Проверить", stDown: "НЕ ОТВЕЧАЕТ", stWait: "ПРОВЕРКА…",
+      stChecking: "Проверяю сервисы…", stAllOk: "Все системы работают штатно", stPartial: "сервиса отвечают из вашей сети",
+      stNote: "Пинг идёт из вашего браузера каждые 30 секунд, пока блок на экране. Если сервис «не отвечает», возможно, его режет ваша сеть или блокировщик.",
+      upTitle: "Аптайм в IT", upSub: "с июня 2022 — без единого простоя в желании расти",
+      upFrom: "июн 2022", upNow: "сейчас",
+      uY: "г", uM: "мес", uD: "д",
+      sloTitle: "Калькулятор error budget",
+      sloLead: "Сколько простоя можно себе позволить при заданном SLO. Вопрос, который любят задавать на собеседованиях.",
+      perDay: "в день", perWeek: "в неделю", perMonth: "в месяц", perYear: "в год",
+      ms: "мс", s: "сек", min: "мин", h: "ч", d: "дн",
+      sloH1: "Ниже 99% — это уже заметно пользователям каждый день.",
+      sloH2: "Две девятки: нормально для внутренних сервисов и тестовых сред.",
+      sloH3: "Три девятки: типичная цель для пользовательских сервисов. Релиз с ошибкой легко съедает бюджет за вечер.",
+      sloH4: "Четыре девятки и выше: без автоматического failover, канареек и быстрого отката не достичь.",
+      irTitle: "Как я разбираю инцидент",
+      ir: [
+        ["Обнаружить", "Алерт в Zabbix или Grafana, а не звонок пользователя. Триггеры чищу от шума: еженедельно разбираю TOP-10."],
+        ["Оценить", "Какой блок, сколько пользователей, что менялось. Смотрю зависимости, latency и ошибки."],
+        ["Восстановить", "Сначала вернуть сервис: откат, feature toggle, переключение трафика. Причины потом."],
+        ["Найти причину", "Логи в ELK, метрики, таймлайн. Ищу первопричину, а не виноватого."],
+        ["Не допустить", "Новый алерт, автоматизация на Ansible/Bash, пункт в runbook, чтобы не повторилось."]
+      ],
+      keysHelp: "<b>Горячие клавиши:</b> <kbd>`</kbd> или <kbd>Ctrl</kbd>+<kbd>K</kbd> терминал · <kbd>Esc</kbd> закрыть · а ещё тут есть пасхалка 👀",
       navRadar: "Радар",
       radarTitle: "IT-радар",
       radarLead: "Живая лента: что прямо сейчас обсуждают инженеры и какие репозитории взлетают на GitHub. Обновляется при каждом открытии страницы.",
@@ -1147,6 +1541,38 @@ save_state(state)</pre>
       rm2: "Next", rm2s: "Split into a standalone service with remote access",
       rm3: "Later", rm3s: "Paid access via a Telegram bot",
       crewTitle: "Crew 25/8",
+      navMission: "Mission",
+      btnShell: "shell", btnCv: "CV PDF", btnVcard: "Save contact",
+      termHint: "▶ click or press <kbd>`</kbd> — it's a real terminal",
+      skillHint: "Click a skill and I'll highlight exactly where I used it.",
+      skillHits: n => `${n} ${n === 1 ? "mention" : "mentions"} in experience and projects`, skillNone: "on my learning roadmap for now",
+      cvDl: "Downloading CV PDF", cvPrint: "PDF not uploaded yet — opening print: choose “Save as PDF”",
+      vcardOk: "Contact saved — open the file to add it to your phone",
+      misTitle: "Mission control",
+      misLead: "Live tools from my profession: the status of my services checked right from your browser, an error budget calculator and how I handle incidents.",
+      stTitle: "Status page", stRecheck: "Recheck", stDown: "NO RESPONSE", stWait: "CHECKING…",
+      stChecking: "Checking services…", stAllOk: "All systems operational", stPartial: "services reachable from your network",
+      stNote: "Pings run from your browser every 30 seconds while this block is on screen. “No response” may mean your network or an ad blocker is filtering it.",
+      upTitle: "IT uptime", upSub: "since June 2022, zero downtime in the will to grow",
+      upFrom: "Jun 2022", upNow: "now",
+      uY: "y", uM: "mo", uD: "d",
+      sloTitle: "Error budget calculator",
+      sloLead: "How much downtime a given SLO allows. A favourite interview question.",
+      perDay: "per day", perWeek: "per week", perMonth: "per month", perYear: "per year",
+      ms: "ms", s: "s", min: "min", h: "h", d: "d",
+      sloH1: "Below 99% users notice it every day.",
+      sloH2: "Two nines: fine for internal services and test environments.",
+      sloH3: "Three nines: a typical target for user-facing services. One bad release can burn the budget in an evening.",
+      sloH4: "Four nines and up: impossible without automatic failover, canaries and fast rollback.",
+      irTitle: "How I handle an incident",
+      ir: [
+        ["Detect", "An alert in Zabbix or Grafana, not a user's call. I keep triggers noise-free with a weekly TOP-10 review."],
+        ["Triage", "Which block, how many users, what changed. Dependencies, latency, errors."],
+        ["Mitigate", "Restore service first: rollback, feature toggle, traffic switch. Root cause later."],
+        ["Root cause", "Logs in ELK, metrics, timeline. Looking for the cause, not someone to blame."],
+        ["Prevent", "A new alert, Ansible/Bash automation, a runbook entry so it won't happen again."]
+      ],
+      keysHelp: "<b>Shortcuts:</b> <kbd>`</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> terminal · <kbd>Esc</kbd> close · and there's an easter egg somewhere 👀",
       navRadar: "Radar",
       radarTitle: "IT radar",
       radarLead: "A live feed: what engineers are discussing right now and which repos are taking off on GitHub. Refreshes every time the page opens.",
@@ -1734,7 +2160,14 @@ save_state(state)</pre>
   }
 
   resize();
-  addEventListener("resize", resize);
+  let lastW = innerWidth, rzT = null;
+  addEventListener("resize", () => {
+    clearTimeout(rzT);
+    rzT = setTimeout(() => {
+      // на телефоне высота меняется при скрытии адресной строки — не перегенерируем звёзды
+      if (Math.abs(innerWidth - lastW) > 40 || cv.height < innerHeight * DPR * 0.9) { lastW = innerWidth; resize(); }
+    }, 150);
+  });
   if (reduceMotion) {
     draw(0);
   } else {
@@ -1746,6 +2179,533 @@ save_state(state)</pre>
     setTimeout(spawnComet, 1200);
     requestAnimationFrame(draw);
   }
+
+  /* =====================================================================
+     NEW FEATURES
+     ===================================================================== */
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const T = () => I18N[currentLang] || I18N.ru;
+  const CV_PDF = "assets/Nefedov_Denis_SRE_CV.pdf";
+  const CAREER_START = new Date(2022, 5, 1); // июнь 2022 — первая работа в IT
+
+  /* ---------- Тосты ---------- */
+  const toastBox = $("#toasts");
+  function toast(html, ms = 2600) {
+    const el = document.createElement("div");
+    el.className = "toast";
+    el.innerHTML = html;
+    toastBox.appendChild(el);
+    while (toastBox.children.length > 3) toastBox.firstChild.remove();
+    setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 320); }, ms);
+  }
+
+  /* ---------- Иконки не загрузились? показываем текстовые метки ---------- */
+  function checkIcons() {
+    const probe = document.createElement("i");
+    probe.className = "fas fa-rocket";
+    probe.style.cssText = "position:absolute;left:-99px;top:0;visibility:hidden;font-size:20px";
+    document.body.appendChild(probe);
+    const w = probe.getBoundingClientRect().width;
+    probe.remove();
+    document.documentElement.classList.toggle("no-icons", w < 4);
+  }
+  if (document.readyState === "complete") setTimeout(checkIcons, 800);
+  else addEventListener("load", () => setTimeout(checkIcons, 800));
+
+  /* ---------- Прогресс «топлива» и ракета наверх ---------- */
+  const fuel = $("#fuel span"), fabTop = $("#dockTop");
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const h = document.documentElement.scrollHeight - innerHeight;
+      const p = h > 0 ? scrollY / h : 0;
+      fuel.style.width = (p * 100).toFixed(2) + "%";
+      fabTop.hidden = scrollY < innerHeight * 0.8;
+      ticking = false;
+    });
+  }
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  fabTop.addEventListener("click", () => {
+    if (!reduceMotion) {
+      fabTop.classList.add("launch");
+      setTimeout(() => { fabTop.classList.remove("launch"); }, 950);
+    }
+    scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  });
+
+  /* ---------- Резюме: PDF, если лежит в assets, иначе печать ---------- */
+  async function getCV() {
+    try {
+      const r = await fetch(CV_PDF, { method: "HEAD", cache: "no-store" });
+      if (r.ok) {
+        const a = document.createElement("a");
+        a.href = CV_PDF; a.download = "Nefedov_Denis_SRE_CV.pdf";
+        document.body.appendChild(a); a.click(); a.remove();
+        toast("📄 " + T().cvDl);
+        return;
+      }
+    } catch (e) {}
+    toast("🖨️ " + T().cvPrint, 3500);
+    setTimeout(() => window.print(), 400);
+  }
+  $$("[data-cv]").forEach(b => b.addEventListener("click", e => { e.preventDefault(); getCV(); }));
+
+  /* ---------- vCard ---------- */
+  function vcard() {
+    const v = [
+      "BEGIN:VCARD", "VERSION:3.0",
+      "N:Нефедов;Денис;Олегович;;", "FN:Денис Нефедов",
+      "TITLE:SRE / DevOps Engineer",
+      "EMAIL;TYPE=INTERNET,PREF:invorkel58@gmail.com",
+      "TEL;TYPE=CELL:+79875231787",
+      "URL:https://invorkel322.github.io",
+      "X-SOCIALPROFILE;TYPE=telegram:https://t.me/invorkel322",
+      "X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/denis-nefedov-sre",
+      "NOTE:SRE / DevOps · Linux · Zabbix · Prometheus · Grafana · Ansible · Kubernetes",
+      "END:VCARD"
+    ].join("\r\n");
+    const url = URL.createObjectURL(new Blob([v], { type: "text/vcard;charset=utf-8" }));
+    const a = document.createElement("a");
+    a.href = url; a.download = "Denis_Nefedov.vcf";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+    toast("👤 " + T().vcardOk);
+  }
+  $$("[data-vcard]").forEach(b => b.addEventListener("click", vcard));
+
+  /* ---------- Навык → где применял ---------- */
+  const SKILL_ALIASES = {
+    "kubernetes (dropapp)": ["kubernetes", "dropapp", "k8s"],
+    "release management": ["релиз", "release", "раскат", "rollout"],
+    "incident management": ["инцидент", "incident"],
+    "itsm / sm": ["itsm", "service desk", " sm"],
+    "alerting": ["алерт", "alert", "уведомлен", "notification"],
+    "ci/cd": ["ci/cd", "jenkins", "bitbucket", "деплой", "deploy"],
+    "linux": ["linux", "debian", "ubuntu", "centos"],
+    "tcp/ip": ["tcp/ip", "сет", "network"],
+    "proxmox": ["proxmox"], "kvm": ["kvm"], "dns": ["dns"], "vpn": ["vpn"],
+    "git": ["git", "bitbucket"]
+  };
+  let selSkill = null;
+  function clearMatches() { $$(".match").forEach(e => e.classList.remove("match")); $$(".skills .tag.sel").forEach(e => e.classList.remove("sel")); }
+  $("#skillsGrid").addEventListener("click", e => {
+    const tag = e.target.closest(".tag");
+    if (!tag) return;
+    const name = tag.textContent.trim();
+    clearMatches();
+    if (selSkill === name) { selSkill = null; return; }
+    selSkill = name;
+    tag.classList.add("sel");
+    const key = name.toLowerCase();
+    const terms = SKILL_ALIASES[key] || [key.replace(/\s*\(.*\)\s*/, "")];
+    const scope = $$("#experience .job li, #experience .stack span, #project .p-list li, #project .stack span, #project .p-body > p, #project .p-body > div > p");
+    const hits = scope.filter(el => { const t = " " + el.textContent.toLowerCase(); return terms.some(x => t.includes(x)); });
+    hits.forEach(h => h.classList.add("match"));
+    const t = T();
+    if (!hits.length) { toast(`🔭 ${escH(name)}: ${t.skillNone}`); return; }
+    toast(`🎯 <b>${escH(name)}</b>: ${t.skillHits(hits.length)}`);
+    const first = hits.find(h => h.closest("#experience")) || hits[0];
+    first.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+  });
+  $("#skillsGrid").addEventListener("keydown", e => {
+    if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("tag")) { e.preventDefault(); e.target.click(); }
+  });
+  // сделать теги фокусируемыми после каждого рендера
+  const markTags = () => $$("#skillsGrid .tag").forEach(t => { t.tabIndex = 0; t.setAttribute("role", "button"); });
+  markTags();
+  new MutationObserver(markTags).observe($("#skillsGrid"), { childList: true });
+
+  /* ---------- Аптайм в IT ---------- */
+  const upEl = $("#uptime");
+  function diffParts(from, to) {
+    let y = to.getFullYear() - from.getFullYear();
+    let m = to.getMonth() - from.getMonth();
+    let d = to.getDate() - from.getDate();
+    if (d < 0) { m--; d += new Date(to.getFullYear(), to.getMonth(), 0).getDate(); }
+    if (m < 0) { y--; m += 12; }
+    return { y, m, d };
+  }
+  function tickUptime() {
+    const now = new Date(), t = T(), p = diffParts(CAREER_START, now);
+    const hh = String(now.getHours()).padStart(2, "0"), mm = String(now.getMinutes()).padStart(2, "0"), ss = String(now.getSeconds()).padStart(2, "0");
+    upEl.innerHTML = `${p.y}<small>${t.uY}</small>${p.m}<small>${t.uM}</small>${p.d}<small>${t.uD}</small> ${hh}:${mm}:${ss}`;
+  }
+  tickUptime();
+  setInterval(() => { if (!document.hidden) tickUptime(); }, 1000);
+  // полоски по месяцам: фиолетовые — смена работы/переезд (не простой, а апгрейд)
+  (function bars() {
+    const months = Math.max(1, Math.round((Date.now() - CAREER_START) / (30.44 * 86400000)));
+    const upgrades = [3, 6, 43]; // сен-2022, дек-2022, янв-2026
+    $("#upBars").innerHTML = Array.from({ length: months }, (_, i) => `<i class="${upgrades.includes(i) ? "gap" : ""}"></i>`).join("");
+  })();
+
+  /* ---------- Калькулятор SLO ---------- */
+  const sloVal = $("#sloVal"), sloRange = $("#sloRange"), sloOut = $("#sloOut"), sloHint = $("#sloHint");
+  // слайдер нелинейный: 0..1000 → 90%..99.999%
+  const r2s = r => +(100 - 10 * Math.pow(10, -r / 250)).toFixed(4);
+  const s2r = s => Math.round(-250 * Math.log10((100 - s) / 10));
+  function fmtDur(sec, t) {
+    if (sec < 1) return `${Math.round(sec * 1000)} ${t.ms}`;
+    if (sec < 60) return `${sec.toFixed(sec < 10 ? 1 : 0)} ${t.s}`;
+    const m = sec / 60;
+    if (m < 60) return `${m.toFixed(m < 10 ? 1 : 0)} ${t.min}`;
+    const h = m / 60;
+    if (h < 48) return `${h.toFixed(1)} ${t.h}`;
+    return `${(h / 24).toFixed(1)} ${t.d}`;
+  }
+  function calcSLO(fromRange) {
+    let s = fromRange ? r2s(+sloRange.value) : parseFloat(String(sloVal.value).replace(",", "."));
+    if (!isFinite(s)) return;
+    s = Math.min(99.9999, Math.max(90, s));
+    if (fromRange) sloVal.value = s; else sloRange.value = s2r(s);
+    const bad = (100 - s) / 100, t = T();
+    const rows = [[86400, t.perDay], [604800, t.perWeek], [2592000, t.perMonth], [31536000, t.perYear]];
+    sloOut.innerHTML = rows.map(([p, l]) => `<div><b>${fmtDur(p * bad, t)}</b><span>${l}</span></div>`).join("");
+    const nines = (s.toString().split(".")[1] || "").replace(/[^9]/g, "").length + (s >= 99 ? 2 : 1);
+    sloHint.innerHTML = s >= 99.99 ? t.sloH4 : s >= 99.9 ? t.sloH3 : s >= 99 ? t.sloH2 : t.sloH1;
+    $$(".slo-presets button").forEach(b => b.classList.toggle("on", +b.dataset.slo === s));
+    return nines;
+  }
+  sloVal.addEventListener("input", () => calcSLO(false));
+  sloRange.addEventListener("input", () => calcSLO(true));
+  $$(".slo-presets button").forEach(b => b.addEventListener("click", () => { sloVal.value = b.dataset.slo; calcSLO(false); }));
+  calcSLO(false);
+
+  /* ---------- Протокол инцидента ---------- */
+  function renderIR() {
+    const colors = ["#00ffee", "#ffe600", "#ff6d00", "#9d4dff", "#3dff9a"];
+    $("#irSteps").innerHTML = T().ir.map((s, i) => `<li style="--c:${colors[i]}"><b>${s[0]}</b><span>${s[1]}</span></li>`).join("");
+  }
+
+  /* ---------- Статус-страница: живой пинг прямо из браузера ---------- */
+  const SERVICES = [
+    { name: "VPN · cabinet", url: "https://cabinet.invorkel.space/" },
+    { name: "VPN · lk", url: "https://lk.invorkel.space/" },
+    { name: "GitHub Pages · this site", url: "https://invorkel322.github.io/" }
+  ];
+  const stHist = SERVICES.map(() => []);
+  const stState = SERVICES.map(() => ({ s: "wait", ms: null }));
+  async function ping(url) {
+    const ctrl = new AbortController();
+    const t0 = performance.now();
+    const timer = setTimeout(() => ctrl.abort(), 7000);
+    try {
+      await fetch(url + (url.includes("?") ? "&" : "?") + "_=" + Date.now(), { mode: "no-cors", cache: "no-store", signal: ctrl.signal });
+      return { s: "up", ms: Math.round(performance.now() - t0) };
+    } catch (e) {
+      return { s: "down", ms: null };
+    } finally { clearTimeout(timer); }
+  }
+  function spark(arr) {
+    const pts = arr.slice(-12);
+    if (pts.length < 2) return `<svg class="st-spark" viewBox="0 0 90 26"></svg>`;
+    const vals = pts.map(p => p == null ? null : p);
+    const max = Math.max(...vals.filter(v => v != null), 50);
+    const step = 90 / (pts.length - 1);
+    let d = "";
+    vals.forEach((v, i) => { if (v == null) return; const y = 24 - (v / max) * 20; d += (d ? " L" : "M") + (i * step).toFixed(1) + " " + y.toFixed(1); });
+    const drops = vals.map((v, i) => v == null ? `<circle cx="${(i * step).toFixed(1)}" cy="22" r="2.2" fill="#ff6b6b"/>` : "").join("");
+    return `<svg class="st-spark" viewBox="0 0 90 26" aria-hidden="true"><path d="${d}" fill="none" stroke="#00ffee" stroke-width="1.6" stroke-linejoin="round"/>${drops}</svg>`;
+  }
+  function renderStatus() {
+    const t = T();
+    $("#stRows").innerHTML = SERVICES.map((sv, i) => {
+      const st = stState[i];
+      const pill = st.s === "up" ? `<span class="st-pill up">UP · ${st.ms} ms</span>`
+        : st.s === "down" ? `<span class="st-pill down">${t.stDown}</span>` : `<span class="st-pill wait">${t.stWait}</span>`;
+      return `<div class="st-row"><div class="st-name"><b>${escH(sv.name)}</b><a href="${sv.url}" target="_blank" rel="noopener">${sv.url.replace(/^https:\/\/|\/$/g, "")}</a></div>${spark(stHist[i])}${pill}</div>`;
+    }).join("");
+    const done = stState.every(s => s.s !== "wait");
+    const ups = stState.filter(s => s.s === "up").length;
+    const ov = $("#stOverall");
+    ov.className = "st-overall" + (done ? (ups === SERVICES.length ? " ok" : " warn") : "");
+    $("#stOverallText").textContent = !done ? t.stChecking : ups === SERVICES.length ? t.stAllOk : `${ups}/${SERVICES.length} ${t.stPartial}`;
+  }
+  let stBusy = false;
+  async function checkAll() {
+    if (stBusy) return;
+    stBusy = true;
+    const btn = $("#stRecheck"); btn.disabled = true;
+    await Promise.all(SERVICES.map(async (sv, i) => {
+      const r = await ping(sv.url);
+      stState[i] = r;
+      stHist[i].push(r.ms);
+      if (stHist[i].length > 20) stHist[i].shift();
+      renderStatus();
+    }));
+    btn.disabled = false;
+    stBusy = false;
+  }
+  $("#stRecheck").addEventListener("click", checkAll);
+  let stTimer = null;
+  const missionEl = $("#mission");
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(es => {
+      const vis = es.some(e => e.isIntersecting);
+      if (vis && !stTimer) { checkAll(); stTimer = setInterval(() => { if (!document.hidden) checkAll(); }, 30000); }
+      if (!vis && stTimer) { clearInterval(stTimer); stTimer = null; }
+    }, { rootMargin: "200px" }).observe(missionEl);
+  } else checkAll();
+
+  /* ---------- Пасхалка «сан9 ыidor» ---------- */
+  const EGG = "сан9 ыidor";
+  const eggOv = $("#eggOverlay"), eggCv = $("#eggCanvas");
+  let eggRAF = null;
+  function showEgg() {
+    eggOv.hidden = false;
+    document.body.style.overflow = "hidden";
+    const c = eggCv.getContext("2d");
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    eggCv.width = innerWidth * dpr; eggCv.height = innerHeight * dpr;
+    const P = Array.from({ length: 160 }, () => ({
+      a: Math.random() * Math.PI * 2, r: Math.random() * 20, v: 1 + Math.random() * 4,
+      c: ["#9d4dff", "#00ffee", "#ffe600", "#ffffff"][Math.random() * 4 | 0]
+    }));
+    const cx = eggCv.width / 2, cy = eggCv.height / 2;
+    const loop = () => {
+      c.fillStyle = "rgba(3,4,16,.22)"; c.fillRect(0, 0, eggCv.width, eggCv.height);
+      P.forEach(p => {
+        p.r += p.v * dpr; if (p.r > Math.max(cx, cy) * 1.5) { p.r = 0; p.a = Math.random() * Math.PI * 2; }
+        c.fillStyle = p.c; c.beginPath(); c.arc(cx + Math.cos(p.a) * p.r, cy + Math.sin(p.a) * p.r, 1.4 * dpr, 0, 7); c.fill();
+      });
+      eggRAF = reduceMotion ? null : requestAnimationFrame(loop);
+    };
+    loop();
+    console.log("%c" + EGG, "font:900 28px monospace;color:#9d4dff;text-shadow:0 0 12px #00ffee");
+  }
+  function hideEgg() { eggOv.hidden = true; document.body.style.overflow = ""; if (eggRAF) cancelAnimationFrame(eggRAF); eggRAF = null; }
+  eggOv.addEventListener("click", hideEgg);
+  // Konami: ↑ ↑ ↓ ↓ ← → ← → B A
+  const KONAMI = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+  let kPos = 0;
+  addEventListener("keydown", e => {
+    const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    kPos = (k === KONAMI[kPos]) ? kPos + 1 : (k === KONAMI[0] ? 1 : 0);
+    if (kPos === KONAMI.length) { kPos = 0; showEgg(); }
+  });
+  // 5 кликов по логотипу
+  let logoClicks = 0, logoTimer = null;
+  $(".logo").addEventListener("click", () => {
+    logoClicks++; clearTimeout(logoTimer);
+    logoTimer = setTimeout(() => { logoClicks = 0; }, 1500);
+    if (logoClicks >= 5) { logoClicks = 0; showEgg(); }
+  });
+
+  /* ---------- Интерактивный терминал ---------- */
+  const shell = $("#shell"), sOut = $("#shellOut"), sIn = $("#shellInput"), sForm = $("#shellForm");
+  const hist = []; let hPos = 0; let lastFocusShell = null;
+  const print = (html, cls) => { const d = document.createElement("div"); if (cls) d.className = cls; d.innerHTML = html; sOut.appendChild(d); sOut.scrollTop = sOut.scrollHeight; };
+  const SECTIONS = { experience: "#experience", skills: "#skills", projects: "#project", crew: "#crew", mission: "#mission", radar: "#radar", education: "#growth", contact: "#contact" };
+  function goTo(sel) { closeShell(); setTimeout(() => $(sel)?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }), 120); }
+  const itUptime = () => { const p = diffParts(CAREER_START, new Date()); return `${p.y}y ${p.m}m ${p.d}d`; };
+  const age = () => getAge();
+
+  const CMDS = {
+    help: { d: "list commands", f: () => {
+      print(Object.entries(CMDS).filter(([, c]) => !c.hidden).map(([n, c]) => `  <span class="acc">${n.padEnd(14)}</span><span class="dim">${c.d}</span>`).join("\n"));
+      print(`<span class="dim">tip: Tab — autocomplete, ↑/↓ — history, Esc — close</span>`);
+    } },
+    whoami: { d: "who is Denis", f: () => print(`<span class="ok">Denis Nefedov</span> — SRE / DevOps engineer, ${age()} y.o., Moscow.\nKeeping production boring: releases to high-load blocks (7M+ users), incidents, monitoring, automation.`) },
+    neofetch: { d: "system info", f: () => print(
+`<span class="acc">       .-""-.        </span><span class="ok">denis</span>@<span class="ok">sre-station</span>
+<span class="acc">      / .--. \\       </span>-------------------
+<span class="acc">     | ( () ) |      </span><span class="warn">OS:</span> Human ${age()}.x · Moscow edition
+<span class="acc">      \\ '--' /       </span><span class="warn">Host:</span> Sber · senior operations engineer
+<span class="acc">   .--'    '--.      </span><span class="warn">IT uptime:</span> ${itUptime()}
+<span class="acc">  /  SRE  DEVOPS \\   </span><span class="warn">Monitoring:</span> Zabbix, Prometheus, Grafana, ELK
+<span class="acc">  '--------------'   </span><span class="warn">Automation:</span> Bash, Ansible, Terraform (basic)
+                      <span class="warn">Containers:</span> Docker, Kubernetes (DropApp), OpenShift
+                      <span class="warn">CI/CD:</span> Jenkins, Bitbucket, GitLab, Nexus
+                      <span class="warn">Locale:</span> ru_RU (native), en_US (B1)
+                      <span class="warn">Bad habits:</span> 0 · <span class="warn">Sport:</span> street workout`) },
+    uptime: { d: "time in IT", f: () => print(` ${new Date().toTimeString().slice(0, 8)} up ${itUptime()},  1 user,  load average: 0.42, 0.42, 0.42 <span class="dim">(always ready for one more incident)</span>`) },
+    experience: { d: "work history", f: () => print(
+`<span class="warn">2026 → now </span>  Sber — Senior Operations Engineer
+              releases to high-load blocks (7M+ users), staged rollouts on ~20 blocks,
+              4 new infra blocks via playbooks, Zabbix/Grafana, ELK, DropApp (k8s)
+<span class="warn">2022 → 2026</span>  Penza Construction Directorate — SysAdmin / SRE
+              Zabbix + Prometheus + Grafana from scratch, MTTR → 10–15 min,
+              Ansible: mass updates 4h → 30min, Docker, Proxmox/KVM
+<span class="warn">2022       </span>  Doctor Byte — IT project manager (Service Desk, ITSM)
+<span class="warn">2022       </span>  Pentaplex — network engineer (VPN, MikroTik, Wireshark)
+<span class="dim">→ cd experience</span>`) },
+    skills: { d: "tech stack", f: () => print(SKILLS.map(([k, , items]) => `<span class="acc">${(T().cat[k]).padEnd(28)}</span>` + items.map(([n, l]) => `${n}${"★".repeat(l)}`).join("  ")).join("\n") + `\n<span class="dim">★★★ advanced · ★★ intermediate · ★ basic</span>`) },
+    projects: { d: "side projects", f: () => print(
+`<span class="ok">vpn/</span>          distributed VPN · RU → EU · bots + web  <a href="https://cabinet.invorkel.space" target="_blank" rel="noopener">cabinet.invorkel.space</a>
+<span class="ok">homelab/</span>      Proxmox + ZFS, daily full copy, weekly backup, phone alerts
+<span class="ok">k8s-office/</span>   Minikube: Outline, BookStack, FreeScout, Mattermost, Nextcloud
+<span class="ok">ds-bridge/</span>    DeepSeek → GPT bridge: crash-safe state, idempotent, self-healing
+<span class="ok">tg-parser/</span>    Telegram audience parser for SMM (demo video inside)
+<span class="dim">→ cd projects</span>`) },
+    crew: { d: "my 25/8 crew", f: () => print(CREW.map(p => `<span class="acc">@${p.tg.padEnd(16)}</span>${(p[currentLang] || p.ru).call} — ${(p[currentLang] || p.ru).who}`).join("\n")) },
+    ls: { d: "list sections", f: () => print(Object.keys(SECTIONS).map(s => `<span class="acc">${s}/</span>`).join("  ") + `  <span class="ok">resume.pdf</span>  <span class="ok">contact.vcf</span>`) },
+    cd: { d: "go to section: cd skills", f: a => {
+      const k = (a[0] || "").replace(/\/$/, "");
+      if (!k || k === "~") return goTo("#top");
+      if (SECTIONS[k]) return goTo(SECTIONS[k]);
+      print(`bash: cd: ${escH(k)}: No such file or directory`, "err");
+    } },
+    cat: { d: "cat resume.pdf | contact.vcf", f: a => {
+      if (/resume|cv/.test(a[0] || "")) { print("downloading resume…", "ok"); getCV(); }
+      else if (/vcf|contact/.test(a[0] || "")) { print("saving contact…", "ok"); vcard(); }
+      else if (SECTIONS[(a[0] || "").replace(/\/$/, "")]) print(`cat: ${escH(a[0])}: Is a directory`, "err");
+      else print(`cat: ${escH(a[0] || "")}: No such file`, "err");
+    } },
+    resume: { d: "download CV (PDF)", f: () => { print("downloading resume…", "ok"); getCV(); } },
+    contact: { d: "how to reach me", f: () => print(
+`<span class="warn">email (primary)</span>  <a href="mailto:invorkel58@gmail.com">invorkel58@gmail.com</a>
+<span class="warn">telegram       </span>  <a href="https://t.me/invorkel322" target="_blank" rel="noopener">@invorkel322</a>
+<span class="warn">linkedin       </span>  <a href="https://www.linkedin.com/in/denis-nefedov-sre" target="_blank" rel="noopener">denis-nefedov-sre</a>
+<span class="warn">github         </span>  <a href="https://github.com/invorkel322" target="_blank" rel="noopener">invorkel322</a>
+<span class="dim">try: email · vcard · sudo hire denis</span>`) },
+    email: { d: "copy email", f: async () => { try { await navigator.clipboard.writeText("invorkel58@gmail.com"); print("invorkel58@gmail.com copied to clipboard ✓", "ok"); } catch (e) { print("invorkel58@gmail.com", "acc"); } } },
+    vcard: { d: "save contact card", f: () => { vcard(); print("contact.vcf saved ✓", "ok"); } },
+    status: { d: "ping my services", f: async () => {
+      print("pinging…", "dim");
+      await checkAll();
+      SERVICES.forEach((sv, i) => { const s = stState[i]; print(`${s.s === "up" ? '<span class="ok">● UP  </span>' : '<span class="err">● DOWN</span>'}  ${escH(sv.name.padEnd(26))} ${s.ms != null ? s.ms + " ms" : "—"}`); });
+    } },
+    slo: { d: "error budget: slo 99.9", f: a => {
+      const s = parseFloat((a[0] || "99.9").replace(",", "."));
+      if (!(s > 0 && s < 100)) return print("usage: slo 99.95", "err");
+      const bad = (100 - s) / 100, t = T();
+      print(`SLO ${s}% → allowed downtime:\n  day   ${fmtDur(86400 * bad, t)}\n  week  ${fmtDur(604800 * bad, t)}\n  month ${fmtDur(2592000 * bad, t)}\n  year  ${fmtDur(31536000 * bad, t)}`);
+    } },
+    kubectl: { d: "kubectl get pods", f: a => {
+      if (a.join(" ") !== "get pods") return print(`try: <span class="acc">kubectl get pods</span>`, "dim");
+      print(
+`NAME                          READY   STATUS             RESTARTS   AGE
+motivation-7f9c4               1/1     <span class="ok">Running</span>            0          ${age()}y
+monitoring-brain-5d2a1         1/1     <span class="ok">Running</span>            0          4y
+kubernetes-skills-9e11b        1/1     <span class="ok">Running</span>            0          1y   <span class="dim"># scaling up</span>
+coffee-daemon-x1               1/1     <span class="ok">Running</span>            42         4y
+sleep-schedule-3c7            0/1     <span class="err">CrashLoopBackOff</span>   7          4y   <span class="dim"># night releases</span>`);
+    } },
+    incident: { d: "run incident drill", f: () => {
+      const L = [
+        ["02:13", "warn", "ALERT  p99 latency > 800ms · payments-api · block 7"],
+        ["02:14", "acc", "DETECT  ack in Zabbix, open Grafana dashboard"],
+        ["02:16", "acc", "TRIAGE  errors ↑ after 02:00 release on block 7 only"],
+        ["02:18", "acc", "LOGS    ELK: connection pool exhausted in new version"],
+        ["02:19", "warn", "MITIGATE  feature toggle OFF → traffic back to old path"],
+        ["02:24", "ok", "RESOLVED  p99 = 180ms · MTTR 11 min · users barely noticed"],
+        ["09:30", "ok", "POSTMORTEM  pool size alert + canary check added to runbook"]
+      ];
+      L.forEach((l, i) => setTimeout(() => print(`<span class="dim">[${l[0]}]</span> <span class="${l[1]}">${l[2]}</span>`), i * 480));
+      setTimeout(() => print(`<span class="dim">drill complete. this is how I work → cd mission</span>`), L.length * 480);
+    } },
+    "sudo": { d: "sudo hire denis", f: a => {
+      if (a.join(" ") === "hire denis") {
+        print("[sudo] password for recruiter: ********");
+        setTimeout(() => { print("Access granted ✓  Opening mail client…", "ok"); location.href = "mailto:invorkel58@gmail.com?subject=" + encodeURIComponent("Вакансия SRE / DevOps"); }, 700);
+      } else if (a[0] === "rm") print("Nice try. This is production — change request required 🙂", "warn");
+      else print("usage: sudo hire denis", "dim");
+    } },
+    "rm": { d: "", hidden: true, f: () => print("rm: refusing to delete production. Open a change request first 🙂", "warn") },
+    lang: { d: "lang ru | en", f: a => { if (a[0] === "ru" || a[0] === "en") { applyLang(a[0]); print(`language → ${a[0]}`, "ok"); } else print("usage: lang ru|en", "dim"); } },
+    date: { d: "current date", f: () => print(new Date().toString()) },
+    echo: { d: "echo text", f: a => print(escH(a.join(" "))) },
+    history: { d: "command history", f: () => print(hist.map((h, i) => `${String(i + 1).padStart(4)}  ${escH(h)}`).join("\n") || "(empty)") },
+    clear: { d: "clear screen", f: () => { sOut.innerHTML = ""; } },
+    exit: { d: "close terminal", f: () => closeShell() },
+    // спрятанные
+    sanya: { hidden: true, f: () => { print(EGG, "acc"); setTimeout(showEgg, 300); } },
+    easter: { hidden: true, f: () => { print("🥚 found it!", "ok"); setTimeout(showEgg, 300); } },
+    "сан9": { hidden: true, f: () => { print(EGG, "acc"); setTimeout(showEgg, 300); } },
+    ping: { hidden: true, f: a => print(`PING ${escH(a[0] || "denis")}: 64 bytes, time=0.042 ms — always reachable via <a href="https://t.me/invorkel322" target="_blank" rel="noopener">@invorkel322</a>`) },
+    vim: { hidden: true, f: () => print("You entered vim. Just kidding — you're safe here. (:q!)", "warn") },
+    exit_vim: { hidden: true, f: () => print(":q!", "dim") }
+  };
+  CMDS.exp = { ...CMDS.experience, hidden: true };
+  CMDS.cv = { ...CMDS.resume, hidden: true };
+
+  function run(line) {
+    const raw = line.trim();
+    print(`<span class="ps">guest@sre-station:~$</span> <span class="cmd">${escH(raw)}</span>`);
+    if (!raw) return;
+    hist.push(raw); hPos = hist.length;
+    const [c, ...args] = raw.split(/\s+/);
+    const key = c.toLowerCase();
+    if (raw.toLowerCase().replace(/\s+/g, " ") === EGG) return CMDS.sanya.f();
+    const cmd = CMDS[key];
+    if (!cmd) return print(`bash: ${escH(c)}: command not found. Type <span class="acc">help</span>`, "err");
+    try { cmd.f(args); } catch (e) { print("segfault in portfolio (╯°□°)╯ — " + escH(e.message), "err"); }
+  }
+  function openShell() {
+    lastFocusShell = document.activeElement;
+    shell.hidden = false;
+    document.body.style.overflow = "hidden";
+    if (!sOut.dataset.init) {
+      sOut.dataset.init = 1;
+      print(`<span class="acc">Welcome aboard, guest.</span> Last login: ${new Date().toLocaleString()} from deep space`);
+      print(`Type <span class="acc">help</span> to see commands. Start with <span class="acc">neofetch</span> or <span class="acc">incident</span>.`, "dim");
+    }
+    $("#shellHints").innerHTML = ["help", "neofetch", "whoami", "projects", "incident", "kubectl get pods", "status", "sudo hire denis"]
+      .map(c => `<button type="button" data-c="${c}">${c}</button>`).join("");
+    setTimeout(() => sIn.focus(), 30);
+  }
+  function closeShell() {
+    shell.hidden = true;
+    document.body.style.overflow = "";
+    if (lastFocusShell && lastFocusShell.focus) lastFocusShell.focus();
+  }
+  sForm.addEventListener("submit", e => { e.preventDefault(); const v = sIn.value; sIn.value = ""; run(v); });
+  $("#shellHints").addEventListener("click", e => { const b = e.target.closest("button"); if (b) { run(b.dataset.c); sIn.focus(); } });
+  sIn.addEventListener("keydown", e => {
+    if (e.key === "ArrowUp") { e.preventDefault(); if (hPos > 0) sIn.value = hist[--hPos] || ""; }
+    else if (e.key === "ArrowDown") { e.preventDefault(); if (hPos < hist.length) sIn.value = hist[++hPos] || ""; }
+    else if (e.key === "Tab") {
+      e.preventDefault();
+      const v = sIn.value.trim().toLowerCase();
+      const parts = v.split(/\s+/);
+      if (parts.length === 2 && (parts[0] === "cd" || parts[0] === "cat")) {
+        const pool = parts[0] === "cd" ? Object.keys(SECTIONS) : ["resume.pdf", "contact.vcf"];
+        const m = pool.filter(s => s.startsWith(parts[1]));
+        if (m.length === 1) sIn.value = parts[0] + " " + m[0];
+        else if (m.length > 1) print(m.join("  "), "dim");
+        return;
+      }
+      const m = Object.keys(CMDS).filter(k => !CMDS[k].hidden && k.startsWith(v));
+      if (m.length === 1) sIn.value = m[0] + " ";
+      else if (m.length > 1) print(m.join("  "), "dim");
+    } else if (e.key === "l" && e.ctrlKey) { e.preventDefault(); sOut.innerHTML = ""; }
+  });
+  $("#shellClose").addEventListener("click", closeShell);
+  shell.addEventListener("click", e => { if (e.target === shell) closeShell(); });
+  $$("[data-shell], #dockShell").forEach(b => b.addEventListener("click", openShell));
+  $(".terminal").addEventListener("click", openShell);
+  $(".terminal").setAttribute("tabindex", "0");
+  $(".terminal").setAttribute("role", "button");
+  $(".terminal").addEventListener("keydown", e => { if (e.key === "Enter") openShell(); });
+
+  // горячие клавиши
+  addEventListener("keydown", e => {
+    const typing = /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName) || document.activeElement?.isContentEditable;
+    if (e.key === "Escape") {
+      if (!shell.hidden) { closeShell(); return; }
+      if (!eggOv.hidden) { hideEgg(); return; }
+    }
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); shell.hidden ? openShell() : closeShell(); return; }
+    if (typing || e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === "`" || e.key === "ё" || e.code === "Backquote") { e.preventDefault(); shell.hidden ? openShell() : closeShell(); }
+    else if (e.key === "?" && shell.hidden) toast(T().keysHelp, 5000);
+  });
+
+  /* ---------- Привет тем, кто открыл DevTools ---------- */
+  try {
+    console.log("%c DN://SRE ", "font:900 22px monospace;background:#9d4dff;color:#fff;padding:4px 10px;border-radius:6px");
+    console.log("%cЗаглянул в консоль? Значит, ты свой 🙂\nИщешь SRE/DevOps? → invorkel58@gmail.com · t.me/invorkel322\nPress ` for the interactive shell.", "font:14px monospace;color:#00ffee");
+  } catch (e) {}
+
+  /* перерисовка языко-зависимых блоков NEW */
+  const _apply = applyLang;
+  applyLang = function (lang) { _apply(lang); try { renderIR(); renderStatus(); calcSLO(false); tickUptime(); } catch (e) {} };
+  renderIR(); renderStatus();
+
 })();
 </script>
 </body>
