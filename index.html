@@ -205,6 +205,124 @@ h1{
 .diagram .flow{stroke-dasharray:6 6;animation:dash 1.2s linear infinite}
 @keyframes dash{to{stroke-dashoffset:-12}}
 
+/* ---------- Карточки проектов ---------- */
+.section-lead{color:var(--muted);margin:-1rem 0 1.6rem;max-width:760px}
+.pcard{padding:1.7rem;margin-bottom:1.2rem}
+.p-head{display:flex;gap:1rem;align-items:center;margin-bottom:1rem}
+.p-icon{
+  width:52px;height:52px;flex-shrink:0;border-radius:14px;display:grid;place-items:center;font-size:1.35rem;
+  background:linear-gradient(135deg,rgba(157,77,255,.35),rgba(0,255,238,.12));border:1px solid var(--card-border);
+  box-shadow:0 0 24px -6px var(--purple);color:#fff;
+}
+.p-titles h3{margin:0;font-size:1.3rem;color:var(--yellow);line-height:1.25}
+.p-meta{display:flex;flex-wrap:wrap;gap:.3rem .8rem;align-items:center;color:var(--muted);font-size:.88rem;margin-top:.25rem}
+.status{font:600 .7rem 'Orbitron',sans-serif;letter-spacing:1px;padding:.2rem .6rem;border-radius:999px;border:1px solid;display:inline-flex;align-items:center;gap:.4rem}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor;animation:blink 2s ease-in-out infinite}
+.status.live{color:#3dff9a;border-color:rgba(61,255,154,.4);background:rgba(61,255,154,.07)}
+.status.lab{color:var(--teal);border-color:rgba(0,255,238,.4);background:rgba(0,255,238,.06)}
+.status.ready{color:var(--yellow);border-color:rgba(255,230,0,.4);background:rgba(255,230,0,.06)}
+.p-body p{margin:.2rem 0 .9rem;color:#cfd2ea}
+.two-col{display:grid;grid-template-columns:1.1fr 1fr;gap:1.6rem;align-items:start}
+.p-list{margin:0 0 .6rem;padding:0;list-style:none}
+.p-list li{padding-left:1.4rem;position:relative;margin:.45rem 0}
+.p-list li::before{content:"▸";position:absolute;left:0;color:var(--teal)}
+.note{display:flex;gap:.7rem;align-items:flex-start;margin:1rem 0;padding:.8rem 1rem;border-radius:12px;background:rgba(255,109,0,.08);border:1px solid rgba(255,109,0,.3);font-size:.93rem}
+.note i{color:var(--orange);margin-top:.25rem}
+.try{margin:1rem 0 .4rem}
+.try-label{display:block;font:600 .75rem 'Orbitron',sans-serif;letter-spacing:2px;color:var(--teal);margin-bottom:.5rem}
+.try-links{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{
+  display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;font:500 .85rem 'JetBrains Mono',monospace;
+  padding:.45rem .8rem;border-radius:10px;border:1px solid var(--card-border);background:rgba(157,77,255,.1);transition:.2s;
+}
+.chip:hover{border-color:var(--teal);background:rgba(0,255,238,.1);transform:translateY(-2px)}
+.chip i{color:var(--teal)}
+.tree-box{border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;background:rgba(3,5,18,.75)}
+.tree,.code{margin:0;padding:1rem 1.1rem;font:400 .8rem/1.55 'JetBrains Mono',monospace;color:#c9cde8;overflow-x:auto;white-space:pre}
+.tree b{color:var(--teal);font-weight:600}
+.tree i,.code i{color:#6f7599;font-style:normal}
+.code s{text-decoration:none;color:var(--yellow)}
+.flowline{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:.2rem 0 .9rem;font:500 .8rem 'JetBrains Mono',monospace}
+.flowline span{padding:.25rem .55rem;border-radius:6px;background:rgba(0,255,238,.08);border:1px solid rgba(0,255,238,.25)}
+.flowline i{color:var(--purple);font-size:.75rem}
+.roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:.4rem}
+.rm{padding:.9rem 1rem;border-radius:12px;border:1px dashed rgba(255,255,255,.15);position:relative}
+.rm b{display:block;font-size:.95rem;margin-bottom:.2rem}
+.rm span{color:var(--muted);font-size:.88rem}
+.rm.done{border-style:solid;border-color:rgba(61,255,154,.4);background:rgba(61,255,154,.05)}
+.rm.done b::before{content:"✓ ";color:#3dff9a}
+.rm.next{border-style:solid;border-color:rgba(255,230,0,.4);background:rgba(255,230,0,.05)}
+.rm.next b::before{content:"→ ";color:var(--yellow)}
+
+/* ---------- Экипаж ---------- */
+.crew{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.mate{padding:1.3rem 1.3rem 1.2rem;display:flex;gap:1rem;align-items:flex-start;position:relative;overflow:hidden}
+.mate::after{
+  content:"";position:absolute;right:-40px;top:-40px;width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle,var(--glow,rgba(157,77,255,.25)),transparent 70%);pointer-events:none;
+}
+.ava{
+  width:56px;height:56px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;position:relative;
+  font:900 1.15rem 'Orbitron',sans-serif;color:#fff;text-shadow:0 0 8px rgba(255,255,255,.5);
+  background:radial-gradient(circle at 30% 30%,var(--c1),var(--c2) 60%,#0b0620 100%);
+  box-shadow:0 0 22px -4px var(--c1),inset -6px -6px 14px rgba(0,0,0,.5);
+}
+.ava::before{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px dashed var(--c1);opacity:.55;animation:spin 14s linear infinite}
+.mate-body{min-width:0}
+.callsign{font:600 .68rem 'Orbitron',sans-serif;letter-spacing:2px;color:var(--c1);text-transform:uppercase}
+.mate h3{margin:.1rem 0 .15rem;font-size:1.02rem}
+.mate h3 a{text-decoration:none;color:#fff}
+.mate h3 a:hover{color:var(--teal)}
+.mate .who{color:#cfd2ea;font-size:.9rem;margin:0 0 .35rem}
+.mate .fun{color:var(--muted);font-size:.86rem;margin:0}
+
+/* ---------- Галерея ---------- */
+.gallery-wrap{margin-top:1.4rem}
+.gallery-wrap[hidden]{display:none}
+.gallery-wrap h4{margin:0 0 .8rem;font-family:'Orbitron',sans-serif;font-size:.8rem;letter-spacing:2px;color:var(--teal)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.8rem}
+.gallery-wrap{border-top:1px dashed rgba(255,255,255,.08);padding-top:1.2rem}
+.g-item{
+  position:relative;padding:0;border:1px solid var(--card-border);border-radius:12px;overflow:hidden;
+  background:rgba(0,0,0,.35);cursor:zoom-in;aspect-ratio:16/10;display:block;width:100%;color:inherit;font:inherit;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.g-item:hover{transform:translateY(-3px);border-color:var(--purple);box-shadow:0 10px 30px -10px var(--purple)}
+.g-item:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.g-item img,.g-item video{width:100%;height:100%;object-fit:cover;display:block}
+.g-item .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:.5rem .7rem;font-size:.82rem;text-align:left;
+  background:linear-gradient(transparent,rgba(5,6,15,.92));
+}
+.g-item .play{
+  position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;
+}
+.g-item .play::before{
+  content:"";width:52px;height:52px;border-radius:50%;background:rgba(157,77,255,.85);
+  box-shadow:0 0 24px var(--purple);
+  -webkit-mask:radial-gradient(circle,#000 99%,transparent 100%);
+}
+.g-item .play::after{
+  content:"";position:absolute;border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:5px;
+}
+.lightbox{
+  position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;flex-direction:column;
+  background:rgba(3,4,12,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:1rem;
+}
+.lightbox.open{display:flex}
+.lb-media{max-width:min(1200px,100%);max-height:80vh;display:flex;align-items:center;justify-content:center}
+.lb-media img,.lb-media video{max-width:100%;max-height:80vh;border-radius:12px;border:1px solid var(--card-border);box-shadow:0 20px 60px -20px var(--purple)}
+.lb-cap{margin-top:.9rem;color:var(--muted);text-align:center;max-width:800px}
+.lb-btn{
+  position:absolute;background:rgba(14,18,48,.8);border:1px solid var(--card-border);color:#fff;
+  width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:grid;place-items:center;
+}
+.lb-btn:hover{background:var(--purple)}
+.lb-close{top:1rem;right:1rem}
+.lb-prev{left:1rem;top:50%;transform:translateY(-50%)}
+.lb-next{right:1rem;top:50%;transform:translateY(-50%)}
+@media (max-width:720px){.lb-prev,.lb-next{top:auto;bottom:1rem;transform:none}.lb-prev{left:30%}.lb-next{right:30%}}
+
 /* ---------- Цели / образование ---------- */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .goals,.edu,.about{padding:1.6rem}
@@ -230,7 +348,8 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
 /* ---------- Адаптив ---------- */
 @media (max-width:900px){
   .stats{grid-template-columns:repeat(2,1fr)}
-  .project,.two{grid-template-columns:1fr}
+  .project,.two,.two-col{grid-template-columns:1fr}
+  .roadmap{grid-template-columns:1fr}
 }
 @media (max-width:720px){
   body{font-size:16px}
@@ -240,7 +359,9 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
   .hero-grid{grid-template-columns:1fr;gap:1.8rem;text-align:left}
   .orbit{width:150px;height:150px}
   .planet{inset:27px;font-size:1.7rem}
-  .skills{grid-template-columns:1fr}
+  .skills,.crew{grid-template-columns:1fr}
+  .pcard{padding:1.2rem}
+  .p-titles h3{font-size:1.12rem}
   .job{padding:1.3rem 1.2rem}
   .timeline{padding-left:1.6rem}
   .job::before{left:calc(-1.6rem + 1px)}
@@ -263,6 +384,7 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
       <a href="#experience" data-i18n="navExp"></a>
       <a href="#skills" data-i18n="navSkills"></a>
       <a href="#project" data-i18n="navProject"></a>
+      <a href="#crew" data-i18n="navCrew"></a>
       <a href="#contact" data-i18n="navContact"></a>
     </div>
     <div class="lang" role="group" aria-label="Language">
@@ -377,51 +499,186 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
     <div class="skills" id="skillsGrid"></div>
   </section>
 
-  <!-- ПРОЕКТ -->
+  <!-- ПРОЕКТЫ -->
   <section id="project" class="wrap">
     <div class="section-head reveal"><span class="num">03</span><h2 data-i18n="projTitle"></h2><span class="line"></span></div>
-    <div class="project card reveal">
-      <div>
-        <h3 data-i18n="projName"></h3>
-        <p data-i18n="projDesc"></p>
-        <ul data-i18n-list="projList"></ul>
-        <div class="stack"><span>Xray</span><span>REALITY</span><span>Remnawave</span><span>Prometheus</span><span>Grafana</span><span>Ansible</span><span>Linux</span></div>
+    <p class="section-lead reveal" data-i18n="projLead"></p>
+
+    <!-- 1. VPN -->
+    <article class="pcard card reveal" id="p-vpn">
+      <div class="p-head">
+        <div class="p-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="p-titles">
+          <h3 data-i18n="vpnName"></h3>
+          <div class="p-meta"><span class="status live" data-i18n="stLive"></span><span data-i18n="vpnWhere"></span></div>
+        </div>
       </div>
-      <svg class="diagram" viewBox="0 0 420 260" role="img" aria-label="Схема распределённой VPN-инфраструктуры">
-        <defs>
-          <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#9d4dff"/><stop offset="1" stop-color="#00ffee"/></linearGradient>
-        </defs>
-        <g font-family="JetBrains Mono, monospace" font-size="12" fill="#e8e9f5" text-anchor="middle">
-          <path class="flow" d="M70 90 H160" stroke="url(#g1)" stroke-width="2" fill="none"/>
-          <path class="flow" d="M250 90 H340" stroke="url(#g1)" stroke-width="2" fill="none"/>
-          <path d="M205 195 V120" stroke="#ffe600" stroke-width="1.5" stroke-dasharray="3 5" fill="none" opacity=".7"/>
-          <path d="M205 195 Q300 195 375 120" stroke="#ffe600" stroke-width="1.5" stroke-dasharray="3 5" fill="none" opacity=".7"/>
+      <div class="p-body two-col">
+        <div>
+          <p data-i18n="vpnDesc"></p>
+          <ul class="p-list" data-i18n-list="vpnList"></ul>
+          <div class="note"><i class="fas fa-person-digging"></i><span data-i18n="vpnNow"></span></div>
+          <div class="try">
+            <span class="try-label" data-i18n="tryIt"></span>
+            <div class="try-links">
+              <a class="chip" href="https://cabinet.invorkel.space" target="_blank" rel="noopener"><i class="fas fa-globe"></i>cabinet.invorkel.space</a>
+              <a class="chip" href="https://t.me/CryptFlowBot" target="_blank" rel="noopener"><i class="fab fa-telegram"></i>@CryptFlowBot</a>
+              <a class="chip" href="https://lk.invorkel.space" target="_blank" rel="noopener"><i class="fas fa-globe"></i>lk.invorkel.space</a>
+              <a class="chip" href="https://t.me/elightvpn_bot" target="_blank" rel="noopener"><i class="fab fa-telegram"></i>@elightvpn_bot</a>
+            </div>
+          </div>
+          <div class="stack"><span>Xray</span><span>REALITY</span><span>Remnawave</span><span>Prometheus</span><span>Grafana</span><span>Ansible</span><span>AWS</span><span>Telegram Bot</span></div>
+        </div>
+        <svg class="diagram" viewBox="0 0 420 260" role="img" aria-label="VPN infrastructure diagram">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#9d4dff"/><stop offset="1" stop-color="#00ffee"/></linearGradient>
+          </defs>
+          <g font-family="JetBrains Mono, monospace" font-size="12" fill="#e8e9f5" text-anchor="middle">
+            <path class="flow" d="M70 90 H160" stroke="url(#g1)" stroke-width="2" fill="none"/>
+            <path class="flow" d="M250 90 H340" stroke="url(#g1)" stroke-width="2" fill="none"/>
+            <path d="M205 195 V120" stroke="#ffe600" stroke-width="1.5" stroke-dasharray="3 5" fill="none" opacity=".7"/>
+            <path d="M205 195 Q300 195 375 120" stroke="#ffe600" stroke-width="1.5" stroke-dasharray="3 5" fill="none" opacity=".7"/>
+            <circle cx="40" cy="90" r="28" fill="rgba(157,77,255,.15)" stroke="#9d4dff"/>
+            <text x="40" y="94">client</text>
+            <rect x="160" y="62" width="90" height="56" rx="10" fill="rgba(157,77,255,.18)" stroke="#9d4dff"/>
+            <text x="205" y="86">RU</text><text x="205" y="103" font-size="10" fill="#9aa0c3">entry</text>
+            <rect x="340" y="62" width="70" height="56" rx="10" fill="rgba(0,255,238,.1)" stroke="#00ffee"/>
+            <text x="375" y="86">EU</text><text x="375" y="103" font-size="10" fill="#9aa0c3">exit</text>
+            <rect x="135" y="195" width="140" height="44" rx="10" fill="rgba(255,230,0,.08)" stroke="#ffe600"/>
+            <text x="205" y="214">Prometheus</text><text x="205" y="230" font-size="10" fill="#9aa0c3">+ Grafana · alerts</text>
+            <text x="115" y="80" font-size="10" fill="#9aa0c3">REALITY</text>
+            <text x="295" y="80" font-size="10" fill="#9aa0c3">routing</text>
+            <text x="330" y="175" font-size="10" fill="#9aa0c3">metrics</text>
+            <text x="40" y="20" font-size="10" fill="#9aa0c3">bot · web</text>
+            <path d="M40 28 L40 60" stroke="#9aa0c3" stroke-width="1" stroke-dasharray="2 4"/>
+          </g>
+        </svg>
+      </div>
+      <div class="gallery-wrap" data-project="vpn" hidden><h4 data-i18n="galleryTitle"></h4><div class="gallery"></div></div>
+    </article>
 
-          <circle cx="40" cy="90" r="28" fill="rgba(157,77,255,.15)" stroke="#9d4dff"/>
-          <text x="40" y="94">client</text>
+    <!-- 2. Minikube -->
+    <article class="pcard card reveal" id="p-k8s">
+      <div class="p-head">
+        <div class="p-icon"><i class="fas fa-dharmachakra"></i></div>
+        <div class="p-titles">
+          <h3 data-i18n="k8sName"></h3>
+          <div class="p-meta"><span class="status lab" data-i18n="stLab"></span><span data-i18n="k8sWhere"></span></div>
+        </div>
+      </div>
+      <div class="p-body two-col">
+        <div>
+          <p data-i18n="k8sDesc"></p>
+          <ul class="p-list" data-i18n-list="k8sList"></ul>
+          <div class="stack"><span>Kubernetes</span><span>Minikube</span><span>Ingress</span><span>PVC</span><span>ConfigMap</span><span>Secrets</span><span>PostgreSQL</span><span>Redis</span><span>MariaDB</span></div>
+        </div>
+        <div class="tree-box">
+          <div class="term-bar"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span><span class="t-title">tree manifests/</span></div>
+<pre class="tree"><b>manifests/</b>
+├── <b>00-namespace-secret/</b>
+│   ├── namespace.yaml
+│   └── secrets.yaml
+├── <b>10-databases/</b>
+│   ├── postgres-outline.yaml
+│   ├── redis-outline.yaml
+│   ├── mariadb.yaml
+│   └── postgres-mattermost.yaml
+├── <b>20-apps/</b>
+│   ├── outline.yaml      <i># база знаний</i>
+│   ├── bookstack.yaml    <i># вики</i>
+│   ├── freescout.yaml    <i># helpdesk</i>
+│   ├── mattermost.yaml   <i># чат команды</i>
+│   └── nextcloud.yaml    <i># файлы</i>
+├── <b>30-info-page/</b>
+│   ├── configmap.yaml    <i># HTML прямо здесь</i>
+│   ├── deployment.yaml
+│   └── service.yaml
+├── <b>40-ingress/</b>
+│   └── ingress.yaml
+└── <b>50-storage/</b>
+    ├── mariadb-pvc.yaml
+    ├── bookstack-pvc.yaml
+    ├── freescout-pvc.yaml
+    ├── nextcloud-pvc.yaml
+    ├── nextcloud-data.yaml
+    ├── postgres-mattermost-pvc.yaml
+    └── pvc-postgres-outline.yaml</pre>
+        </div>
+      </div>
+      <div class="gallery-wrap" data-project="k8s" hidden><h4 data-i18n="galleryTitle"></h4><div class="gallery"></div></div>
+    </article>
 
-          <rect x="160" y="62" width="90" height="56" rx="10" fill="rgba(157,77,255,.18)" stroke="#9d4dff"/>
-          <text x="205" y="86">RU</text><text x="205" y="103" font-size="10" fill="#9aa0c3">entry</text>
+    <!-- 3. DeepSeek → GPT -->
+    <article class="pcard card reveal" id="p-bridge">
+      <div class="p-head">
+        <div class="p-icon"><i class="fas fa-bridge"></i></div>
+        <div class="p-titles">
+          <h3 data-i18n="brName"></h3>
+          <div class="p-meta"><span class="status live" data-i18n="stWorks"></span><span data-i18n="brWhere"></span></div>
+        </div>
+      </div>
+      <div class="p-body two-col">
+        <div>
+          <p data-i18n="brDesc"></p>
+          <div class="flowline">
+            <span>DeepSeek chat</span><i class="fas fa-arrow-right"></i><span>Playwright</span><i class="fas fa-arrow-right"></i><span>OpenAI API</span><i class="fas fa-arrow-right"></i><span>DeepSeek chat</span>
+          </div>
+          <ul class="p-list" data-i18n-list="brList"></ul>
+          <div class="stack"><span>Python</span><span>Playwright</span><span>OpenAI API</span><span>dotenv</span><span>Linux</span></div>
+        </div>
+        <div class="tree-box">
+          <div class="term-bar"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span><span class="t-title">bridge.py · фрагмент</span></div>
+<pre class="code"><i># 1. сначала сохраняем ответ модели</i>
+state[<s>"pending"</s>] = {
+    <s>"answer"</s>: answer,
+    <s>"answer_hash"</s>: sha256(answer),
+}
+save_state(state)   <i># атомарно: .tmp → replace</i>
 
-          <rect x="340" y="62" width="70" height="56" rx="10" fill="rgba(0,255,238,.1)" stroke="#00ffee"/>
-          <text x="375" y="86">EU</text><text x="375" y="103" font-size="10" fill="#9aa0c3">exit</text>
+<i># 2. только потом отправляем в чат</i>
+send_to_deepseek(page, answer)
 
-          <rect x="135" y="195" width="140" height="44" rx="10" fill="rgba(255,230,0,.08)" stroke="#ffe600"/>
-          <text x="205" y="214">Prometheus</text><text x="205" y="230" font-size="10" fill="#9aa0c3">+ Grafana · alerts</text>
+<i># 3. помечаем как свой, чтобы не</i>
+<i>#    отвечать самому себе в цикле</i>
+state[<s>"ignored_hashes"</s>].add(answer_hash)
+state[<s>"pending"</s>] = None
+save_state(state)</pre>
+        </div>
+      </div>
+      <div class="gallery-wrap" data-project="bridge" hidden><h4 data-i18n="galleryTitle"></h4><div class="gallery"></div></div>
+    </article>
 
-          <text x="115" y="80" font-size="10" fill="#9aa0c3">REALITY</text>
-          <text x="295" y="80" font-size="10" fill="#9aa0c3">routing</text>
-          <text x="330" y="175" font-size="10" fill="#9aa0c3">metrics</text>
-          <text x="40" y="160" font-size="10" fill="#9aa0c3">Ansible</text>
-          <path d="M40 150 L40 125" stroke="#9aa0c3" stroke-width="1" stroke-dasharray="2 4"/>
-        </g>
-      </svg>
-    </div>
+    <!-- 4. Парсер аудитории -->
+    <article class="pcard card reveal" id="p-parser">
+      <div class="p-head">
+        <div class="p-icon"><i class="fas fa-users-viewfinder"></i></div>
+        <div class="p-titles">
+          <h3 data-i18n="psName"></h3>
+          <div class="p-meta"><span class="status ready" data-i18n="stReady"></span><span data-i18n="psWhere"></span></div>
+        </div>
+      </div>
+      <div class="p-body">
+        <p data-i18n="psDesc"></p>
+        <div class="roadmap">
+          <div class="rm done"><b data-i18n="rm1"></b><span data-i18n="rm1s"></span></div>
+          <div class="rm next"><b data-i18n="rm2"></b><span data-i18n="rm2s"></span></div>
+          <div class="rm"><b data-i18n="rm3"></b><span data-i18n="rm3s"></span></div>
+        </div>
+      </div>
+      <div class="gallery-wrap" data-project="parser" hidden><h4 data-i18n="galleryTitle"></h4><div class="gallery"></div></div>
+    </article>
+  </section>
+
+  <!-- ЭКИПАЖ -->
+  <section id="crew" class="wrap">
+    <div class="section-head reveal"><span class="num">04</span><h2 data-i18n="crewTitle"></h2><span class="line"></span></div>
+    <p class="section-lead reveal" data-i18n="crewLead"></p>
+    <div class="crew" id="crewGrid"></div>
   </section>
 
   <!-- ЦЕЛИ + ОБРАЗОВАНИЕ -->
   <section class="wrap">
-    <div class="section-head reveal"><span class="num">04</span><h2 data-i18n="growTitle"></h2><span class="line"></span></div>
+    <div class="section-head reveal"><span class="num">05</span><h2 data-i18n="growTitle"></h2><span class="line"></span></div>
     <div class="two">
       <div class="goals card reveal" id="goals"></div>
       <div class="edu card reveal">
@@ -453,6 +710,14 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
   </section>
 </main>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр">
+  <button class="lb-btn lb-close" type="button" aria-label="Закрыть">✕</button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Назад">‹</button>
+  <button class="lb-btn lb-next" type="button" aria-label="Вперёд">›</button>
+  <div class="lb-media" id="lbMedia"></div>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
 <footer>
   © <span id="year"></span> Cosmic SRE · <span data-i18n="footer"></span> <span class="heart">♥</span> &amp; kubectl
 </footer>
@@ -465,7 +730,7 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
   const I18N = {
     ru: {
       docTitle: "Нефедов Денис | SRE / DevOps Engineer",
-      navExp: "Опыт", navSkills: "Навыки", navProject: "Проект", navContact: "Контакты",
+      navExp: "Опыт", navSkills: "Навыки", navProject: "Проекты", navContact: "Контакты",
       name: "Нефедов Денис",
       heroSub: "Отвечаю за стабильность production: выкатываю релизы на высоконагруженные системы, разбираю инциденты, строю мониторинг и автоматизирую рутину эксплуатации.",
       location: "Москва", format: "Удалённо / гибрид",
@@ -519,14 +784,49 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
         obs: "Мониторинг и observability", auto: "Автоматизация и CI/CD", cont: "Контейнеры и платформы",
         linux: "Linux и виртуализация", net: "Сети", proc: "Процессы и инструменты"
       },
-      projTitle: "Личный проект",
-      projName: "Распределённая VPN-инфраструктура",
-      projDesc: "Своя отказоустойчивая инфраструктура на нескольких серверах: точка входа в РФ, выход в ЕС. Полигон для практики SRE вне работы.",
-      projList: [
+      galleryTitle: "СКРИНШОТЫ И ДЕМО",
+      projTitle: "Пет-проекты",
+      projLead: "То, что я делаю вне работы: от собственной VPN-инфраструктуры до Kubernetes-стенда. На всё можно посмотреть вживую или в коде.",
+      tryIt: "ПОТЫКАТЬ ВЖИВУЮ",
+      stLive: "LIVE", stLab: "HOMELAB", stWorks: "РАБОТАЕТ", stReady: "ГОТОВ",
+      vpnName: "Распределённая VPN-инфраструктура",
+      vpnWhere: "несколько серверов · РФ → ЕС · бот и веб-кабинеты",
+      vpnDesc: "Своя отказоустойчивая инфраструктура: точка входа в РФ, выход в ЕС, Telegram-боты и веб-кабинеты для пользователей. Полигон для практики SRE вне работы.",
+      vpnList: [
         "Настроил маршрутизацию и оптимизировал задержки между узлами.",
         "Мониторинг и алертинг доступности на Prometheus + Grafana.",
         "Управление конфигурацией всех серверов через Ansible."
       ],
+      vpnNow: "<b>Сейчас:</b> переношу бота и веб-интерфейсы на AWS, новые интерфейсы уже готовы. Основа бота и панели — инфраструктура команды SoloBot, спасибо им :3",
+      k8sName: "Kubernetes-стенд: офис команды в одном кластере",
+      k8sWhere: "Minikube · 5 приложений · 4 базы данных",
+      k8sDesc: "Self-hosted рабочее пространство для команды, развёрнутое в Kubernetes из чистых манифестов: база знаний, вики, helpdesk, мессенджер и облако для файлов.",
+      k8sList: [
+        "Манифесты разложены по слоям с номерами <b>00 → 50</b>, поэтому <code>kubectl apply</code> идёт в правильном порядке: namespace и секреты, базы, приложения, ingress.",
+        "Приложения: <b>Outline, BookStack, FreeScout, Mattermost, Nextcloud</b>. Под них отдельные PostgreSQL, Redis и MariaDB.",
+        "Данные живут в PersistentVolumeClaim и переживают перезапуск подов.",
+        "Стартовая страница хранится в ConfigMap: текст меняется без пересборки образа.",
+        "Единая точка входа через Ingress."
+      ],
+      brName: "DeepSeek → GPT: мост между двумя ИИ",
+      brWhere: "Linux-сервер · Python · работает без присмотра",
+      brDesc: "Скрипт следит за веб-чатом DeepSeek, отправляет новые сообщения в OpenAI API и возвращает ответ GPT обратно в чат. Интереснее всего здесь не ИИ, а надёжность: скрипт должен работать неделями без присмотра.",
+      brList: [
+        "<b>Не теряет данные при падении:</b> ответ сначала сохраняется в state.json (атомарная запись через .tmp), и только потом отправляется. После перезапуска недоотправленный ответ дошлётся без повторной оплаты API.",
+        "<b>Без бесконечного цикла:</b> свои сообщения помечаются SHA-256-хешем, чтобы мост не отвечал сам себе.",
+        "<b>Самовосстановление:</b> переоткрывает чат при таймаутах, ошибках сети и закрытой вкладке.",
+        "<b>Честно с CAPTCHA:</b> не обходит её, а замечает проверку и ждёт, пока человек пройдёт её вручную.",
+        "Случайный интервал опроса, конфиг и ключи в .env, а не в коде."
+      ],
+      psName: "Парсер аудитории Telegram для SMM",
+      psWhere: "готовый инструмент · Telegram",
+      psDesc: "Инструмент для SMM-специалистов: собирает и анализирует аудиторию Telegram-сообществ, чтобы понимать, для кого делать контент и где искать свою аудиторию. Проект готов и работает. В планах превратить его в сервис.",
+      rm1: "Готово", rm1s: "Рабочий парсер и выгрузка результатов",
+      rm2: "Следующий шаг", rm2s: "Вынести в отдельный сервис с удалённым доступом",
+      rm3: "Дальше", rm3s: "Доступ после оплаты через Telegram-бота",
+      crewTitle: "Экипаж 25/8",
+      crewLead: "Люди, с которыми мы на связи почти 25 часов в сутки и 8 дней в неделю. Каждый из них повлиял на то, каким инженером я стал.",
+      navCrew: "Экипаж",
       growTitle: "Развитие и образование",
       goalsHead: "Куда расту",
       goals: [
@@ -554,7 +854,7 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
     },
     en: {
       docTitle: "Denis Nefedov | SRE / DevOps Engineer",
-      navExp: "Experience", navSkills: "Skills", navProject: "Project", navContact: "Contact",
+      navExp: "Experience", navSkills: "Skills", navProject: "Projects", navContact: "Contact",
       name: "Denis Nefedov",
       heroSub: "I keep production stable: rolling out releases to high-load systems, handling incidents, building monitoring and automating routine operations.",
       location: "Moscow, Russia", format: "Remote / hybrid",
@@ -608,14 +908,49 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
         obs: "Monitoring & observability", auto: "Automation & CI/CD", cont: "Containers & platforms",
         linux: "Linux & virtualization", net: "Networking", proc: "Processes & tools"
       },
-      projTitle: "Side project",
-      projName: "Distributed VPN infrastructure",
-      projDesc: "My own fault-tolerant multi-server setup: entry point in Russia, exit in the EU. A playground for SRE practice outside work.",
-      projList: [
+      galleryTitle: "SCREENSHOTS & DEMOS",
+      projTitle: "Side projects",
+      projLead: "What I build outside work, from my own VPN infrastructure to a Kubernetes lab. You can try them live or look at the code.",
+      tryIt: "TRY IT LIVE",
+      stLive: "LIVE", stLab: "HOMELAB", stWorks: "RUNNING", stReady: "READY",
+      vpnName: "Distributed VPN infrastructure",
+      vpnWhere: "multiple servers · RU → EU · bots and web dashboards",
+      vpnDesc: "My own fault-tolerant setup: entry point in Russia, exit in the EU, Telegram bots and web dashboards for users. A playground for SRE practice outside work.",
+      vpnList: [
         "Set up routing and optimized latency between nodes.",
         "Availability monitoring and alerting with Prometheus + Grafana.",
         "Configuration management for all servers with Ansible."
       ],
+      vpnNow: "<b>Now:</b> moving the bot and web interfaces to AWS; the new interfaces are ready. The bot and panel are built on the SoloBot team's infrastructure, thanks to them :3",
+      k8sName: "Kubernetes lab: a team office in one cluster",
+      k8sWhere: "Minikube · 5 apps · 4 databases",
+      k8sDesc: "A self-hosted team workspace deployed to Kubernetes from plain manifests: knowledge base, wiki, helpdesk, chat and file cloud.",
+      k8sList: [
+        "Manifests are split into numbered layers <b>00 → 50</b>, so <code>kubectl apply</code> runs in the right order: namespace and secrets, databases, apps, ingress.",
+        "Apps: <b>Outline, BookStack, FreeScout, Mattermost, Nextcloud</b>, backed by dedicated PostgreSQL, Redis and MariaDB.",
+        "Data lives in PersistentVolumeClaims and survives pod restarts.",
+        "The landing page lives in a ConfigMap, so text changes need no image rebuild.",
+        "Single entry point via Ingress."
+      ],
+      brName: "DeepSeek → GPT: a bridge between two AIs",
+      brWhere: "Linux server · Python · runs unattended",
+      brDesc: "The script watches a DeepSeek web chat, sends new messages to the OpenAI API and posts GPT's answer back into the chat. The interesting part isn't the AI, it's reliability: it has to run for weeks without supervision.",
+      brList: [
+        "<b>Crash-safe:</b> the answer is saved to state.json first (atomic write via .tmp) and only then sent. After a restart an unsent answer is delivered without paying for the API call again.",
+        "<b>No infinite loop:</b> its own messages are tagged with a SHA-256 hash so the bridge never answers itself.",
+        "<b>Self-healing:</b> reopens the chat on timeouts, network errors or a closed tab.",
+        "<b>Plays fair with CAPTCHA:</b> doesn't bypass it; it detects the check and waits for a human to pass it.",
+        "Randomized polling interval; config and keys live in .env, not in code."
+      ],
+      psName: "Telegram audience parser for SMM",
+      psWhere: "finished tool · Telegram",
+      psDesc: "A tool for SMM specialists: collects and analyzes the audience of Telegram communities to understand who to make content for and where to find your audience. It's done and working; the plan is to turn it into a service.",
+      rm1: "Done", rm1s: "Working parser and result export",
+      rm2: "Next", rm2s: "Split into a standalone service with remote access",
+      rm3: "Later", rm3s: "Paid access via a Telegram bot",
+      crewTitle: "Crew 25/8",
+      crewLead: "People I'm in touch with almost 25 hours a day, 8 days a week. Each of them shaped the engineer I've become.",
+      navCrew: "Crew",
       growTitle: "Growth & education",
       goalsHead: "Where I'm heading",
       goals: [
@@ -647,6 +982,50 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
     ["linux", "fa-server",        [["Linux",3],["Debian",3],["Ubuntu",3],["CentOS",2],["Nginx",2],["Proxmox",2],["KVM",2]]],
     ["net",   "fa-network-wired", [["TCP/IP",3],["DNS",3],["VPN",3],["MikroTik",2],["Wireshark",2]]],
     ["proc",  "fa-diagram-project",[["Release management",2],["Incident management",2],["Jira",2],["Confluence",2],["ITSM / SM",2]]]
+  ];
+
+  /* ================= СКРИНШОТЫ И ВИДЕО ПРОЕКТОВ =================
+     Положи файлы в папку assets/ рядом с index.html и впиши их сюда.
+     project — в какую карточку: "vpn", "k8s", "bridge", "parser".
+     type: "image" — картинка (png, jpg, webp), "video" — ролик (mp4, webm).
+     poster — необязательная картинка-обложка для видео.
+     Файлы, которых нет в репозитории, просто не покажутся,
+     а карточка без файлов выглядит аккуратно и без пустого блока.          */
+  const MEDIA = [
+    // --- Парсер аудитории ---
+    { project: "parser", type: "video", src: "assets/rec_pars.webm",
+      ru: "Демо: парсер собирает аудиторию Telegram-сообщества", en: "Demo: the parser collecting a Telegram community audience" },
+
+    // --- VPN (добавь свои скрины) ---
+    { project: "vpn", type: "image", src: "assets/vpn-cabinet.png", ru: "Веб-кабинет пользователя", en: "User web dashboard" },
+    { project: "vpn", type: "image", src: "assets/vpn-bot.png",     ru: "Telegram-бот", en: "Telegram bot" },
+    { project: "vpn", type: "image", src: "assets/grafana-vpn.png", ru: "Grafana: доступность узлов", en: "Grafana: node availability" },
+
+    // --- Kubernetes ---
+    { project: "k8s", type: "image", src: "assets/k8s-pods.png", ru: "kubectl get pods: всё Running", en: "kubectl get pods: all Running" },
+    { project: "k8s", type: "image", src: "assets/k8s-info-page.png", ru: "Стартовая страница из ConfigMap", en: "Landing page served from a ConfigMap" },
+
+    // --- DeepSeek → GPT ---
+    { project: "bridge", type: "image", src: "assets/bridge-log.png", ru: "Лог работы моста", en: "Bridge log output" }
+  ];
+
+  /* ================= ЭКИПАЖ ================= */
+  const CREW = [
+    { tg: "Dmitry_el", ini: "DE", c1: "#00ffee", c2: "#006b73",
+      ru: { call: "Пилот-инструктор", who: "SRE, Туту.ру. Мой первый ментор", fun: "Пришёл ко мне в первый день с книгой и показал, что такое терминал. Правда, сам не вспомнил, что такое зомби-процесс 🧟" },
+      en: { call: "Flight instructor", who: "SRE at Tutu.ru. My first mentor", fun: "Showed up on my first day with a book and showed me what a terminal is. Then couldn't remember what a zombie process was 🧟" } },
+    { tg: "Pete_Adzhigitov", ini: "PA", c1: "#ffe600", c2: "#7a5b00",
+      ru: { call: "Навигатор", who: "Внедряет ИИ в Сбере. Мой новый ментор", fun: "Полиглот: свободно говорит на нескольких языках, человеческих и программирования. Прокладывает курс, когда я сам его не вижу" },
+      en: { call: "Navigator", who: "Brings AI into Sber. My new mentor", fun: "A polyglot in human and programming languages alike. Plots the course when I can't see it myself" } },
+    { tg: "QortsX", ini: "QX", c1: "#9d4dff", c2: "#3a0f7a",
+      ru: { call: "Бортинженер", who: "Senior DevOps, ЛАНИТ. Вместе 15+ лет", fun: "Топовый инженер и лютый юниксоид: на любой вопрос у него есть однострочник, а на любой однострочник есть man" },
+      en: { call: "Flight engineer", who: "Senior DevOps at LANIT. 15+ years together", fun: "A top engineer and a hardcore Unix person: he has a one-liner for every question and a man page for every one-liner" } },
+    { tg: "dmleksss", ini: "DM", c1: "#ff6d00", c2: "#7a2a00",
+      ru: { call: "Архитектор модулей", who: "Архитектор Android / BDUI-разработчик", fun: "Строит интерфейсы, которые сервер рисует сам. Заодно главный по финансовой грамотности в экипаже 💸" },
+      en: { call: "Module architect", who: "Android architect / BDUI developer", fun: "Builds UIs the server draws by itself. Also the crew's chief of financial literacy 💸" } },
+    { tg: "silvercobra", ini: "SC", c1: "#3dff9a", c2: "#0b6b3c",
+      ru: { call: "Второй пилот", who: "Мой бадди", fun: "Тот, кто поддерживал меня с первого дня и всегда рядом на перерыве между релизами ☕" },
+      en: { call: "Co-pilot", who: "My buddy", fun: "Had my back from day one and is always there for the break between releases ☕" } }
   ];
 
   const BIRTH = new Date(1996, 11, 26);
@@ -696,13 +1075,135 @@ footer .heart{color:var(--purple);display:inline-block;animation:beat 2s ease-in
         return `<div class="goal"><i class="${cls}"></i><div>${txt}</div></div>`;
       }).join("");
 
+    document.getElementById("crewGrid").innerHTML = CREW.map(p => {
+      const d = p[lang] || p.ru;
+      return `<article class="mate card" style="--c1:${p.c1};--c2:${p.c2};--glow:${p.c1}33">
+        <div class="ava" aria-hidden="true">${p.ini}</div>
+        <div class="mate-body">
+          <div class="callsign">${d.call}</div>
+          <h3><a href="https://t.me/${p.tg}" target="_blank" rel="noopener">@${p.tg}</a></h3>
+          <p class="who">${d.who}</p>
+          <p class="fun">${d.fun}</p>
+        </div>
+      </article>`;
+    }).join("");
+
     document.querySelectorAll(".lang button").forEach(b => {
       const on = b.dataset.lang === lang;
       b.classList.toggle("active", on);
       b.setAttribute("aria-pressed", on);
     });
     safeSet("lang", lang);
+    currentLang = lang;
+    document.querySelectorAll(".g-item").forEach(btn => {
+      const m = MEDIA[+btn.dataset.idx];
+      const txt = m[lang] || m.ru || "";
+      btn.querySelector(".cap").textContent = txt;
+      btn.setAttribute("aria-label", txt);
+    });
   }
+  let currentLang = "ru";
+
+  /* ================= Галерея + просмотр на весь экран ================= */
+  let shown = [];
+
+  function buildGallery() {
+    MEDIA.forEach((m, idx) => {
+      const gallery = document.querySelector(`.gallery-wrap[data-project="${m.project}"] .gallery`);
+      if (!gallery) return;
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "g-item";
+      btn.dataset.idx = idx;
+      btn.hidden = true;
+      let el;
+      if (m.type === "video") {
+        el = document.createElement("video");
+        el.src = m.src; el.muted = true; el.playsInline = true; el.preload = "metadata";
+        if (m.poster) el.poster = m.poster;
+        el.addEventListener("loadedmetadata", () => reveal(btn), { once: true });
+      } else {
+        el = document.createElement("img");
+        el.src = m.src; el.decoding = "async"; el.alt = "";
+        el.addEventListener("load", () => reveal(btn), { once: true });
+      }
+      el.addEventListener("error", () => btn.remove(), { once: true });
+      btn.appendChild(el);
+      if (m.type === "video") { const p = document.createElement("span"); p.className = "play"; btn.appendChild(p); }
+      const cap = document.createElement("span");
+      cap.className = "cap";
+      cap.textContent = m[currentLang] || m.ru || "";
+      btn.appendChild(cap);
+      btn.addEventListener("click", () => openLb(btn));
+      gallery.appendChild(btn);
+    });
+  }
+  function reveal(btn) {
+    btn.hidden = false;
+    btn.closest(".gallery-wrap").hidden = false;
+  }
+
+  const lb = document.getElementById("lightbox");
+  const lbMedia = document.getElementById("lbMedia");
+  const lbCap = document.getElementById("lbCap");
+  let lbPos = 0, lastFocus = null;
+
+  function renderLb() {
+    const m = MEDIA[shown[lbPos]];
+    lbMedia.innerHTML = "";
+    let el;
+    if (m.type === "video") {
+      el = document.createElement("video");
+      el.src = m.src; el.controls = true; el.autoplay = true; el.playsInline = true;
+      el.muted = true; el.loop = true;
+      if (m.poster) el.poster = m.poster;
+    } else {
+      el = document.createElement("img");
+      el.src = m.src; el.alt = m[currentLang] || m.ru || "";
+    }
+    lbMedia.appendChild(el);
+    lbCap.textContent = m[currentLang] || m.ru || "";
+    const multi = shown.length > 1;
+    lb.querySelector(".lb-prev").hidden = !multi;
+    lb.querySelector(".lb-next").hidden = !multi;
+  }
+  function openLb(btn) {
+    shown = [...btn.closest(".gallery").querySelectorAll(".g-item:not([hidden])")].map(b => +b.dataset.idx);
+    lbPos = Math.max(0, shown.indexOf(+btn.dataset.idx));
+    lastFocus = btn;
+    renderLb();
+    lb.classList.add("open");
+    document.body.style.overflow = "hidden";
+    lb.querySelector(".lb-close").focus();
+  }
+  function closeLb() {
+    lb.classList.remove("open");
+    lbMedia.innerHTML = "";
+    document.body.style.overflow = "";
+    if (lastFocus) lastFocus.focus();
+  }
+  function step(d) { lbPos = (lbPos + d + shown.length) % shown.length; renderLb(); }
+
+  lb.querySelector(".lb-close").addEventListener("click", closeLb);
+  lb.querySelector(".lb-prev").addEventListener("click", () => step(-1));
+  lb.querySelector(".lb-next").addEventListener("click", () => step(1));
+  lb.addEventListener("click", e => { if (e.target === lb) closeLb(); });
+  addEventListener("keydown", e => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") closeLb();
+    if (e.key === "ArrowLeft" && shown.length > 1) step(-1);
+    if (e.key === "ArrowRight" && shown.length > 1) step(1);
+  });
+  let touchX = null;
+  lb.addEventListener("touchstart", e => { touchX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", e => {
+    if (touchX === null || shown.length < 2) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
+    touchX = null;
+  });
+
+  buildGallery();
 
   document.querySelectorAll(".lang button").forEach(b =>
     b.addEventListener("click", () => applyLang(b.dataset.lang)));
