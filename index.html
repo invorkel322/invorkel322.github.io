@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Нефедов Денис | SRE / DevOps Engineer</title>
-<meta name="description" content="Денис Нефедов — SRE / DevOps Engineer. Мониторинг, релизы, инциденты, автоматизация. Linux, Zabbix, Prometheus, Grafana, Ansible, Docker, Kubernetes.">
+<meta name="description" content="Денис Нефедов — SRE / DevOps Engineer. Linux, релизы в Platform V DropApp и OpenShift, мониторинг в Prometheus и Grafana, диагностика инцидентов и автоматизация.">
 <meta property="og:title" content="Денис Нефедов — SRE / DevOps Engineer">
-<meta property="og:description" content="Мониторинг, релизы на высоконагруженные системы, инциденты, автоматизация.">
+<meta property="og:description" content="Linux, релизы в DropApp и OpenShift, мониторинг, диагностика инцидентов и автоматизация эксплуатации.">
 <meta name="theme-color" content="#05060f">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://invorkel322.github.io/">
@@ -20,7 +20,7 @@
  "jobTitle":"SRE / DevOps Engineer","email":"mailto:invorkel58@gmail.com","url":"https://invorkel322.github.io/",
  "address":{"@type":"PostalAddress","addressLocality":"Москва","addressCountry":"RU"},
  "sameAs":["https://github.com/invorkel322","https://www.linkedin.com/in/denis-nefedov-sre","https://t.me/invorkel322"],
- "knowsAbout":["SRE","DevOps","Linux","Zabbix","Prometheus","Grafana","Ansible","Docker","Kubernetes","CI/CD","Incident management"]}
+ "knowsAbout":["SRE","DevOps","Linux","Prometheus","Grafana","Ansible","Docker","Kubernetes","OpenShift","Platform V DropApp","CI/CD","Incident management"]}
 </script>
 <!-- сан9 ыidor · if you are reading the source, you are hired (almost). press ` -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
@@ -301,38 +301,6 @@ h1{
 .ava img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 .ava-play{position:absolute;right:-4px;bottom:-4px;width:22px;height:22px;border-radius:50%;background:var(--c1);box-shadow:0 0 10px var(--c1)}
 .ava-play::after{content:"";position:absolute;left:8px;top:6px;border-left:8px solid #111;border-top:5px solid transparent;border-bottom:5px solid transparent}
-
-/* ---------- IT-радар ---------- */
-.radar{padding:1.3rem 1.4rem 1rem}
-.radar-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
-.rtab{
-  display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;color:var(--muted);
-  font:600 .9rem 'Exo 2',sans-serif;padding:.5rem .9rem;border-radius:10px;
-  border:1px solid var(--card-border);background:rgba(157,77,255,.06);transition:.2s;
-}
-.rtab:hover{color:#fff;border-color:var(--purple)}
-.rtab.active{color:#fff;background:linear-gradient(120deg,rgba(157,77,255,.5),rgba(106,31,209,.5));border-color:var(--purple);box-shadow:0 0 18px -6px var(--purple)}
-.rtab:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
-.radar-list{list-style:none;margin:0;padding:0;counter-reset:r;min-height:12rem}
-.radar-list li{
-  counter-increment:r;display:grid;grid-template-columns:2.2rem 1fr;gap:.2rem .8rem;align-items:start;
-  padding:.7rem .4rem;border-bottom:1px dashed rgba(255,255,255,.07);
-}
-.radar-list li:last-child{border-bottom:0}
-.radar-list li::before{content:counter(r,decimal-leading-zero);font:700 .9rem 'Orbitron',sans-serif;color:var(--purple);padding-top:.15rem}
-.radar-list a{color:#fff;text-decoration:none;font-weight:600;line-height:1.35}
-.radar-list a:hover{color:var(--teal)}
-.r-desc{grid-column:2;color:#b9bdd9;font-size:.88rem;margin:.1rem 0 0}
-.r-meta{grid-column:2;display:flex;flex-wrap:wrap;gap:.2rem .9rem;color:var(--muted);font:500 .78rem 'JetBrains Mono',monospace;margin-top:.2rem}
-.r-meta .dom{color:var(--teal)}
-.radar-list li.msg{display:block;color:var(--muted);text-align:center;padding:2rem 0;border:0}
-.radar-list li.msg::before{content:none}
-.radar-list li.msg a{color:var(--teal)}
-.skel{height:.9rem;border-radius:6px;background:linear-gradient(90deg,rgba(255,255,255,.05),rgba(157,77,255,.18),rgba(255,255,255,.05));background-size:200% 100%;animation:shimmer 1.4s linear infinite}
-@keyframes shimmer{to{background-position:-200% 0}}
-.radar-foot{display:flex;align-items:center;gap:.5rem;color:var(--muted);font:500 .78rem 'JetBrains Mono',monospace;margin-top:.6rem}
-.radar-foot a{color:var(--teal)}
-.pulse{width:8px;height:8px;border-radius:50%;background:#3dff9a;box-shadow:0 0 10px #3dff9a;animation:blink 1.6s ease-in-out infinite}
 
 /* ---------- Мем ---------- */
 .meme{
@@ -643,7 +611,7 @@ kbd{font:600 .78em 'JetBrains Mono',monospace;padding:.05rem .35rem;border-radiu
   :root{--text:#15172b;--muted:#4b5070}
   html,body{background:#fff!important;color:#15172b!important;font-size:9.6pt;line-height:1.38}
   *{box-shadow:none!important;text-shadow:none!important;animation:none!important;transition:none!important}
-  .nebula,#stars,.nav,.terminal,.orbit,.btns,.dock,.fuel,.toasts,.shell,.egg-overlay,.lightbox,#crew,#mission,#radar,
+  .nebula,#stars,.nav,.terminal,.orbit,.btns,.dock,.fuel,.toasts,.shell,.egg-overlay,.lightbox,#crew,#mission,
   .gallery-wrap,.diagram,.tree-box,.try,.note,.meme,.langs,.legend,.skill-hint,.stats,footer,.contact,.eyebrow,.status::before,.hero .meta i{display:none!important}
   .print-only{display:block}
   .reveal{opacity:1!important;transform:none!important}
@@ -721,7 +689,6 @@ kbd{font:600 .78em 'JetBrains Mono',monospace;padding:.05rem .35rem;border-radiu
       <a href="#project" data-i18n="navProject"></a>
       <a href="#crew" data-i18n="navCrew"></a>
       <a href="#mission" data-i18n="navMission"></a>
-      <a href="#radar" data-i18n="navRadar"></a>
       <a href="#contact" data-i18n="navContact"></a>
     </div>
     <div class="nav-tools">
@@ -774,8 +741,8 @@ kbd{font:600 .78em 'JetBrains Mono',monospace;padding:.05rem .35rem;border-radiu
     </div>
 
     <div class="stats">
-      <div class="stat card reveal"><b>4+</b><span data-i18n="st1"></span></div>
-      <div class="stat card reveal"><b>7M+</b><span data-i18n="st2"></span></div>
+      <div class="stat card reveal"><b>5+</b><span data-i18n="st1"></span></div>
+      <div class="stat card reveal"><b>100+</b><span data-i18n="st2"></span></div>
       <div class="stat card reveal"><b>10–15<small style="font-size:.5em"> min</small></b><span data-i18n="st3"></span></div>
       <div class="stat card reveal"><b>~20</b><span data-i18n="st4"></span></div>
     </div>
@@ -793,7 +760,11 @@ kbd{font:600 .78em 'JetBrains Mono',monospace;padding:.05rem .35rem;border-radiu
         </div>
         <div class="job-sub"><span class="company" data-i18n="j1Company"></span> · <span data-i18n="j1Sub"></span></div>
         <ul data-i18n-list="j1List"></ul>
-        <div class="stack"><span>Zabbix</span><span>Grafana</span><span>ELK</span><span>Jenkins</span><span>Bitbucket</span><span>Nexus</span><span>DropApp (K8s)</span><span>OpenShift</span><span>SecMan</span><span>Jira</span><span>Confluence</span></div>
+        <div class="wins">
+          <h4 data-i18n="workProjectsTitle"></h4>
+          <ul data-i18n-list="workProjects"></ul>
+        </div>
+        <div class="stack"><span>Linux</span><span>Prometheus</span><span>Grafana</span><span>ELK</span><span>Platform V DropApp</span><span>OpenShift</span><span>Ansible</span><span>Jenkins</span><span>Bitbucket</span><span>Nexus</span><span>Ignite</span><span>JDK</span><span>Jira</span><span>Confluence</span></div>
       </article>
 
       <article class="job card reveal">
@@ -834,6 +805,7 @@ kbd{font:600 .78em 'JetBrains Mono',monospace;padding:.05rem .35rem;border-radiu
   <!-- НАВЫКИ -->
   <section id="skills" class="wrap">
     <div class="section-head reveal"><span class="num">02</span><h2 data-i18n="skillsTitle"></h2><span class="line"></span></div>
+    <p class="section-lead reveal" data-i18n="skillsLead"></p>
     <div class="legend reveal">
       <span><span class="tag l3" style="padding:.1rem .6rem"></span><span data-i18n="lvl3"></span></span>
       <span><span class="tag l2" style="padding:.1rem .6rem"></span><span data-i18n="lvl2"></span></span>
@@ -871,7 +843,7 @@ kbd{font:600 .78em 'JetBrains Mono',monospace;padding:.05rem .35rem;border-radiu
               <a class="chip" href="https://t.me/elightvpn_bot" target="_blank" rel="noopener"><i class="fab fa-telegram"></i>@elightvpn_bot</a>
             </div>
           </div>
-          <div class="stack"><span>Xray</span><span>REALITY</span><span>Remnawave</span><span>Prometheus</span><span>Grafana</span><span>Ansible</span><span>AWS</span><span>Telegram Bot</span></div>
+          <div class="stack"><span>Xray</span><span>REALITY</span><span>Remnawave</span><span>Prometheus</span><span>Grafana</span><span>Ansible</span><span>Telegram Bot</span></div>
         </div>
         <svg class="diagram" viewBox="0 0 420 260" role="img" aria-label="VPN infrastructure diagram">
           <defs>
@@ -1129,24 +1101,9 @@ save_state(state)</pre>
     </div>
   </section>
 
-  <!-- IT-РАДАР -->
-  <section id="radar" class="wrap">
-    <div class="section-head reveal"><span class="num">06</span><h2 data-i18n="radarTitle"></h2><span class="line"></span></div>
-    <p class="section-lead reveal" data-i18n="radarLead"></p>
-    <div class="radar card reveal">
-      <div class="radar-tabs" role="tablist">
-        <button type="button" role="tab" class="rtab active" data-feed="hn"><i class="fab fa-hacker-news"></i><span data-i18n="feedHn"></span></button>
-        <button type="button" role="tab" class="rtab" data-feed="k8s"><i class="fas fa-dharmachakra"></i><span data-i18n="feedK8s"></span></button>
-        <button type="button" role="tab" class="rtab" data-feed="gh"><i class="fab fa-github"></i><span data-i18n="feedGh"></span></button>
-      </div>
-      <ol class="radar-list" id="radarList" aria-live="polite"></ol>
-      <div class="radar-foot"><span class="pulse"></span><span data-i18n="radarLive"></span> · <span id="radarSrc"></span></div>
-    </div>
-  </section>
-
   <!-- ЦЕЛИ + ОБРАЗОВАНИЕ -->
   <section class="wrap" id="growth">
-    <div class="section-head reveal"><span class="num">07</span><h2 data-i18n="growTitle"></h2><span class="line"></span></div>
+    <div class="section-head reveal"><span class="num">06</span><h2 data-i18n="growTitle"></h2><span class="line"></span></div>
     <div class="two">
       <div class="goals card reveal" id="goals"></div>
       <div class="edu card reveal">
@@ -1257,28 +1214,32 @@ save_state(state)</pre>
       docTitle: "Нефедов Денис | SRE / DevOps Engineer",
       navExp: "Опыт", navSkills: "Навыки", navProject: "Проекты", navContact: "Контакты",
       name: "Нефедов Денис",
-      heroSub: "Отвечаю за стабильность production: выкатываю релизы на высоконагруженные системы, разбираю инциденты, строю мониторинг и автоматизирую рутину эксплуатации.",
+      heroSub: "Занимаюсь эксплуатацией Linux-инфраструктуры и промышленных сервисов. В Сбере внедряю релизы через Platform V DropApp и OpenShift, отвечаю за мониторинг в Prometheus и Grafana и разбираю инциденты.",
       location: "Москва", format: "Удалённо / гибрид",
       age: n => `${n} ${plural(n, ["год", "года", "лет"])}`,
-      st1: "года в эксплуатации и поддержке production",
-      st2: "пользователей на одном блоке, куда выкатываю релизы",
-      st3: "MTTR после внедрения мониторинга и алертинга",
+      st1: "лет опыта в ИТ",
+      st2: "блоков подготовил к выводу в production",
+      st3: "MTTR на предыдущем месте работы",
       st4: "блоков в поэтапной раскатке релиза",
       expTitle: "Опыт работы", now: "NOW",
       j1Title: "Старший инженер по сопровождению", j1Company: "Сбер", j1Sub: "Москва · финтех",
-      j1Period: "июнь 2026 — н. в.",
+      j1Period: "январь 2026 — н. в.",
       j1List: [
-        "Вывожу релизы в production на <span class='hl'>высоконагруженные блоки — более 7 млн пользователей</span> на одном блоке: планирование, согласование, технические перерывы.",
-        "Поэтапная раскатка средствами DevOps на <span class='hl'>~20 блоков</span> по план-графику в ночные окна с проверкой после каждого блока.",
-        "Раскатал <span class='hl'>4 новых инфраструктурных блока</span> для разных ФП плейбуками — со сверкой параметров конфигурации.",
-        "Участвовал в переходе на новые репозитории <span class='hl'>Bitbucket</span>: очистка, настройка деплоя, расписания запуска.",
-        "Проверка изменений на ПСИ-стенде: переключение <span class='hl'>feature toggles</span>, контроль поведения сервисов до выхода в prod.",
-        "Разбор инцидентов: зависимости, latency, ошибки, логи в <span class='hl'>ELK</span>; еженедельный разбор инцидентов и TOP-10 триггеров мониторинга.",
-        "Мониторинг в <span class='hl'>Zabbix и Grafana</span>, работа с <span class='hl'>DropApp (Kubernetes)</span>, базово OpenShift; Jenkins, Nexus, SecMan.",
-        "Инициировал и проводил встречи с предложениями по <span class='hl'>автоматизации</span> эксплуатационных процессов.",
-        "Контроль рисков, кибербезопасности и техдолга по закреплённым ФП; планирование внедрений на другие площадки."
+        "Сопровождаю несколько промышленных подсистем, включая кредитные продукты. Подготовил к запуску <span class='hl'>более 100 блоков</span> и вместе с разработчиками проверил их готовность.",
+        "Поэтапно внедряю релизы примерно на <span class='hl'>20 блоках</span> в согласованные технические окна через Platform V DropApp и OpenShift. Проверяю сервисы на стенде приёмочных испытаний и после внедрения, работаю с feature toggles.",
+        "Выполняю мероприятия по устранению рисков при релизах. Вместе с разработчиками оперативно выпускаю исправления после неуспешных внедрений.",
+        "Обновил <span class='hl'>Ignite и JDK</span> на нескольких платформах. Развернул <span class='hl'>георезерв для двух проектов</span>.",
+        "Отвечаю за мониторинг подсистем. Распределяю задачи, настраиваю алертинг в <span class='hl'>Prometheus и Grafana</span> и провожу встречи по инвентаризации мониторинга.",
+        "Разбираю инциденты и деградации по логам, ошибкам, задержкам и зависимостям между сервисами.",
+        "Участвовал в переходе на новые репозитории <span class='hl'>Bitbucket</span>. Настраивал развёртывание и расписания запуска, удалял устаревшие конфигурации.",
+        "Провожу встречи команды и смежных площадок, консультирую коллег по сопровождению, подменяю администраторов и помогаю стажёру освоить рабочие процессы."
       ],
-      j2Title: "Системный администратор / SRE", j2Company: "Пензенское Управление Строительства", j2Sub: "Пенза",
+      workProjectsTitle: "ТЕКУЩИЕ ПРОЕКТЫ",
+      workProjects: [
+        "<b>Балансировка плеч системы.</b> Добавляю отображение платформы, на которой возник сбой, чтобы дежурный мог быстрее локализовать проблему.",
+        "<b>Диагностика инцидентов по алертам в СберЧате.</b> Разрабатываю интеграцию мониторинга, журналирования и СберЧата. В одном алерте дежурный сможет получить данные о событии и ссылку на отфильтрованные логи. Согласовал добавление скриншота панели Grafana через бота. Следующий этап — автоматизация отдельных шагов диагностики и устранения инцидентов с помощью скрипта или ИИ."
+      ],
+      j2Title: "Системный администратор / SRE-функции", j2Company: "Пензенское Управление Строительства", j2Sub: "Пенза",
       j2Period: "дек 2022 — янв 2026",
       j2List: [
         "Построил централизованный мониторинг на <span class='hl'>Zabbix и Prometheus + Grafana</span> с уведомлениями в Telegram.",
@@ -1288,23 +1249,22 @@ save_state(state)</pre>
       ],
       winsTitle: "КЛЮЧЕВЫЕ РЕЗУЛЬТАТЫ",
       j2Wins: [
-        "Снизил MTTR до ~10–15 минут за счёт мониторинга и алертинга.",
-        "Массовые обновления серверов через Ansible: с ~4 часов до 30 минут.",
-        "Автоматизировал восстановление сервисов, сократив ручные операции."
+        "Снизил MTTR примерно до 10–15 минут после внедрения мониторинга и алертинга."
       ],
       j3Title: "Менеджер IT-проектов", j3Company: "Доктор Байт", j3Sub: "Пенза · системная интеграция",
-      j3Period: "сен 2022 — ноя 2022",
+      j3Period: "сен 2021 — ноя 2022",
       j3List: [
         "Координация заявок и инцидентов через Service Desk: приоритизация, распределение между инженерами, контроль сроков.",
         "Работа по ITSM-процессам: управление инцидентами и запросами на обслуживание."
       ],
       j4Title: "Сетевой инженер", j4Company: "Pentaplex", j4Sub: "Пенза · системы безопасности",
-      j4Period: "июн 2022 — авг 2022",
+      j4Period: "янв 2021 — авг 2021",
       j4List: [
         "Настройка VPN-туннелей для удалённых объектов.",
         "Работа с сетевым оборудованием MikroTik и Zyxel, диагностика сетей в Wireshark."
       ],
-      skillsTitle: "Навыки", lvl3: "продвинутый", lvl2: "средний", lvl1: "базовый",
+      skillsTitle: "Навыки", lvl3: "уверенно", lvl2: "рабочий уровень", lvl1: "базовый",
+      skillsLead: "Уверенно работаю с Linux, Bash, Ansible, Prometheus и Grafana. Использую Docker и Jenkins в задачах эксплуатации, а Platform V DropApp и OpenShift — для внедрения релизов и проверки сервисов.",
       cat: {
         obs: "Мониторинг и observability", auto: "Автоматизация и CI/CD", cont: "Контейнеры и платформы",
         linux: "Linux и виртуализация", net: "Сети", proc: "Процессы и инструменты"
@@ -1315,14 +1275,14 @@ save_state(state)</pre>
       tryIt: "ПОТЫКАТЬ ВЖИВУЮ",
       stLive: "LIVE", stLab: "HOMELAB", stWorks: "РАБОТАЕТ", stReady: "ГОТОВ",
       vpnName: "Распределённая VPN-инфраструктура",
-      vpnWhere: "несколько серверов · РФ → ЕС · бот и веб-кабинеты",
-      vpnDesc: "Своя отказоустойчивая инфраструктура: точка входа в РФ, выход в ЕС, Telegram-боты и веб-кабинеты для пользователей. Полигон для практики SRE вне работы.",
+      vpnWhere: "личный проект · несколько серверов",
+      vpnDesc: "Поддерживаю собственную VPN-инфраструктуру на нескольких серверах. Пользователи управляют подключениями через Telegram-ботов и веб-кабинеты.",
       vpnList: [
-        "Настроил маршрутизацию и оптимизировал задержки между узлами.",
-        "Мониторинг и алертинг доступности на Prometheus + Grafana.",
-        "Управление конфигурацией всех серверов через Ansible."
+        "Настроил маршрутизацию между узлами.",
+        "Отслеживаю доступность серверов и настраиваю алерты в Prometheus и Grafana.",
+        "Управляю конфигурацией серверов через Ansible."
       ],
-      vpnNow: "<b>Сейчас:</b> переношу бота и веб-интерфейсы на AWS, новые интерфейсы уже готовы. Основа бота и панели — инфраструктура команды SoloBot, спасибо им :3",
+      vpnNow: "Боты и панели используют инфраструктуру команды SoloBot.",
       labName: "Домашняя лаборатория: Proxmox + ZFS",
       labWhere: "свой сервер · Proxmox VE · 2 ZFS-пула",
       labDesc: "Домашний сервер, на котором я обкатываю то, что потом пригождается в работе: виртуализацию, хранилище и, главное, резервное копирование.",
@@ -1374,8 +1334,8 @@ save_state(state)</pre>
       stTitle: "Статус-страница", stRecheck: "Проверить", stDown: "НЕ ОТВЕЧАЕТ", stWait: "ПРОВЕРКА…",
       stChecking: "Проверяю сервисы…", stAllOk: "Все системы работают штатно", stPartial: "сервиса отвечают из вашей сети",
       stNote: "Пинг идёт из вашего браузера каждые 30 секунд, пока блок на экране. Если сервис «не отвечает», возможно, его режет ваша сеть или блокировщик.",
-      upTitle: "Аптайм в IT", upSub: "с июня 2022 — без единого простоя в желании расти",
-      upFrom: "июн 2022", upNow: "сейчас",
+      upTitle: "Аптайм в IT", upSub: "с января 2021 — без единого простоя в желании расти",
+      upFrom: "янв 2021", upNow: "сейчас",
       uY: "г", uM: "мес", uD: "д",
       sloTitle: "Калькулятор error budget",
       sloLead: "Сколько простоя можно себе позволить при заданном SLO. Вопрос, который любят задавать на собеседованиях.",
@@ -1387,19 +1347,13 @@ save_state(state)</pre>
       sloH4: "Четыре девятки и выше: без автоматического failover, канареек и быстрого отката не достичь.",
       irTitle: "Как я разбираю инцидент",
       ir: [
-        ["Обнаружить", "Алерт в Zabbix или Grafana, а не звонок пользователя. Триггеры чищу от шума: еженедельно разбираю TOP-10."],
+        ["Обнаружить", "Начинаю с алерта и метрик в Prometheus и Grafana. Уточняю симптом и время начала сбоя."],
         ["Оценить", "Какой блок, сколько пользователей, что менялось. Смотрю зависимости, latency и ошибки."],
         ["Восстановить", "Сначала вернуть сервис: откат, feature toggle, переключение трафика. Причины потом."],
         ["Найти причину", "Логи в ELK, метрики, таймлайн. Ищу первопричину, а не виноватого."],
         ["Не допустить", "Новый алерт, автоматизация на Ansible/Bash, пункт в runbook, чтобы не повторилось."]
       ],
       keysHelp: "<b>Горячие клавиши:</b> <kbd>`</kbd> или <kbd>Ctrl</kbd>+<kbd>K</kbd> терминал · <kbd>Esc</kbd> закрыть · а ещё тут есть пасхалка 👀",
-      navRadar: "Радар",
-      radarTitle: "IT-радар",
-      radarLead: "Живая лента: что прямо сейчас обсуждают инженеры и какие репозитории взлетают на GitHub. Обновляется при каждом открытии страницы.",
-      feedHn: "Топ Hacker News", feedK8s: "DevOps / SRE", feedGh: "GitHub: взлетают",
-      radarLive: "живые данные", radarLoading: "Ловлю сигнал…", radarFail: "Сигнал потерян. Открыть источник напрямую →",
-      pts: "очк.", cmts: "комм.", stars: "звёзд", ago: (n, u) => `${n} ${u} назад`, units: { m: "мин", h: "ч", d: "дн" },
       memeCap: "Мой любимый мем про ошибки 😄",
       crewLead: "Люди, с которыми мы на связи почти 25 часов в сутки и 8 дней в неделю. Каждый из них повлиял на то, каким инженером я стал.",
       navCrew: "Экипаж",
@@ -1426,38 +1380,42 @@ save_state(state)</pre>
       mailMain: "ОСНОВНАЯ ПОЧТА", copy: "Скопировать", copied: "Скопировано ✓",
       footer: "сделано с",
       term: [
-        ["uptime", "4+ years in production, load: stable"],
-        ["kubectl get pods -n prod", "all pods Running ✓"],
-        ["zabbix_get problems --severity high", "0 active problems ✓"],
-        ["ansible-playbook rollout.yml --limit new_blocks", "4 blocks deployed, 0 failed ✓"]
+        ["uptime", "5+ years of experience in IT"],
+        ["resume --release-readiness", "100+ system blocks prepared for production ✓"],
+        ["resume --monitoring", "Prometheus / Grafana"],
+        ["resume --rollouts", "Platform V DropApp / OpenShift · ~20 blocks"]
       ]
     },
     en: {
       docTitle: "Denis Nefedov | SRE / DevOps Engineer",
       navExp: "Experience", navSkills: "Skills", navProject: "Projects", navContact: "Contact",
       name: "Denis Nefedov",
-      heroSub: "I keep production stable: rolling out releases to high-load systems, handling incidents, building monitoring and automating routine operations.",
+      heroSub: "I operate Linux infrastructure and production services. At Sber, I roll out releases with Platform V DropApp and OpenShift, own monitoring with Prometheus and Grafana, and investigate incidents.",
       location: "Moscow, Russia", format: "Remote / hybrid",
       age: n => `${n} years old`,
-      st1: "years running and supporting production",
-      st2: "users on a single block I release to",
-      st3: "MTTR after introducing monitoring and alerting",
+      st1: "years of experience in IT",
+      st2: "system blocks prepared for production",
+      st3: "MTTR in my previous role",
       st4: "blocks in a staged release rollout",
       expTitle: "Experience", now: "NOW",
       j1Title: "Senior Operations Engineer", j1Company: "Sber", j1Sub: "Moscow · fintech",
-      j1Period: "Jun 2026 — present",
+      j1Period: "Jan 2026 — present",
       j1List: [
-        "Rolling out production releases to <span class='hl'>high-load blocks — 7M+ users</span> on a single block: planning, approvals, maintenance windows.",
-        "Staged DevOps rollouts across <span class='hl'>~20 blocks</span> on a schedule during night windows, with verification after each block.",
-        "Deployed <span class='hl'>4 new infrastructure blocks</span> for different subsystems using playbooks, with configuration parity checks.",
-        "Took part in the migration to new <span class='hl'>Bitbucket</span> repositories: cleanup, deployment setup, run schedules.",
-        "Validating changes on the acceptance environment: switching <span class='hl'>feature toggles</span> and checking service behaviour before prod.",
-        "Incident analysis: dependencies, latency, errors, logs in <span class='hl'>ELK</span>; weekly incident reviews and TOP-10 alert trigger reviews.",
-        "Monitoring in <span class='hl'>Zabbix and Grafana</span>, working with <span class='hl'>DropApp (Kubernetes)</span>, basic OpenShift; Jenkins, Nexus, SecMan.",
-        "Initiated and ran meetings proposing <span class='hl'>automation</span> of operational processes.",
-        "Tracking risk, cybersecurity and tech-debt items for assigned subsystems; planning rollouts to other sites."
+        "Support several production subsystems, including lending products. Prepared <span class='hl'>over 100 system blocks</span> for production and verified launch readiness with developers.",
+        "Roll out releases in stages across <span class='hl'>about 20 blocks</span> during agreed maintenance windows using Platform V DropApp and OpenShift. Check services in acceptance testing and after deployment, and work with feature toggles.",
+        "Carry out release risk mitigation and work with developers to ship urgent fixes after failed deployments.",
+        "Upgraded <span class='hl'>Ignite and the JDK</span> across several platforms. Set up <span class='hl'>geo-redundancy for two projects</span>.",
+        "Own monitoring for the subsystems. Assign tasks, configure alerting with <span class='hl'>Prometheus and Grafana</span>, and lead reviews of monitoring coverage.",
+        "Investigate incidents and service degradation using logs, errors, latency and service dependencies.",
+        "Helped migrate to new <span class='hl'>Bitbucket</span> repositories by configuring deployments and schedules and removing obsolete configurations.",
+        "Lead internal and cross-team meetings, advise colleagues on operations, cover for system administrators and help onboard an intern."
       ],
-      j2Title: "System Administrator / SRE", j2Company: "Penza Construction Directorate", j2Sub: "Penza",
+      workProjectsTitle: "WORK IN PROGRESS",
+      workProjects: [
+        "<b>Load balancing across system segments.</b> Adding the source platform to the failure view so on-call engineers can identify where an issue started.",
+        "<b>Incident diagnostics via SberChat alerts.</b> Integrating monitoring, logging and SberChat so on-call engineers can see event details and open filtered logs from one alert. Agreed on adding a Grafana panel screenshot via a bot. A future step is using a script or AI to automate parts of diagnosis and remediation."
+      ],
+      j2Title: "System Administrator / SRE responsibilities", j2Company: "Penza Construction Directorate", j2Sub: "Penza",
       j2Period: "Dec 2022 — Jan 2026",
       j2List: [
         "Built centralized monitoring with <span class='hl'>Zabbix and Prometheus + Grafana</span>, alerts to Telegram.",
@@ -1467,23 +1425,22 @@ save_state(state)</pre>
       ],
       winsTitle: "KEY RESULTS",
       j2Wins: [
-        "Reduced MTTR to ~10–15 minutes through monitoring and alerting.",
-        "Mass server updates via Ansible: from ~4 hours down to 30 minutes.",
-        "Automated service recovery, cutting manual operations."
+        "Reduced MTTR to around 10–15 minutes after introducing monitoring and alerting."
       ],
       j3Title: "IT Project Manager", j3Company: "Doctor Byte", j3Sub: "Penza · systems integration",
-      j3Period: "Sep 2022 — Nov 2022",
+      j3Period: "Sep 2021 — Nov 2022",
       j3List: [
         "Coordinated tickets and incidents via Service Desk: prioritization, routing to engineers, SLA tracking.",
         "Worked within ITSM processes: incident and service request management."
       ],
       j4Title: "Network Engineer", j4Company: "Pentaplex", j4Sub: "Penza · security systems",
-      j4Period: "Jun 2022 — Aug 2022",
+      j4Period: "Jan 2021 — Aug 2021",
       j4List: [
         "Configured VPN tunnels for remote sites.",
         "Worked with MikroTik and Zyxel network hardware, network diagnostics with Wireshark."
       ],
-      skillsTitle: "Skills", lvl3: "advanced", lvl2: "intermediate", lvl1: "basic",
+      skillsTitle: "Skills", lvl3: "confident", lvl2: "working knowledge", lvl1: "basic",
+      skillsLead: "Comfortable working with Linux, Bash, Ansible, Prometheus and Grafana. I use Docker and Jenkins in operations, and Platform V DropApp and OpenShift to roll out releases and verify services.",
       cat: {
         obs: "Monitoring & observability", auto: "Automation & CI/CD", cont: "Containers & platforms",
         linux: "Linux & virtualization", net: "Networking", proc: "Processes & tools"
@@ -1494,14 +1451,14 @@ save_state(state)</pre>
       tryIt: "TRY IT LIVE",
       stLive: "LIVE", stLab: "HOMELAB", stWorks: "RUNNING", stReady: "READY",
       vpnName: "Distributed VPN infrastructure",
-      vpnWhere: "multiple servers · RU → EU · bots and web dashboards",
-      vpnDesc: "My own fault-tolerant setup: entry point in Russia, exit in the EU, Telegram bots and web dashboards for users. A playground for SRE practice outside work.",
+      vpnWhere: "personal project · multiple servers",
+      vpnDesc: "I run my own VPN infrastructure across multiple servers. Users manage their connections through Telegram bots and web dashboards.",
       vpnList: [
-        "Set up routing and optimized latency between nodes.",
-        "Availability monitoring and alerting with Prometheus + Grafana.",
-        "Configuration management for all servers with Ansible."
+        "Configured routing between nodes.",
+        "Monitor server availability and configure alerts with Prometheus and Grafana.",
+        "Manage server configuration with Ansible."
       ],
-      vpnNow: "<b>Now:</b> moving the bot and web interfaces to AWS; the new interfaces are ready. The bot and panel are built on the SoloBot team's infrastructure, thanks to them :3",
+      vpnNow: "The bots and dashboards use infrastructure from the SoloBot team.",
       labName: "Homelab: Proxmox + ZFS",
       labWhere: "own server · Proxmox VE · 2 ZFS pools",
       labDesc: "A home server where I try out what later proves useful at work: virtualization, storage and, above all, backups.",
@@ -1553,8 +1510,8 @@ save_state(state)</pre>
       stTitle: "Status page", stRecheck: "Recheck", stDown: "NO RESPONSE", stWait: "CHECKING…",
       stChecking: "Checking services…", stAllOk: "All systems operational", stPartial: "services reachable from your network",
       stNote: "Pings run from your browser every 30 seconds while this block is on screen. “No response” may mean your network or an ad blocker is filtering it.",
-      upTitle: "IT uptime", upSub: "since June 2022, zero downtime in the will to grow",
-      upFrom: "Jun 2022", upNow: "now",
+      upTitle: "IT uptime", upSub: "since January 2021, zero downtime in the will to grow",
+      upFrom: "Jan 2021", upNow: "now",
       uY: "y", uM: "mo", uD: "d",
       sloTitle: "Error budget calculator",
       sloLead: "How much downtime a given SLO allows. A favourite interview question.",
@@ -1566,19 +1523,13 @@ save_state(state)</pre>
       sloH4: "Four nines and up: impossible without automatic failover, canaries and fast rollback.",
       irTitle: "How I handle an incident",
       ir: [
-        ["Detect", "An alert in Zabbix or Grafana, not a user's call. I keep triggers noise-free with a weekly TOP-10 review."],
+        ["Detect", "Start with the alert and metrics in Prometheus and Grafana. Identify the symptom and when it started."],
         ["Triage", "Which block, how many users, what changed. Dependencies, latency, errors."],
         ["Mitigate", "Restore service first: rollback, feature toggle, traffic switch. Root cause later."],
         ["Root cause", "Logs in ELK, metrics, timeline. Looking for the cause, not someone to blame."],
         ["Prevent", "A new alert, Ansible/Bash automation, a runbook entry so it won't happen again."]
       ],
       keysHelp: "<b>Shortcuts:</b> <kbd>`</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> terminal · <kbd>Esc</kbd> close · and there's an easter egg somewhere 👀",
-      navRadar: "Radar",
-      radarTitle: "IT radar",
-      radarLead: "A live feed: what engineers are discussing right now and which repos are taking off on GitHub. Refreshes every time the page opens.",
-      feedHn: "Hacker News top", feedK8s: "DevOps / SRE", feedGh: "GitHub: rising",
-      radarLive: "live data", radarLoading: "Catching the signal…", radarFail: "Signal lost. Open the source directly →",
-      pts: "pts", cmts: "comments", stars: "stars", ago: (n, u) => `${n}${u} ago`, units: { m: "m", h: "h", d: "d" },
       memeCap: "My favourite error meme 😄",
       crewLead: "People I'm in touch with almost 25 hours a day, 8 days a week. Each of them shaped the engineer I've become.",
       navCrew: "Crew",
@@ -1609,14 +1560,13 @@ save_state(state)</pre>
   };
   I18N.en.term = I18N.ru.term;
 
-  /* ================= Навыки: 3 — продвинутый, 2 — средний, 1 — базовый ================= */
   const SKILLS = [
-    ["obs",   "fa-chart-line",    [["Zabbix",3],["Grafana",3],["Prometheus",2],["ELK",2],["Alerting",3]]],
-    ["auto",  "fa-gears",         [["Bash",3],["Ansible",2],["Jenkins",2],["GitLab",2],["Bitbucket",2],["Git",2],["Nexus",2],["CI/CD",2],["Terraform",1],["PowerShell",1]]],
-    ["cont",  "fa-cubes",         [["Docker",2],["Kubernetes (DropApp)",1],["OpenShift",1]]],
-    ["linux", "fa-server",        [["Linux",3],["Debian",3],["Ubuntu",3],["CentOS",2],["Nginx",2],["Proxmox",2],["KVM",2]]],
-    ["net",   "fa-network-wired", [["TCP/IP",3],["DNS",3],["VPN",3],["MikroTik",2],["Wireshark",2]]],
-    ["proc",  "fa-diagram-project",[["Release management",2],["Incident management",2],["Jira",2],["Confluence",2],["ITSM / SM",2]]]
+    ["linux", "fa-server", [["Linux",3],["Debian",3],["Ubuntu",3],["CentOS",2],["Nginx",2],["Proxmox",2],["KVM",2],["ZFS",2]]],
+    ["obs", "fa-chart-line", [["Prometheus",3],["Grafana",3],["Alerting",3],["ELK",2]]],
+    ["auto", "fa-gears", [["Bash",3],["Ansible",3],["Jenkins",2],["Bitbucket",2],["Git",2],["GitLab",2],["GitHub",2],["Nexus",2],["CI/CD",2],["Terraform",1],["PowerShell",1]]],
+    ["cont", "fa-cubes", [["Platform V DropApp",2],["OpenShift",2],["Docker",2],["Kubernetes",1],["Ignite",2],["JDK",2]]],
+    ["net", "fa-network-wired", [["TCP/IP",3],["DNS",3],["VPN",3],["DHCP",2],["MikroTik",2],["Zyxel",2],["Wireshark",2]]],
+    ["proc", "fa-diagram-project", [["Release management",2],["Incident management",2],["Feature toggles",2],["Geo-redundancy",2],["Jira",2],["Confluence",2],["ITSM / Service Desk",2]]]
   ];
 
   /* ================= СКРИНШОТЫ И ВИДЕО ПРОЕКТОВ =================
@@ -1742,7 +1692,6 @@ save_state(state)</pre>
     });
     safeSet("lang", lang);
     currentLang = lang;
-    if (typeof renderFeed === "function" && document.getElementById("radarList")) { try { renderFeed(); } catch (e) {} }
     document.querySelectorAll(".g-item").forEach(btn => {
       const m = MEDIA[+btn.dataset.idx];
       const txt = m[lang] || m.ru || "";
@@ -1904,134 +1853,7 @@ save_state(state)</pre>
     openLb([{ type: "image", src: memeImg.getAttribute("src"), ru: I18N.ru.memeCap, en: I18N.en.memeCap }], 0, meme);
   });
 
-  /* ================= IT-радар: живые новости =================
-     Источники с открытым CORS, без ключей:
-     - Hacker News через Algolia API
-     - GitHub Search API (лимит 10 запросов в минуту на посетителя — хватает) */
-  const radarList = document.getElementById("radarList");
-  const radarSrc = document.getElementById("radarSrc");
-  const weekAgo = () => Math.floor(Date.now() / 1000) - 7 * 86400;
-  const isoDate = (sec) => new Date(sec * 1000).toISOString().slice(0, 10);
-  const FEEDS = {
-    hn: {
-      src: "Hacker News", home: "https://news.ycombinator.com/",
-      url: () => "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=10",
-      map: j => j.hits.map(h => ({
-        title: h.title, link: h.url || `https://news.ycombinator.com/item?id=${h.objectID}`,
-        disc: `https://news.ycombinator.com/item?id=${h.objectID}`,
-        pts: h.points, cm: h.num_comments, at: h.created_at_i
-      }))
-    },
-    k8s: {
-      src: "Hacker News · kubernetes, devops, sre, linux", home: "https://hn.algolia.com/?q=kubernetes",
-      multi: ["kubernetes", "devops", "sre", "linux", "terraform", "observability"],
-      url: (q) => `https://hn.algolia.com/api/v1/search?tags=story&query=${encodeURIComponent(q)}&numericFilters=created_at_i>${Math.floor(Date.now() / 1000) - 30 * 86400},points>15&hitsPerPage=6`,
-      map: j => FEEDS.hn.map(j)
-    },
-    gh: {
-      get src() { return currentLang === "en" ? "GitHub · new repos this week by stars" : "GitHub · новые репозитории недели по звёздам"; }, home: "https://github.com/trending",
-      url: () => `https://api.github.com/search/repositories?q=created:>${isoDate(weekAgo())}&sort=stars&order=desc&per_page=10`,
-      map: j => j.items.map(r => ({
-        title: r.full_name, link: r.html_url, desc: r.description || "",
-        stars: r.stargazers_count, lang: r.language
-      }))
-    }
-  };
-  const cache = {};
-  let activeFeed = "hn";
-
   function escH(s) { return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
-  function safeUrl(u) { try { const x = new URL(u); return /^https?:$/.test(x.protocol) ? x.href : "#"; } catch (e) { return "#"; } }
-  function domain(u) { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } }
-  function ago(sec, t) {
-    const d = Math.max(1, Math.floor(Date.now() / 1000 - sec));
-    if (d < 3600) return t.ago(Math.floor(d / 60) || 1, t.units.m);
-    if (d < 86400) return t.ago(Math.floor(d / 3600), t.units.h);
-    return t.ago(Math.floor(d / 86400), t.units.d);
-  }
-  function fmtNum(n) { return n >= 1000 ? (n / 1000).toFixed(n >= 10000 ? 0 : 1) + "k" : String(n); }
-
-  function renderFeed() {
-    const t = I18N[currentLang] || I18N.ru;
-    const f = FEEDS[activeFeed];
-    radarSrc.innerHTML = `<a href="${f.home}" target="_blank" rel="noopener">${escH(f.src)}</a>`;
-    const data = cache[activeFeed];
-    if (data === undefined || data === "loading") {
-      radarList.innerHTML = Array.from({ length: 6 }, () => `<li><div><div class="skel" style="width:${55 + Math.random() * 40}%"></div><div class="skel" style="width:30%;margin-top:.45rem;height:.7rem"></div></div></li>`).join("");
-      return;
-    }
-    if (data === "error" || !data.length) {
-      radarList.innerHTML = `<li class="msg"><a href="${f.home}" target="_blank" rel="noopener">${t.radarFail}</a></li>`;
-      return;
-    }
-    radarList.innerHTML = data.map(it => {
-      const meta = [];
-      if (it.stars !== undefined) {
-        meta.push(`★ ${fmtNum(it.stars)} ${t.stars}`);
-        if (it.lang) meta.push(escH(it.lang));
-      } else {
-        const dom = domain(it.link);
-        if (dom && dom !== "news.ycombinator.com") meta.push(`<span class="dom">${escH(dom)}</span>`);
-        meta.push(`▲ ${it.pts ?? 0} ${t.pts}`);
-        meta.push(`<a href="${safeUrl(it.disc)}" target="_blank" rel="noopener" style="font-weight:500;color:inherit">💬 ${it.cm ?? 0} ${t.cmts}</a>`);
-        if (it.at) meta.push(ago(it.at, t));
-      }
-      return `<li><div><a href="${safeUrl(it.link)}" target="_blank" rel="noopener">${escH(it.title)}</a>
-        ${it.desc ? `<p class="r-desc">${escH(it.desc.length > 160 ? it.desc.slice(0, 157) + "…" : it.desc)}</p>` : ""}
-        <div class="r-meta">${meta.map(m => `<span>${m}</span>`).join("")}</div></div></li>`;
-    }).join("");
-  }
-
-  async function getJson(url) {
-    const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), 9000);
-    try {
-      const r = await fetch(url, { signal: ctrl.signal });
-      if (!r.ok) throw new Error(r.status);
-      return await r.json();
-    } finally { clearTimeout(timer); }
-  }
-
-  async function loadFeed(key) {
-    if (cache[key] && cache[key] !== "error") return;
-    cache[key] = "loading";
-    if (key === activeFeed) renderFeed();
-    const f = FEEDS[key];
-    try {
-      let items;
-      if (f.multi) {
-        const res = await Promise.allSettled(f.multi.map(q => getJson(f.url(q)).then(f.map)));
-        const seen = new Set();
-        items = res.flatMap(r => r.status === "fulfilled" ? r.value : [])
-          .filter(x => !seen.has(x.title) && seen.add(x.title))
-          .sort((a, b) => (b.pts || 0) - (a.pts || 0)).slice(0, 10);
-        if (!items.length) throw new Error("empty");
-      } else {
-        items = f.map(await getJson(f.url())).slice(0, 10);
-      }
-      cache[key] = items;
-    } catch (e) {
-      cache[key] = "error";
-    }
-    if (key === activeFeed) renderFeed();
-  }
-
-  document.querySelectorAll(".rtab").forEach(b => b.addEventListener("click", () => {
-    document.querySelectorAll(".rtab").forEach(x => { x.classList.toggle("active", x === b); x.setAttribute("aria-selected", x === b); });
-    activeFeed = b.dataset.feed;
-    renderFeed();
-    loadFeed(activeFeed);
-  }));
-
-  // грузим, когда блок почти доехал до экрана
-  const radarEl = document.getElementById("radar");
-  if ("IntersectionObserver" in window) {
-    const ro = new IntersectionObserver(es => {
-      if (es.some(e => e.isIntersecting)) { ro.disconnect(); loadFeed(activeFeed); }
-    }, { rootMargin: "600px" });
-    ro.observe(radarEl);
-  } else loadFeed(activeFeed);
-  renderFeed();
 
   /* ================= Копирование почты ================= */
   const copyBtn = document.getElementById("copyMail");
@@ -2187,7 +2009,7 @@ save_state(state)</pre>
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const T = () => I18N[currentLang] || I18N.ru;
   const CV_PDF = "assets/Nefedov_Denis_SRE_CV.pdf";
-  const CAREER_START = new Date(2022, 5, 1); // июнь 2022 — первая работа в IT
+  const CAREER_START = new Date(2021, 0, 1); // январь 2021 — первая работа в IT
 
   /* ---------- Тосты ---------- */
   const toastBox = $("#toasts");
@@ -2265,7 +2087,7 @@ save_state(state)</pre>
       "URL:https://invorkel322.github.io",
       "X-SOCIALPROFILE;TYPE=telegram:https://t.me/invorkel322",
       "X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/denis-nefedov-sre",
-      "NOTE:SRE / DevOps · Linux · Zabbix · Prometheus · Grafana · Ansible · Kubernetes",
+      "NOTE:SRE / DevOps · Linux · Prometheus · Grafana · Ansible · Kubernetes",
       "END:VCARD"
     ].join("\r\n");
     const url = URL.createObjectURL(new Blob([v], { type: "text/vcard;charset=utf-8" }));
@@ -2279,10 +2101,12 @@ save_state(state)</pre>
 
   /* ---------- Навык → где применял ---------- */
   const SKILL_ALIASES = {
-    "kubernetes (dropapp)": ["kubernetes", "dropapp", "k8s"],
+    "kubernetes": ["kubernetes", "k8s", "minikube"],
+    "platform v dropapp": ["platform v dropapp", "dropapp"],
+    "geo-redundancy": ["георезерв", "geo-redundancy"],
     "release management": ["релиз", "release", "раскат", "rollout"],
     "incident management": ["инцидент", "incident"],
-    "itsm / sm": ["itsm", "service desk", " sm"],
+    "itsm / service desk": ["itsm", "service desk"],
     "alerting": ["алерт", "alert", "уведомлен", "notification"],
     "ci/cd": ["ci/cd", "jenkins", "bitbucket", "деплой", "deploy"],
     "linux": ["linux", "debian", "ubuntu", "centos"],
@@ -2339,7 +2163,7 @@ save_state(state)</pre>
   // полоски по месяцам: фиолетовые — смена работы/переезд (не простой, а апгрейд)
   (function bars() {
     const months = Math.max(1, Math.round((Date.now() - CAREER_START) / (30.44 * 86400000)));
-    const upgrades = [3, 6, 43]; // сен-2022, дек-2022, янв-2026
+    const upgrades = [8, 23, 60]; // сен-2021, дек-2022, янв-2026
     $("#upBars").innerHTML = Array.from({ length: months }, (_, i) => `<i class="${upgrades.includes(i) ? "gap" : ""}"></i>`).join("");
   })();
 
@@ -2499,7 +2323,7 @@ save_state(state)</pre>
   const shell = $("#shell"), sOut = $("#shellOut"), sIn = $("#shellInput"), sForm = $("#shellForm");
   const hist = []; let hPos = 0; let lastFocusShell = null;
   const print = (html, cls) => { const d = document.createElement("div"); if (cls) d.className = cls; d.innerHTML = html; sOut.appendChild(d); sOut.scrollTop = sOut.scrollHeight; };
-  const SECTIONS = { experience: "#experience", skills: "#skills", projects: "#project", crew: "#crew", mission: "#mission", radar: "#radar", education: "#growth", contact: "#contact" };
+  const SECTIONS = { experience: "#experience", skills: "#skills", projects: "#project", crew: "#crew", mission: "#mission", education: "#growth", contact: "#contact" };
   function goTo(sel) { closeShell(); setTimeout(() => $(sel)?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }), 120); }
   const itUptime = () => { const p = diffParts(CAREER_START, new Date()); return `${p.y}y ${p.m}m ${p.d}d`; };
   const age = () => getAge();
@@ -2509,14 +2333,14 @@ save_state(state)</pre>
       print(Object.entries(CMDS).filter(([, c]) => !c.hidden).map(([n, c]) => `  <span class="acc">${n.padEnd(14)}</span><span class="dim">${c.d}</span>`).join("\n"));
       print(`<span class="dim">tip: Tab — autocomplete, ↑/↓ — history, Esc — close</span>`);
     } },
-    whoami: { d: "who is Denis", f: () => print(`<span class="ok">Denis Nefedov</span> — SRE / DevOps engineer, ${age()} y.o., Moscow.\nKeeping production boring: releases to high-load blocks (7M+ users), incidents, monitoring, automation.`) },
+    whoami: { d: "who is Denis", f: () => print(`<span class="ok">Denis Nefedov</span> — SRE / DevOps engineer, ${age()} y.o., Moscow.\nLinux production operations: staged releases, Prometheus and Grafana monitoring, incident response and automation.`) },
     neofetch: { d: "system info", f: () => print(
 `<span class="acc">       .-""-.        </span><span class="ok">denis</span>@<span class="ok">sre-station</span>
 <span class="acc">      / .--. \\       </span>-------------------
 <span class="acc">     | ( () ) |      </span><span class="warn">OS:</span> Human ${age()}.x · Moscow edition
 <span class="acc">      \\ '--' /       </span><span class="warn">Host:</span> Sber · senior operations engineer
 <span class="acc">   .--'    '--.      </span><span class="warn">IT uptime:</span> ${itUptime()}
-<span class="acc">  /  SRE  DEVOPS \\   </span><span class="warn">Monitoring:</span> Zabbix, Prometheus, Grafana, ELK
+<span class="acc">  /  SRE  DEVOPS \\   </span><span class="warn">Monitoring:</span> Prometheus, Grafana, ELK
 <span class="acc">  '--------------'   </span><span class="warn">Automation:</span> Bash, Ansible, Terraform (basic)
                       <span class="warn">Containers:</span> Docker, Kubernetes (DropApp), OpenShift
                       <span class="warn">CI/CD:</span> Jenkins, Bitbucket, GitLab, Nexus
@@ -2524,16 +2348,15 @@ save_state(state)</pre>
                       <span class="warn">Bad habits:</span> 0 · <span class="warn">Sport:</span> street workout`) },
     uptime: { d: "time in IT", f: () => print(` ${new Date().toTimeString().slice(0, 8)} up ${itUptime()},  1 user,  load average: 0.42, 0.42, 0.42 <span class="dim">(always ready for one more incident)</span>`) },
     experience: { d: "work history", f: () => print(
-`<span class="warn">2026 → now </span>  Sber — Senior Operations Engineer
-              releases to high-load blocks (7M+ users), staged rollouts on ~20 blocks,
-              4 new infra blocks via playbooks, Zabbix/Grafana, ELK, DropApp (k8s)
-<span class="warn">2022 → 2026</span>  Penza Construction Directorate — SysAdmin / SRE
-              Zabbix + Prometheus + Grafana from scratch, MTTR → 10–15 min,
-              Ansible: mass updates 4h → 30min, Docker, Proxmox/KVM
-<span class="warn">2022       </span>  Doctor Byte — IT project manager (Service Desk, ITSM)
-<span class="warn">2022       </span>  Pentaplex — network engineer (VPN, MikroTik, Wireshark)
+`<span class="warn">Jan 2026 → now     </span>  Sber — Senior Operations Engineer
+                        100+ blocks prepared, staged rollouts on ~20 blocks,
+                        Platform V DropApp, OpenShift, Prometheus, Grafana
+<span class="warn">Dec 2022 → Jan 2026</span>  Penza Construction Directorate — SysAdmin / SRE
+                        centralized monitoring, MTTR → 10–15 min, Bash, Ansible
+<span class="warn">Sep 2021 → Nov 2022</span>  Doctor Byte — IT project manager (Service Desk, ITSM)
+<span class="warn">Jan 2021 → Aug 2021</span>  Pentaplex — network engineer (VPN, MikroTik, Wireshark)
 <span class="dim">→ cd experience</span>`) },
-    skills: { d: "tech stack", f: () => print(SKILLS.map(([k, , items]) => `<span class="acc">${(T().cat[k]).padEnd(28)}</span>` + items.map(([n, l]) => `${n}${"★".repeat(l)}`).join("  ")).join("\n") + `\n<span class="dim">★★★ advanced · ★★ intermediate · ★ basic</span>`) },
+    skills: { d: "tech stack", f: () => print(SKILLS.map(([k, , items]) => `<span class="acc">${(T().cat[k]).padEnd(28)}</span>` + items.map(([n, l]) => `${n}${"★".repeat(l)}`).join("  ")).join("\n") + `\n<span class="dim">★★★ ${T().lvl3} · ★★ ${T().lvl2} · ★ ${T().lvl1}</span>`) },
     projects: { d: "side projects", f: () => print(
 `<span class="ok">vpn/</span>          distributed VPN · RU → EU · bots + web  <a href="https://cabinet.invorkel.space" target="_blank" rel="noopener">cabinet.invorkel.space</a>
 <span class="ok">homelab/</span>      Proxmox + ZFS, daily full copy, weekly backup, phone alerts
@@ -2588,7 +2411,7 @@ sleep-schedule-3c7            0/1     <span class="err">CrashLoopBackOff</span> 
     incident: { d: "run incident drill", f: () => {
       const L = [
         ["02:13", "warn", "ALERT  p99 latency > 800ms · payments-api · block 7"],
-        ["02:14", "acc", "DETECT  ack in Zabbix, open Grafana dashboard"],
+        ["02:14", "acc", "DETECT  acknowledge the alert, open the Grafana dashboard"],
         ["02:16", "acc", "TRIAGE  errors ↑ after 02:00 release on block 7 only"],
         ["02:18", "acc", "LOGS    ELK: connection pool exhausted in new version"],
         ["02:19", "warn", "MITIGATE  feature toggle OFF → traffic back to old path"],
